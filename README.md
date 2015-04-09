@@ -22,9 +22,7 @@ var Menu = React.createClass({
     return (
       <Image source={{uri}} style={styles.menu}>
         <BlurView style={styles.blur}>
-          <Text>
-            Hi, I am a tiny menu item
-          </Text>
+          <Text>Hi, I am a tiny menu item</Text>
         </BlurView>
       </Image>
     );
