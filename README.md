@@ -34,4 +34,4 @@ var Menu = React.createClass({
 All parent components to blur view would be blurred. Everything inside wouldn't.
 
 ### Questions?
-Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-navbar/issues/new)
+Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
