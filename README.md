@@ -1,9 +1,11 @@
 ### React Native Blur
-Documentation is under construction. Try to check it out in a few hours.
+Component implementation for UIVisualEffectView's blur effect.
 
-### Getting started
+<img src='http://oi59.tinypic.com/2kmz2g.jpg' />
+
+### Install
 1. `npm install react-native-blur`
-2. In XCode, in the project navigator, right click on project's name ➜ `Add Files to [your project's name]`
+2. In the XCode's "Project navigator", right click on project's name ➜ `Add Files to <...>`
 3. Go to `node_modules` ➜ `react-native-blur` and add `RNBlur` folder
 4. Compile and have fun!
 
@@ -12,9 +14,9 @@ Documentation is under construction. Try to check it out in a few hours.
 var Menu = React.createClass({
   render: function() {
     return (
-      <Image source={{uri: uri}} style={styles.menu}>
+      <Image source={{uri}} style={styles.menu}>
         <BlurView style={styles.blur}>
-          <Text onPress={this.props.menuActions.close}>
+          <Text>
             Hi, I am a tiny menu item
           </Text>
         </BlurView>
