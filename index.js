@@ -5,6 +5,14 @@ var BlurView = createComponent({
   uiViewClassName: 'BlurView',
 });
 
+var VibrancyView = createComponent({
+  validAttributes: {},
+  uiViewClassName: 'VibrancyView',
+});
+
 // What have you expected to see here? :D
 
-module.exports = BlurView;
+module.exports = {
+    BlurView: BlurView,
+    VibrancyView: VibrancyView
+};
