@@ -1,8 +1,8 @@
 ### React Native Blur
-Component implementation for UIVisualEffectView's blur effect.
+Component implementation for UIVisualEffectView's blur and vibrancy effect.
 Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 
-<img src='http://oi59.tinypic.com/2kmz2g.jpg' />
+<img src='http://oi62.tinypic.com/8x4u94.jpg' />
 
 ### Content
 - [Installation](#installation)
@@ -12,16 +12,22 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 ### Installation
 1. `npm install react-native-blur`
 2. In the XCode's "Project navigator", right click on project's name ➜ `Add Files to <...>`
-3. Go to `node_modules` ➜ `react-native-blur` and add `RNBlur` folder
+3. Go to `node_modules` ➜ `react-native-blur` ➜ add `RNBlur` and `RNVibrancy` folders
 4. Compile and have fun!
 
 ### Usage example
+*First of all, if you don't want to read it, you can just clone the repo and go into `examples/basic` folder to try out working example.*
+
+#### Blur View
+To use `blur` view, you need to require `BlurView` to your module and insert `<BlurView>` tag inside render function as it's done below:
 ```javascript
+var BlurView = require('react-native-blur').BlurView;
+
 var Menu = React.createClass({
   render: function() {
     return (
       <Image source={{uri}} style={styles.menu}>
-        <BlurView style={styles.blur}>
+        <BlurView blurType="light" style={styles.blur}>
           <Text>Hi, I am a tiny menu item</Text>
         </BlurView>
       </Image>
@@ -29,7 +35,27 @@ var Menu = React.createClass({
   }
 });
 ```
-All parent components to blur view would be blurred. Everything inside wouldn't.
+
+In this example, `Image` component will be blurred, a `BlurView` content will stay untouched.
+
+#### Vibrancy View
+> The vibrancy effect lets the content underneath a blurred view show through more vibrantly
+
+```javascript
+var VibrancyView = require('react-native-blur').VibrancyView;
+
+var Menu = React.createClass({
+  render: function() {
+    return (
+      <Image source={{uri}} style={styles.menu}>
+        <VibrancyView blurType="light" style={styles.blur}>
+          <Text>Hi, I am a tiny menu item</Text>
+        </VibrancyView>
+      </Image>
+    );
+  }
+});
+```
 
 ### Questions?
 Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
