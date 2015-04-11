@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1AFA1E38-3F40-4EBC-86F7-AAD0DC86E292</string>
+	<key>IDESourceControlProjectName</key>
+	<string>basic</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>349DA638BABCB021FFC1D4724395CFFE7B3AE7C5</key>
+		<string>github.com:Kureev/react-native-blur.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>examples/basic/basic.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>349DA638BABCB021FFC1D4724395CFFE7B3AE7C5</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:Kureev/react-native-blur.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>349DA638BABCB021FFC1D4724395CFFE7B3AE7C5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>349DA638BABCB021FFC1D4724395CFFE7B3AE7C5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>react-native-blur</string>
+		</dict>
+	</array>
+</dict>
+</plist>
