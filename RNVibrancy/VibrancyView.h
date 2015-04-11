@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
-#import <RCTView.h>
 
-@interface VibrancyView : RCTView
+@interface VibrancyView : UIView
+
+@property (nonatomic, copy) NSString *blurType;
 
 @end

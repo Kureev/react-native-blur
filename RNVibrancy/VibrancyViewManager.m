@@ -5,9 +5,11 @@
 
 RCT_EXPORT_MODULE();
 
-- (RCTView *)view
+- (UIView *)view
 {
-    return [[VibrancyView alloc] init];
+  return [[VibrancyView alloc] init];
 }
+
+RCT_EXPORT_VIEW_PROPERTY(blurType, NSString);
 
 @end

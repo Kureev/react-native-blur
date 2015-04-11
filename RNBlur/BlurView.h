@@ -3,6 +3,6 @@
 
 @interface BlurView : RCTView
 
-@property (nonatomic, strong) UIVisualEffectView *visualEffectView;
+@property (nonatomic, copy) NSString *blurType;
 
 @end

@@ -10,4 +10,6 @@ RCT_EXPORT_MODULE();
     return [[BlurView alloc] init];
 }
 
+RCT_EXPORT_VIEW_PROPERTY(blurType, NSString);
+
 @end
