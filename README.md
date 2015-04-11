@@ -7,6 +7,9 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 ### Content
 - [Installation](#installation)
 - [Usage example](#usage-example)
+  - [Blur view](#blur-view)
+  - [Vibrancy view](#vibrancy-view)
+- [Component properties](#component-properties)
 - [Questions?](#questions)
 
 ### Installation
@@ -56,6 +59,9 @@ var Menu = React.createClass({
   }
 });
 ```
+
+### Component properties
+- `blurType` String:(xlight|light|dark) - blur type effect
 
 ### Questions?
 Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
