@@ -61,7 +61,10 @@ var Menu = React.createClass({
 ```
 
 ### Component properties
-- `blurType` String:(xlight|light|dark) - blur type effect
+- `blurType` (String) - blur type effect
+  - `xlight` - extra light blur type
+  - `light` - light blur type
+  - `dark` - dark blur type
 
 ### Questions?
 Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
