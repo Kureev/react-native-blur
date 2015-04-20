@@ -9,12 +9,12 @@ var validAttributes = merge(
 
 var BlurView = createComponent({
   validAttributes: validAttributes,
-  uiViewClassName: 'BlurView',
+  uiViewClassName: 'BlurView'
 });
 
 var VibrancyView = createComponent({
   validAttributes: validAttributes,
-  uiViewClassName: 'VibrancyView',
+  uiViewClassName: 'VibrancyView'
 });
 
 // What have you expected to see here? :D
