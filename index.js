@@ -1,9 +1,9 @@
-var createComponent = require('createReactIOSNativeComponentClass');
-var ReactIOSViewAttributes = require('ReactIOSViewAttributes');
+var createComponent = require('createReactNativeComponentClass');
+var ReactNativeViewAttributes = require('ReactNativeViewAttributes');
 var merge = require('merge');
 
 var validAttributes = merge(
-  ReactIOSViewAttributes.UIView, {
+  ReactNativeViewAttributes.UIView, {
   blurType: true
 });
 
