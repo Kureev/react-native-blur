@@ -1,21 +1,27 @@
-var createComponent = require('createReactNativeComponentClass');
-var ReactNativeViewAttributes = require('ReactNativeViewAttributes');
-var merge = require('merge');
+var React = require('react-native');
+var { requireNativeComponent } = React;
 
-var validAttributes = merge(
-  ReactNativeViewAttributes.UIView, {
-  blurType: true
-});
+var BlurView = React.createClass({
+  propTypes: {
+    blurType: React.PropTypes.string,
+  },
 
-var BlurView = createComponent({
-  validAttributes: validAttributes,
-  uiViewClassName: 'BlurView'
+  render() {
+    return <NativeBlurView {...this.props} />;
+  }
 });
+var NativeBlurView = requireNativeComponent('BlurView', BlurView);
 
-var VibrancyView = createComponent({
-  validAttributes: validAttributes,
-  uiViewClassName: 'VibrancyView'
+var VibrancyView = React.createClass({
+  propTypes: {
+    blurType: React.PropTypes.string,
+  },
+
+  render() {
+    return <NativeVibrancyView {...this.props} />;
+  }
 });
+var NativeVibrancyView = requireNativeComponent('VibrancyView', VibrancyView);
 
 // What have you expected to see here? :D
 
