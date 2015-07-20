@@ -15,7 +15,7 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 ### Installation
 1. `npm install react-native-blur`
 2. In the XCode's "Project navigator", right click on project's name ➜ `Add Files to <...>`
-3. Go to `node_modules` ➜ `react-native-blur` ➜ add `RNBlur` and `RNVibrancy` folders
+3. Go to `node_modules` ➜ `react-native-blur` ➜ add `RNBlur` and `RNVibrancy` folders (should looks [like this](https://cloud.githubusercontent.com/assets/2273613/8785102/b64460d2-2f25-11e5-8ec1-912e9a6e0bc8.png))
 4. Compile and have fun!
 
 ### Usage example
