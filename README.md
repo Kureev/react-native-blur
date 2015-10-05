@@ -30,10 +30,10 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 #### Blur View
 To use `blur` view, you need to require `BlurView` to your module and insert `<BlurView>` tag inside render function as it's done below:
 ```javascript
-var BlurView = require('react-native-blur').BlurView;
+const { BlurView } = require('react-native-blur');
 
-var Menu = React.createClass({
-  render: function() {
+const Menu = React.createClass({
+  render() {
     return (
       <Image source={{uri}} style={styles.menu}>
         <BlurView blurType="light" style={styles.blur}>
@@ -51,10 +51,10 @@ In this example, `Image` component will be blurred, a `BlurView` content will st
 > The vibrancy effect lets the content underneath a blurred view show through more vibrantly
 
 ```javascript
-var VibrancyView = require('react-native-blur').VibrancyView;
+const { VibrancyView } = require('react-native-blur');
 
-var Menu = React.createClass({
-  render: function() {
+const Menu = React.createClass({
+  render() {
     return (
       <Image source={{uri}} style={styles.menu}>
         <VibrancyView blurType="light" style={styles.blur}>
