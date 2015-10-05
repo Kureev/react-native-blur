@@ -14,9 +14,15 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 
 ### Installation
 1. `npm install react-native-blur`
-2. In the XCode's "Project navigator", right click on project's name ➜ `Add Files to <...>`
-3. Go to `node_modules` ➜ `react-native-blur` ➜ add `RNBlur` and `RNVibrancy` folders (should looks [like this](https://cloud.githubusercontent.com/assets/2273613/8785102/b64460d2-2f25-11e5-8ec1-912e9a6e0bc8.png))
-4. Compile and have fun!
+2. In the XCode's "Project navigator", right click on project's `Libraries` folder ➜ `Add Files to <...>`
+3. Go to `node_modules/react-native-blur/ios` ➜ select `RNBlur` and click "add"
+4. Inside your code include JS part by adding
+
+  ```javascript
+  const { BlurView, VibrancyView } = require('react-native-blur');
+  ```
+
+5. Compile and have fun!
 
 ### Usage example
 *First of all, if you don't want to read it, you can just clone the repo and go into `examples/basic` folder to try out working example.*
