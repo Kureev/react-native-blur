@@ -5,7 +5,7 @@
 
 RCT_EXPORT_MODULE();
 
-- (RCTView *)view
+- (UIView *)view
 {
     return [[BlurView alloc] init];
 }

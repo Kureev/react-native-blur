@@ -1,7 +1,6 @@
 #import <UIKit/UIKit.h>
-#import <RCTView.h>
 
-@interface BlurView : RCTView
+@interface BlurView : UIView
 
 @property (nonatomic, copy) NSString *blurType;
 
