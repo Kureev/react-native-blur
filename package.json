@@ -1,0 +1,27 @@
+{
+  "name": "react-native-blur",
+  "version": "0.6.1",
+  "description": "React Native Blur component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Kureev/react-native-blur.git"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "react-component"
+  ],
+  "author": "Alexey Kureev <kureev-mail@ya.ru> (https://github.com/Kureev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kureev/react-native-blur/issues"
+  },
+  "homepage": "https://github.com/Kureev/react-native-blur",
+  "peerDependencies": {
+    "react-native": "^0.11.4"
+  }
+}
