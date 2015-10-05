@@ -13,10 +13,14 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 - [Questions?](#questions)
 
 ### Installation
-1. `npm install react-native-blur`
-2. In the XCode's "Project navigator", right click on project's `Libraries` folder ➜ `Add Files to <...>`
-3. Go to `node_modules/react-native-blur/ios` ➜ select `RNBlur` and click "add"
-4. Inside your code include JS part by adding
+1. Install package via npm:
+
+  ```
+  npm install react-native-blur
+  ```
+
+2. Link `RNBlur` library from `node_modules/react-native-blur/ios` folder like it's [described here](http://facebook.github.io/react-native/docs/linking-libraries-ios.html). Don't forget to add it to `Build Phases` of your project!
+3. Inside your code include JS part by adding
 
   ```javascript
   const { BlurView, VibrancyView } = require('react-native-blur');
@@ -25,10 +29,15 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 5. Compile and have fun!
 
 ### Usage example
-*First of all, if you don't want to read it, you can just clone the repo and go into `examples/basic` folder to try out working example.*
+You can run built-in example via few simple steps:
+1. Clone repository
+2. Go to `examples/Basic`
+3. Run `npm install && open Basic.xcodeproj`
+4. Hit "Run"(`cmd+R`) button on XCode panel
 
 #### Blur View
 To use `blur` view, you need to require `BlurView` to your module and insert `<BlurView>` tag inside render function as it's done below:
+
 ```javascript
 const { BlurView } = require('react-native-blur');
 
