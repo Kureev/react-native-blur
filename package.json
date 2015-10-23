@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Kureev/react-native-blur/issues"
   },
-  "homepage": "https://github.com/Kureev/react-native-blur"
+  "homepage": "https://github.com/Kureev/react-native-blur",
+  "peerDependencies": {
+    "react-native": ">=0.11"
+  }
 }
