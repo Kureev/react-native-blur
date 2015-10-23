@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A68BD7CC1BC31332005F02DF /* VibrancyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7C91BC31332005F02DF /* VibrancyView.m */; settings = {ASSET_TAGS = (); }; };
-		A68BD7CD1BC31332005F02DF /* VibrancyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CB1BC31332005F02DF /* VibrancyViewManager.m */; settings = {ASSET_TAGS = (); }; };
-		A68BD7D21BC31341005F02DF /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CF1BC31341005F02DF /* BlurView.m */; settings = {ASSET_TAGS = (); }; };
-		A68BD7D31BC31341005F02DF /* BlurViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7D11BC31341005F02DF /* BlurViewManager.m */; settings = {ASSET_TAGS = (); }; };
+		A68BD7CC1BC31332005F02DF /* VibrancyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7C91BC31332005F02DF /* VibrancyView.m */; };
+		A68BD7CD1BC31332005F02DF /* VibrancyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CB1BC31332005F02DF /* VibrancyViewManager.m */; };
+		A68BD7D21BC31341005F02DF /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CF1BC31341005F02DF /* BlurView.m */; };
+		A68BD7D31BC31341005F02DF /* BlurViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7D11BC31341005F02DF /* BlurViewManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -235,7 +235,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../react-native/React/**";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
