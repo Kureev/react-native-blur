@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Kureev/react-native-blur.git"
+    "url": "git@github.com:react-native-fellowship/react-native-blur.git"
   },
   "keywords": [
     "react-native",
@@ -18,9 +18,9 @@
   "author": "Alexey Kureev <kureev-mail@ya.ru> (https://github.com/Kureev)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Kureev/react-native-blur/issues"
+    "url": "https://github.com/react-native-fellowship/react-native-blur/issues"
   },
-  "homepage": "https://github.com/Kureev/react-native-blur",
+  "homepage": "https://github.com/react-native-fellowship/react-native-blur",
   "peerDependencies": {
     "react-native": ">=0.11"
   }
