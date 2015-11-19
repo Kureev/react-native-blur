@@ -35,7 +35,7 @@ class Basic extends Component {
          <Text style={styles.welcome}>Blur component</Text>
         </BlurView>
 
-        <VibrancyView blurType="dark" style={styles.container}>
+        <VibrancyView blurType="dark" style={styles.container} borderRadius={10}>
           <Text style={styles.welcome}>Vibrancy component</Text>
         </VibrancyView>
       </Image>
