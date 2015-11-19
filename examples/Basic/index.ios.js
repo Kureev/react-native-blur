@@ -31,7 +31,7 @@ class Basic extends Component {
   render() {
     return (
       <Image source={{uri: background, }} style={styles.container}>
-        <BlurView blurType="light" style={styles.container}>
+        <BlurView blurType="light" style={styles.container} borderRadius={10}>
          <Text style={styles.welcome}>Blur component</Text>
         </BlurView>
 
