@@ -80,6 +80,7 @@ const Menu = React.createClass({
   - `xlight` - extra light blur type
   - `light` - light blur type
   - `dark` - dark blur type
+- `borderRadius` (Integer) - view's border radius
 
 ### Questions?
 Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
