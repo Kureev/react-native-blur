@@ -49,6 +49,14 @@
   [self addSubview:_visualEffectView];
 }
 
+- (void)setBorderRadius:(NSNumber *)borderRadius
+{
+  if (borderRadius) {
+    _visualEffectView.clipsToBounds = YES;
+    _visualEffectView.layer.cornerRadius = [borderRadius floatValue];
+  }
+}
+
 - (void)insertReactSubview:(id<RCTComponent>)subview atIndex:(NSInteger)atIndex {
   [_vibrancyView.contentView addSubview:(UIView*)subview];
 }
