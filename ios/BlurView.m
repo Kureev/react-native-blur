@@ -30,6 +30,7 @@
   [super layoutSubviews];
 
   _visualEffectView.frame = self.bounds;
+  _visualEffectView.clipsToBounds = YES;
   [self insertSubview:_visualEffectView atIndex:0];
 }
 

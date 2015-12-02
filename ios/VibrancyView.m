@@ -13,6 +13,7 @@
 
   _visualEffectView.frame = self.bounds;
   _vibrancyView.frame = self.bounds;
+  _visualEffectView.clipsToBounds = YES;
 }
 
 - (void)setBlurType:(NSString *)blurType {
