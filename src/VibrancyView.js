@@ -12,7 +12,6 @@ class VibrancyView extends Component {
 
 VibrancyView.propTypes = {
   blurType: React.PropTypes.string,
-  borderRadius: React.PropTypes.number,
 };
 
 const NativeVibrancyView = requireNativeComponent('VibrancyView', VibrancyView);

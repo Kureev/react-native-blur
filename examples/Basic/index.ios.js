@@ -31,11 +31,11 @@ class Basic extends Component {
   render() {
     return (
       <Image source={{uri: background, }} style={styles.container}>
-        <BlurView blurType="light" style={styles.container} borderRadius={10}>
+        <BlurView blurType="light" style={styles.container}>
          <Text style={styles.welcome}>Blur component</Text>
         </BlurView>
 
-        <VibrancyView blurType="dark" style={styles.container} borderRadius={10}>
+        <VibrancyView blurType="dark" style={styles.container}>
           <Text style={styles.welcome}>Vibrancy component</Text>
         </VibrancyView>
       </Image>

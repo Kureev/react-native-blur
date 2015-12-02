@@ -13,6 +13,7 @@
 
   _visualEffectView.frame = self.bounds;
   _vibrancyView.frame = self.bounds;
+  _visualEffectView.clipsToBounds = YES;
 }
 
 - (void)setBlurType:(NSString *)blurType {
@@ -47,14 +48,6 @@
     }
   }
   [self addSubview:_visualEffectView];
-}
-
-- (void)setBorderRadius:(NSNumber *)borderRadius
-{
-  if (borderRadius) {
-    _visualEffectView.clipsToBounds = YES;
-    _visualEffectView.layer.cornerRadius = [borderRadius floatValue];
-  }
 }
 
 - (void)insertReactSubview:(id<RCTComponent>)subview atIndex:(NSInteger)atIndex {

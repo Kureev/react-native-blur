@@ -25,19 +25,12 @@
   _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
 }
 
-- (void)setBorderRadius:(NSNumber *)borderRadius
-{
-  if (borderRadius) {
-    _visualEffectView.clipsToBounds = YES;
-    _visualEffectView.layer.cornerRadius = [borderRadius floatValue];
-  }
-}
-
 -(void)layoutSubviews
 {
   [super layoutSubviews];
 
   _visualEffectView.frame = self.bounds;
+  _visualEffectView.clipsToBounds = YES;
   [self insertSubview:_visualEffectView atIndex:0];
 }
 
