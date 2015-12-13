@@ -19,7 +19,9 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
   npm install react-native-blur
   ```
 
-2. Link `RNBlur` library from `node_modules/react-native-blur/ios` folder like it's [described here](http://facebook.github.io/react-native/docs/linking-libraries-ios.html). Don't forget to add it to `Build Phases` of your project!
+2. Link your library by one of those ways:
+2.1 Link your library by using `rnpm link` (see more about rnpm [here](https://github.com/rnpm/rnpm))
+2.2 Link `RNBlur` library from `node_modules/react-native-blur/ios` folder like it's [described here](http://facebook.github.io/react-native/docs/linking-libraries-ios.html). Don't forget to add it to `Build Phases` of your project!
 3. Inside your code include JS part by adding
 
   ```javascript
