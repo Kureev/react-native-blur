@@ -6,7 +6,15 @@ const {
 
 class VibrancyView extends Component {
   render() {
-    return <NativeVibrancyView {...this.props} />;
+    return (
+      <NativeVibrancyView
+        {...this.props}
+        style={{
+          backgroundColor: 'transparent',
+          ...this.props.style
+        }}
+      />
+    );
   }
 }
 

@@ -6,7 +6,15 @@ const {
 
 class BlurView extends Component {
   render() {
-    return <NativeBlurView {...this.props} />;
+    return (
+      <NativeBlurView
+        {...this.props}
+        style={{
+          backgroundColor: 'transparent',
+          ...this.props.style
+        }}
+      />
+    );
   }
 }
 
