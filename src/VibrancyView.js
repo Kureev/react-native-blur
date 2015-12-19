@@ -9,10 +9,10 @@ class VibrancyView extends Component {
     return (
       <NativeVibrancyView
         {...this.props}
-        style={{
+        style={[{
           backgroundColor: 'transparent',
-          ...this.props.style
-        }}
+        }, this.props.style
+        ]}
       />
     );
   }
