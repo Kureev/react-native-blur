@@ -9,10 +9,7 @@ class BlurView extends Component {
     return (
       <NativeBlurView
         {...this.props}
-        style={[{
-          backgroundColor: 'transparent',
-        }, this.props.style
-        ]}
+        style={[{backgroundColor: 'transparent'},this.props.style]}
       />
     );
   }
