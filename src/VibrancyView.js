@@ -1,8 +1,10 @@
-const React = require('react-native');
+const React = require('react');
 const {
-  requireNativeComponent,
-  Component
+  Component,
+  PropTypes
 } = React;
+
+const { requireNativeComponent } = require('react-native');
 
 class VibrancyView extends Component {
   render() {
@@ -19,7 +21,7 @@ class VibrancyView extends Component {
 }
 
 VibrancyView.propTypes = {
-  blurType: React.PropTypes.string,
+  blurType: PropTypes.string,
 };
 
 const NativeVibrancyView = requireNativeComponent('VibrancyView', VibrancyView);

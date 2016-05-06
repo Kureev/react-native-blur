@@ -1,12 +1,17 @@
-var React = require('react-native');
+var React = require('react');
+var {
+  Component,
+  PropTypes
+} = React;
+
+var ReactNative = require('react-native');
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
   Image,
-  Component,
-} = React;
+} = ReactNative;
 
 const styles = StyleSheet.create({
   container: {
