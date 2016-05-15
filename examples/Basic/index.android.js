@@ -4,13 +4,14 @@
  */
 'use strict';
 
-var React = require('react-native');
+var ReactNative = require('react-native');
+var React = require('react');
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-} = React;
+} = ReactNative;
 
 var Basic = React.createClass({
   render: function() {
