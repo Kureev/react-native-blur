@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "react-native-blur"
-  s.version       = "0.7.10"
+  s.version       = "0.8.0"
   s.source_files  = "ios/*.{h,m}"
   s.platform      = :ios, "8.0"
   s.authors       = { "Alexey Kureev" => "kureev-mail@ya.ru" }
