@@ -52,10 +52,10 @@ class Basic extends React.Component {
   render() {
     return (
       <Image
-        source={{uri: background, }}
+        source={{uri: background}}
         style={styles.container}
         ref={'backgroundImage'}
-        onLoad={this.imageLoaded.bind(this)}
+        onLoadEnd={this.imageLoaded.bind(this)}
       >
         <BlurView
           blurRadius={10}
