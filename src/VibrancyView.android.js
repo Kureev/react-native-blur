@@ -1,4 +1,4 @@
-const React = require('react-native');
+const React = require('react');
 
 class VibrancyView extends React.Component {
   render() {
