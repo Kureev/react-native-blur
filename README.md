@@ -81,5 +81,46 @@ const Menu = React.createClass({
   - `light` - light blur type
   - `dark` - dark blur type
 
+
+### Android
+
+Android support uses an [external library](https://github.com/500px/500px-android-blur) which has slightly different properties and setup requirements. You must add the following to the `android/app/build.gradle` file:
+```
+android {
+  ...
+  defaultConfig {
+    ...
+    renderscriptTargetApi 20
+    renderscriptSupportModeEnabled true
+  }
+}
+
+repositories {
+    maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
+}
+
+dependencies {
+  ...
+  compile project(':react-native-blur')
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
+    }
+    dependencies {
+        classpath 'com.fivehundredpx:blurringview:1.0.0'
+    }
+}
+```
+
+The android BlurView works by blurring an existing referenced view, so you must wait till the view you want to blur is rendered and then provide the reference to the BlurView as the `viewRef` prop. Take a look at the example to see how it works.
+
+It has the following props:
+- `viewRef` (Number) - a reference to the existing view you want to blur
+- `blurRadius` (Number)
+- `downsampleFactor` (Number)
+- `overlayColor` (Color)
+
 ### Questions?
 Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
