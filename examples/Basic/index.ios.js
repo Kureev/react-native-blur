@@ -1,17 +1,11 @@
-var React = require('react');
-var {
-  Component,
-  PropTypes
-} = React;
-
-var ReactNative = require('react-native');
-var {
+import React, {Component} from 'react';
+import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
   Image,
-} = ReactNative;
+} from 'react-native';
+import {BlurView, VibrancyView} from 'react-native-blur';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,15 +21,12 @@ const styles = StyleSheet.create({
   },
 });
 
-var BlurView = require('react-native-blur').BlurView;
-var VibrancyView = require('react-native-blur').VibrancyView;
-
-var background = 'http://iphonewallpapers-hd.com/thumbs/firework_iphone_wallpaper_5-t2.jpg';
+const background = 'http://iphonewallpapers-hd.com/thumbs/firework_iphone_wallpaper_5-t2.jpg';
 
 class Basic extends Component {
   render() {
     return (
-      <Image source={{uri: background, }} style={styles.container}>
+      <Image source={{uri: background}} style={styles.container}>
         <BlurView blurType="light" style={styles.container}>
          <Text style={styles.welcome}>Blur component</Text>
         </BlurView>
