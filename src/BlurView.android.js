@@ -1,11 +1,5 @@
-const React = require('react');
-const {View} = require('react-native');
-const {
-  Component,
-  PropTypes
-} = React;
-
-const { requireNativeComponent } = require('react-native');
+import React, { Component, PropTypes } from 'react';
+import { View, requireNativeComponent } from 'react-native';
 
 class BlurView extends Component {
   render() {
