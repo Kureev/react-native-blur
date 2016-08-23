@@ -122,5 +122,27 @@ It has the following props:
 - `downsampleFactor` (Number)
 - `overlayColor` (Color)
 
+#### Troubleshooting
+On older instances of react-native, BlurView package does not get added into the MainActivity/MainApplication classes where you would see `Warning: Native component for 'BlurView' does not exist` in RN YellowBox or console.
+
+To rectify this, you can add the BlurViewPackage manually in MainActivity/MainApplication classes
+```java
+...
+import com.cmcewen.blurview.BlurViewPackage;
+...
+
+public class MainApplication extends Application implements ReactApplication {
+...
+    @Override
+    protected List<ReactPackage> getPackages() {
+      return Arrays.<ReactPackage>asList(
+          new MainReactPackage(), 
+          new BlurViewPackage()
+      );
+    }
+...
+}
+```
+
 ### Questions?
 Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
