@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/react-native-blur.svg)](https://badge.fury.io/js/react-native-blur)
+
 ### React Native Blur
 Component implementation for UIVisualEffectView's blur and vibrancy effect.<br>
 Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
