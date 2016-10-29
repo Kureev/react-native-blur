@@ -24,7 +24,7 @@
 - (id)effectSettings
 {
     id settings = [super effectSettings];
-    [settings setValue:@localBlurAmount forKey:@"blurRadius"];
+    [settings setValue:localBlurAmount forKey:@"blurRadius"];
     return settings;
 }
 
