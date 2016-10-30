@@ -47,7 +47,7 @@ const Menu = React.createClass({
   render() {
     return (
       <Image source={{uri}} style={styles.menu}>
-        <BlurView blurType="light" style={styles.blur}>
+        <BlurView blurType="light" blurAmount={10} style={styles.blur}>
           <Text>Hi, I am a tiny menu item</Text>
         </BlurView>
       </Image>
@@ -82,7 +82,10 @@ const Menu = React.createClass({
   - `xlight` - extra light blur type
   - `light` - light blur type
   - `dark` - dark blur type
+- `blurAmount` (Number) - blur amount effect
+  - `0-100` - Adjusts blur intensity
 
+*Note: `blurAmount` does not refresh with Hot Reloading. You must a refresh the app to view the results of the changes*
 
 ### Android
 
@@ -138,7 +141,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(), 
+          new MainReactPackage(),
           new BlurViewPackage()
       );
     }
