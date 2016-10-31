@@ -17,7 +17,11 @@ class BlurView extends Component {
 
 BlurView.propTypes = {
   blurType: PropTypes.string,
-  blurAmount: PropTypes.number,
+  blurAmount: PropTypes.number.isRequired,
+};
+
+BlurView.defaultProps = {
+  blurAmount: 10,
 };
 
 const NativeBlurView = requireNativeComponent('BlurView', BlurView);
