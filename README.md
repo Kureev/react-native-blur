@@ -82,7 +82,7 @@ const Menu = React.createClass({
   - `xlight` - extra light blur type
   - `light` - light blur type
   - `dark` - dark blur type
-- `blurAmount` (Number) - blur amount effect
+- `blurAmount` (Default: 10, Number) - blur amount effect
   - `0-100` - Adjusts blur intensity
 
 *Note: `blurAmount` does not refresh with Hot Reloading. You must a refresh the app to view the results of the changes*
