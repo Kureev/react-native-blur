@@ -27,7 +27,7 @@
 
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
-    blurEffect = [BlurAmount updateBlurAmount:blurAmount];
+    [BlurAmount updateBlurAmount:blurAmount];
 }
 
 
