@@ -1,28 +1,64 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Basic [Android] Example for react-native-blur
+ * https://github.com/react-native-community/react-native-blur
  */
 'use strict';
-
-var ReactNative = require('react-native');
-var React = require('react');
-var {
+import React, {Component} from 'react';
+import {
   AppRegistry,
   Image,
   findNodeHandle,
   StyleSheet,
   Text,
-  View,
-} = ReactNative;
+  View
+} from 'react-native';
+
+import {BlurView} from 'react-native-blur';
+
+class Basic extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      viewRef: 0,
+    }
+  }
+
+  imageLoaded() {
+    this.setState({viewRef: findNodeHandle(this.refs.backgroundImage)})
+  }
+
+  render() {
+    return (
+      <Image
+        source={require('./bgimage.jpeg')}
+        style={styles.container}
+        ref={'backgroundImage'}
+        onLoadEnd={this.imageLoaded.bind(this)}>
+        <BlurView
+          blurRadius={10}
+          downsampleFactor={5}
+          overlayColor={'rgba(255, 255, 255, .25)'}
+          style={styles.blurView}
+          viewRef={this.state.viewRef}/>
+        <Text style={styles.welcome}>{`Blur component`}</Text>
+      </Image>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     backgroundColor: 'transparent',
+    resizeMode: 'cover',
+    width: null,
+    height: null,
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 22,
+    fontWeight: 'bold',
     textAlign: 'center',
     margin: 10,
     color: '#FFFFFF',
@@ -35,39 +71,5 @@ const styles = StyleSheet.create({
     right: 0
   },
 });
-
-var BlurView = require('react-native-blur').BlurView;
-
-var background = 'http://iphonewallpapers-hd.com/thumbs/firework_iphone_wallpaper_5-t2.jpg';
-
-class Basic extends React.Component {
-  state = {
-    viewRef: 0
-  }
-
-  imageLoaded() {
-    this.setState({viewRef: findNodeHandle(this.refs.backgroundImage)})
-  }
-
-  render() {
-    return (
-      <Image
-        source={{uri: background}}
-        style={styles.container}
-        ref={'backgroundImage'}
-        onLoadEnd={this.imageLoaded.bind(this)}
-      >
-        <BlurView
-          blurRadius={10}
-          downsampleFactor={5}
-          overlayColor={'rgba(255, 255, 255, 0.1)'}
-          style={styles.blurView}
-          viewRef={this.state.viewRef}
-        />
-        <Text style={styles.welcome}>Blur component</Text>
-      </Image>
-    );
-  }
-}
 
 AppRegistry.registerComponent('Basic', () => Basic);
