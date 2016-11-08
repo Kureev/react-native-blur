@@ -1,13 +1,13 @@
 {
   "name": "Basic",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "react": "^15.1.0",
-    "react-native": "^0.27.2",
-    "react-native-blur": "github:cmcewen/react-native-blur"
+    "react": "^15.3.2",
+    "react-native": "^0.36.0",
+    "react-native-blur": "github:breadadams/react-native-blur"
   }
 }
