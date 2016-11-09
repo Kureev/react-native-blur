@@ -20,7 +20,7 @@ class Basic extends Component {
   constructor() {
     super()
     this.state = {
-      hideBlurs: false,
+      showBlurs: true,
       blurBlurType: 'light',
       blurActiveSegment: 1,
       vibrancyBlurType: 'dark',
@@ -54,11 +54,9 @@ class Basic extends Component {
           resizeMode='cover'
           style={styles.img}/>
 
-        {(this.state.hideBlurs
+        {(this.state.showBlurs
 
-          ? null
-
-          : <View style={styles.container}>
+          ? <View style={styles.container}>
         
               <BlurView
                 blurType={this.state.blurBlurType}
@@ -87,13 +85,15 @@ class Basic extends Component {
               </VibrancyView>
 
             </View>
+
+          : null
         )}
 
         <View
           style={styles.blurToggle}>
           <Switch
-            onValueChange={(value) => this.setState({hideBlurs: value})}
-            value={this.state.hideBlurs} />
+            onValueChange={(value) => this.setState({showBlurs: value})}
+            value={this.state.showBlurs} />
         </View>
         
       </View>
