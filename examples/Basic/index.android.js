@@ -36,7 +36,7 @@ class Basic extends Component {
         ref={'backgroundImage'}
         onLoadEnd={this.imageLoaded.bind(this)}>
         <BlurView
-          blurRadius={10}
+          blurRadius={15}
           downsampleFactor={5}
           overlayColor={'rgba(255, 255, 255, .25)'}
           style={styles.blurView}
