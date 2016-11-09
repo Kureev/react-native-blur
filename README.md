@@ -4,7 +4,7 @@
 Component implementation for UIVisualEffectView's blur and vibrancy effect.<br>
 Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 
-<img src='http://oi62.tinypic.com/8x4u94.jpg' />
+<img src='https://cloud.githubusercontent.com/assets/5795227/20123354/d877dba4-a61e-11e6-8e5a-c85f76419e20.gif' />
 
 ### Content
 - [Installation](#installation)
