@@ -4,7 +4,7 @@
 
 @implementation BlurView {
   UIVisualEffectView *_visualEffectView;
-  BlurView *blurEffect;
+  UIBlurEffect * blurEffect;
 }
 
 - (void)setBlurType:(NSString *)blurType
@@ -22,21 +22,18 @@
   } else {
     blurEffect = [BlurAmount effectWithStyle:UIBlurEffectStyleDark];
   }
-
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        _visualEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _visualEffectView.frame = self.bounds;
+        [self insertSubview:_visualEffectView atIndex:0];
+    });
 }
 
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
     [BlurAmount updateBlurAmount:blurAmount];
-}
-
-
-- (void)layoutSubviews
-{
-  [super layoutSubviews];
-  _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-  _visualEffectView.frame = self.bounds;
-  [self insertSubview:_visualEffectView atIndex:0];
 }
 
 @end
