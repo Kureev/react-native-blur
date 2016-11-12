@@ -24,6 +24,7 @@
 
   UIBlurEffect *blurEffect;
 
+  self.clipsToBounds = true;
   if ([blurType isEqual: @"xlight"]) {
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
   } else if ([blurType isEqual: @"light"]) {

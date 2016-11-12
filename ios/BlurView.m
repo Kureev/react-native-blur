@@ -12,7 +12,8 @@
   if (_visualEffectView) {
     [_visualEffectView removeFromSuperview];
   }
-
+  
+  self.clipsToBounds = true;
   if ([blurType isEqual: @"xlight"]) {
     blurEffect = [BlurAmount effectWithStyle:UIBlurEffectStyleExtraLight];
   } else if ([blurType isEqual: @"light"]) {
@@ -22,7 +23,7 @@
   } else {
     blurEffect = [BlurAmount effectWithStyle:UIBlurEffectStyleDark];
   }
-    
+
     dispatch_async(dispatch_get_main_queue(), ^{
         _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         _visualEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
