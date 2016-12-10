@@ -23,7 +23,7 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 
 2. Link your native dependencies:
   ```
-  react-native link
+  react-native link react-native-blur
   ```
 3. Inside your code include JS part by adding
 
