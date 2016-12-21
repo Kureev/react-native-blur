@@ -1,13 +1,10 @@
-#import <UIKit/UIKit.h>
+#import "BlurAmount.h"
 #import <objc/runtime.h>
 
 @interface UIBlurEffect (Protected)
 @property (nonatomic, readonly) id effectSettings;
 @end
 
-@interface BlurAmount : UIBlurEffect
-@property (nonatomic, copy) NSNumber *blurAmount;
-@end
 
 @implementation BlurAmount
 

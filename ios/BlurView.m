@@ -1,5 +1,5 @@
 #import "BlurView.h"
-#import "BlurAmount.m"
+#import "BlurAmount.h"
 
 
 @implementation BlurView {
@@ -12,7 +12,7 @@
   if (_visualEffectView) {
     [_visualEffectView removeFromSuperview];
   }
-  
+
   self.clipsToBounds = true;
   if ([blurType isEqual: @"xlight"]) {
     blurEffect = [BlurAmount effectWithStyle:UIBlurEffectStyleExtraLight];
