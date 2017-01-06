@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A68BD7CC1BC31332005F02DF /* VibrancyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7C91BC31332005F02DF /* VibrancyView.m */; };
 		A68BD7CD1BC31332005F02DF /* VibrancyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CB1BC31332005F02DF /* VibrancyViewManager.m */; };
+		256D23D71E1EBA540023CA16 /* BlurAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 256D23D61E1EBA540023CA16 /* BlurAmount.m */; };
 		A68BD7D21BC31341005F02DF /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CF1BC31341005F02DF /* BlurView.m */; };
 		A68BD7D31BC31341005F02DF /* BlurViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7D11BC31341005F02DF /* BlurViewManager.m */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,8 @@
 		A68BD7C91BC31332005F02DF /* VibrancyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyView.m; sourceTree = SOURCE_ROOT; };
 		A68BD7CA1BC31332005F02DF /* VibrancyViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibrancyViewManager.h; sourceTree = SOURCE_ROOT; };
 		A68BD7CB1BC31332005F02DF /* VibrancyViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyViewManager.m; sourceTree = SOURCE_ROOT; };
+		256D23D51E1EBA540023CA16 /* BlurAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurAmount.h; sourceTree = "<group>"; };
+		256D23D61E1EBA540023CA16 /* BlurAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurAmount.m; sourceTree = "<group>"; };
 		A68BD7CE1BC31341005F02DF /* BlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurView.h; sourceTree = SOURCE_ROOT; };
 		A68BD7CF1BC31341005F02DF /* BlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurView.m; sourceTree = SOURCE_ROOT; };
 		A68BD7D01BC31341005F02DF /* BlurViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurViewManager.h; sourceTree = SOURCE_ROOT; };
@@ -51,6 +54,8 @@
 		A68BD7B31BC31318005F02DF = {
 			isa = PBXGroup;
 			children = (
+				256D23D51E1EBA540023CA16 /* BlurAmount.h */,
+				256D23D61E1EBA540023CA16 /* BlurAmount.m */,
 				A68BD7CE1BC31341005F02DF /* BlurView.h */,
 				A68BD7CF1BC31341005F02DF /* BlurView.m */,
 				A68BD7D01BC31341005F02DF /* BlurViewManager.h */,
@@ -128,8 +133,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68BD7CC1BC31332005F02DF /* VibrancyView.m in Sources */,
-				A68BD7D21BC31341005F02DF /* BlurView.m in Sources */,
 				A68BD7CD1BC31332005F02DF /* VibrancyViewManager.m in Sources */,
+				256D23D71E1EBA540023CA16 /* BlurAmount.m in Sources */,
+				A68BD7D21BC31341005F02DF /* BlurView.m in Sources */,
 				A68BD7D31BC31341005F02DF /* BlurViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

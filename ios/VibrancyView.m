@@ -1,6 +1,6 @@
 #import "VibrancyView.h"
 #import "BlurView.h"
-#import "RCTComponent.h"
+#import <React/RCTComponent.h>
 
 @implementation VibrancyView {
   UIVisualEffectView *_visualEffectView;
