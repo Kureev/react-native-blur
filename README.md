@@ -25,7 +25,36 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
   ```
   react-native link react-native-blur
   ```
-3. Inside your code include JS part by adding
+3. (Android only) Add the following to your `android/app/build.gradle`
+  ```
+  android {
+      ...
+      defaultConfig {
+          ...
+          renderscriptTargetApi 20
+          renderscriptSupportModeEnabled true
+      }
+  }
+
+  repositories {
+      maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
+  }
+
+  dependencies {
+      ...
+      compile project(':react-native-blur')
+  }
+
+    buildscript {
+        repositories {
+            maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
+        }
+        dependencies {
+            classpath 'com.fivehundredpx:blurringview:1.0.0'
+        }
+    }
+  ```
+4. Inside your code include JS part by adding
 
   ```javascript
   const { BlurView, VibrancyView } = require('react-native-blur');
@@ -92,35 +121,7 @@ const Menu = React.createClass({
 
 ### Android
 
-Android support uses an [external library](https://github.com/500px/500px-android-blur) which has slightly different properties and setup requirements. You must add the following to the `android/app/build.gradle` file:
-```
-android {
-  ...
-  defaultConfig {
-    ...
-    renderscriptTargetApi 20
-    renderscriptSupportModeEnabled true
-  }
-}
-
-repositories {
-    maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
-}
-
-dependencies {
-  ...
-  compile project(':react-native-blur')
-}
-
-buildscript {
-    repositories {
-        maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
-    }
-    dependencies {
-        classpath 'com.fivehundredpx:blurringview:1.0.0'
-    }
-}
-```
+Android support uses an [external library](https://github.com/500px/500px-android-blur) which has slightly different properties and setup requirements. This is why extra code must be added manually to the `android/app/build.gradle` file as documented above.
 
 The android BlurView works by blurring an existing referenced view, so you must wait till the view you want to blur is rendered and then provide the reference to the BlurView as the `viewRef` prop. Take a look at the example to see how it works.
 
