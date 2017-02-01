@@ -35,12 +35,12 @@ class Basic extends Component {
         style={styles.container}
         ref={'backgroundImage'}
         onLoadEnd={this.imageLoaded.bind(this)}>
-        <BlurView
+        {/*<BlurView
           blurRadius={15}
           downsampleFactor={5}
           overlayColor={'rgba(255, 255, 255, .25)'}
           style={styles.blurView}
-          viewRef={this.state.viewRef}/>
+          viewRef={this.state.viewRef}/>*/}
         <Text style={styles.welcome}>{`Blur component`}</Text>
       </Image>
     );

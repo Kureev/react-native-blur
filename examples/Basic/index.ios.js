@@ -2,7 +2,7 @@
  * Basic [iOS] Example for react-native-blur
  * https://github.com/react-native-community/react-native-blur
  */
-import React, {Component} from 'react'
+import React, {Component, } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -10,96 +10,11 @@ import {
   Image,
   View,
   SegmentedControlIOS,
-  Switch
-} from 'react-native'
+  Switch,
+} from 'react-native';
 
-import {BlurView, VibrancyView} from 'react-native-blur'
+import {BlurView, VibrancyView, } from 'react-native-blur';
 
-class Basic extends Component {
-
-  constructor() {
-    super()
-    this.state = {
-      showBlurs: true,
-      blurBlurType: 'light',
-      blurActiveSegment: 1,
-      vibrancyBlurType: 'dark',
-      vibrancyActiveSegment: 2,
-    }
-  }
-
-  _onBlurChange(event) {
-    this.setState({blurActiveSegment: event.nativeEvent.selectedSegmentIndex})
-  }
-
-  _onBlurValueChange(value) {
-    this.setState({blurBlurType: value})
-  }
-
-  _onVibrancyChange(event) {
-    this.setState({vibrancyActiveSegment: event.nativeEvent.selectedSegmentIndex})
-  }
-
-  _onVibrancyValueChange(value) {
-    this.setState({vibrancyBlurType: value})
-  }
-
-  render() {
-    return (
-      <View
-        style={styles.container}>
-
-        <Image
-          source={require('./bgimage.jpeg')}
-          resizeMode='cover'
-          style={styles.img}/>
-
-        {(this.state.showBlurs
-
-          ? <View style={styles.container}>
-        
-              <BlurView
-                blurType={this.state.blurBlurType}
-                blurAmount={10}
-                style={[styles.container, styles.blurContainer]}>
-                <Text style={styles.welcome}>{`Blur component`}</Text>
-                <SegmentedControlIOS
-                  values={['xlight', 'light', 'dark']}
-                  selectedIndex={this.state.blurActiveSegment}
-                  onChange={(event) => {this._onBlurChange(event)}}
-                  onValueChange={(value) => {this._onBlurValueChange(value)}}
-                  tintColor={this.state.blurBlurType == 'xlight' ? 'black' : 'white'}/>
-              </BlurView>
-
-              <VibrancyView
-                blurType={this.state.vibrancyBlurType}
-                blurAmount={1}
-                style={[styles.container, styles.blurContainer]}>
-                <Text style={styles.welcome}>{`Vibrancy component`}</Text>
-                <SegmentedControlIOS
-                  values={['xlight', 'light', 'dark']}
-                  selectedIndex={this.state.vibrancyActiveSegment}
-                  onChange={(event) => {this._onVibrancyChange(event)}}
-                  onValueChange={(value) => {this._onVibrancyValueChange(value)}}
-                  tintColor={this.state.vibrancyBlurType == 'xlight' ? 'black' : 'white'}/>
-              </VibrancyView>
-
-            </View>
-
-          : null
-        )}
-
-        <View
-          style={styles.blurToggle}>
-          <Switch
-            onValueChange={(value) => this.setState({showBlurs: value})}
-            value={this.state.showBlurs} />
-        </View>
-        
-      </View>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -132,7 +47,93 @@ const styles = StyleSheet.create({
     top: 30,
     right: 10,
     alignItems: 'flex-end',
-  }
+  },
 });
+
+
+class Basic extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showBlurs: true,
+      blurBlurType: 'light',
+      blurActiveSegment: 1,
+      vibrancyBlurType: 'dark',
+      vibrancyActiveSegment: 2,
+    };
+  }
+
+  _onBlurChange(event) {
+    this.setState({blurActiveSegment: event.nativeEvent.selectedSegmentIndex, });
+  }
+
+  _onBlurValueChange(value) {
+    this.setState({blurBlurType: value, });
+  }
+
+  _onVibrancyChange(event) {
+    this.setState({vibrancyActiveSegment: event.nativeEvent.selectedSegmentIndex, });
+  }
+
+  _onVibrancyValueChange(value) {
+    this.setState({vibrancyBlurType: value, });
+  }
+
+  render() {
+    return (
+      <View
+        style={styles.container}>
+
+        <Image
+          source={require('./bgimage.jpeg')}
+          resizeMode='cover'
+          style={styles.img}/>
+
+        {(this.state.showBlurs
+
+          ? <View style={styles.container}>
+
+              <BlurView
+                blurType={this.state.blurBlurType}
+                blurAmount={10}
+                style={[styles.container, styles.blurContainer,]}>
+                <Text style={styles.welcome}>{'Blur component'}</Text>
+                <SegmentedControlIOS
+                  values={['xlight', 'light', 'dark',]}
+                  selectedIndex={this.state.blurActiveSegment}
+                  onChange={(event) => {this._onBlurChange(event);}}
+                  onValueChange={(value) => {this._onBlurValueChange(value);}}
+                  tintColor={this.state.blurBlurType == 'xlight' ? 'black' : 'white'}/>
+              </BlurView>
+
+              <VibrancyView
+                blurType={this.state.vibrancyBlurType}
+                blurAmount={1}
+                style={[styles.container, styles.blurContainer, ]}>
+                <Text style={styles.welcome}>{'Vibrancy component'}</Text>
+                <SegmentedControlIOS
+                  values={['xlight', 'light', 'dark',]}
+                  selectedIndex={this.state.vibrancyActiveSegment}
+                  onChange={(event) => {this._onVibrancyChange(event);}}
+                  onValueChange={(value) => this._onVibrancyValueChange(value)}
+                  tintColor={this.state.vibrancyBlurType == 'xlight' ? 'black' : 'white'}/>
+              </VibrancyView>
+
+            </View>
+
+          : null
+        )}
+
+        <View
+          style={styles.blurToggle}>
+          <Switch
+            onValueChange={(value) => this.setState({showBlurs: value, })}
+            value={this.state.showBlurs} />
+        </View>
+
+      </View>
+    );
+  }
+}
 
 AppRegistry.registerComponent('Basic', () => Basic);
