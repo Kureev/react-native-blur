@@ -27,32 +27,18 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
   ```
 3. (Android only) Add the following to your `android/app/build.gradle`
   ```
-  android {
-      ...
-      defaultConfig {
-          ...
-          renderscriptTargetApi 20
-          renderscriptSupportModeEnabled true
-      }
-  }
+repositories {
+    maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
+}
 
-  repositories {
-      maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
-  }
-
-  dependencies {
-      ...
-      compile project(':react-native-blur')
-  }
-
-    buildscript {
-        repositories {
-            maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
-        }
-        dependencies {
-            classpath 'com.fivehundredpx:blurringview:1.0.0'
-        }
+buildscript {
+    repositories {
+        maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
     }
+    dependencies {
+        classpath 'com.fivehundredpx:blurringview:1.0.0'
+    }
+}
   ```
 4. Inside your code include JS part by adding
 
