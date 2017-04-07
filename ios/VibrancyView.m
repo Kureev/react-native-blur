@@ -3,12 +3,10 @@
 #import "BlurView.h"
 #import <React/RCTComponent.h>
 
-
 @interface VibrancyView ()
 
 @property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 @property (nonatomic, strong) UIVisualEffectView *vibrancyView;
-
 
 @end
 
