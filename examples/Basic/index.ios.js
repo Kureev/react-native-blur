@@ -10,6 +10,7 @@ import {
   Image,
   View,
   SegmentedControlIOS,
+  Slider,
   Switch
 } from 'react-native'
 
@@ -25,6 +26,7 @@ class Basic extends Component {
       blurActiveSegment: 1,
       vibrancyBlurType: 'dark',
       vibrancyActiveSegment: 2,
+      blurAmount: 5,
     }
   }
 
@@ -34,6 +36,10 @@ class Basic extends Component {
 
   _onBlurValueChange(value) {
     this.setState({blurBlurType: value})
+  }
+
+  _onBlurAmountChange(blurAmount) {
+    this.setState({ blurAmount });
   }
 
   _onVibrancyChange(event) {
@@ -48,19 +54,15 @@ class Basic extends Component {
     return (
       <View
         style={styles.container}>
-
         <Image
           source={require('./bgimage.jpeg')}
           resizeMode='cover'
           style={styles.img}/>
-
         {(this.state.showBlurs
-
           ? <View style={styles.container}>
-        
               <BlurView
                 blurType={this.state.blurBlurType}
-                blurAmount={10}
+                blurAmount={this.state.blurAmount}
                 style={[styles.container, styles.blurContainer]}>
                 <Text style={styles.welcome}>{`Blur component`}</Text>
                 <SegmentedControlIOS
@@ -69,8 +71,11 @@ class Basic extends Component {
                   onChange={(event) => {this._onBlurChange(event)}}
                   onValueChange={(value) => {this._onBlurValueChange(value)}}
                   tintColor={this.state.blurBlurType == 'xlight' ? 'black' : 'white'}/>
+                <Slider
+                  minimumValue={0}
+                  maximumValue={25}
+                  onValueChange={(value) => this._onBlurAmountChange(value)} />
               </BlurView>
-
               <VibrancyView
                 blurType={this.state.vibrancyBlurType}
                 blurAmount={1}
@@ -83,19 +88,15 @@ class Basic extends Component {
                   onValueChange={(value) => {this._onVibrancyValueChange(value)}}
                   tintColor={this.state.vibrancyBlurType == 'xlight' ? 'black' : 'white'}/>
               </VibrancyView>
-
             </View>
-
           : null
         )}
-
         <View
           style={styles.blurToggle}>
           <Switch
             onValueChange={(value) => this.setState({showBlurs: value})}
             value={this.state.showBlurs} />
         </View>
-        
       </View>
     );
   }
