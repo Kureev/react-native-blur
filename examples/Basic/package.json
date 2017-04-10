@@ -6,8 +6,8 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "react": "^15.3.2",
-    "react-native": "^0.36.0",
+    "react": "~15.4.1",
+    "react-native": "^0.42.0",
     "react-native-blur": "file:../../"
   }
 }
