@@ -26,3 +26,6 @@ project.xcworkspace
 #
 node_modules/
 npm-debug.log
+
+# Android
+android/react-native-blur.iml

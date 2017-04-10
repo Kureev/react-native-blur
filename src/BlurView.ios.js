@@ -8,7 +8,7 @@ class BlurView extends Component {
         {...this.props}
         style={[{
           backgroundColor: 'transparent',
-        }, this.props.style
+        }, this.props.style,
         ]}
       />
     );

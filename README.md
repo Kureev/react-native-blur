@@ -76,13 +76,45 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 5. Compile and have fun!
 
 ### Usage example
-You can run built-in example via few simple steps:
-1. Clone repository
-2. Go to `examples/Basic`
-3. Run `npm install && open Basic.xcodeproj`
-4. Hit "Run"(`cmd+R`) button on XCode panel
+
+You can run the built-in examples by running these steps:
+
+
+1. Clone the repository
+
+```
+cd ~
+git clone https://github.com/react-native-community/react-native-blur.git
+```
+
+2. cd to `examples/Basic`
+
+```
+cd react-native-blur/examples/Basic
+```
+
+3. Install dependencies
+
+```
+npm install
+```
+
+4. Run the apps:
+
+#### Run the iOS app
+
+```
+react-native run-ios
+```
+
+#### Run the Android app
+
+```
+react-native run-android
+```
 
 #### Blur View
+
 To use `blur` view, you need to require `BlurView` to your module and insert `<BlurView>` tag inside render function as it's done below:
 
 ```javascript
@@ -91,17 +123,20 @@ const { BlurView } = require('react-native-blur');
 const Menu = React.createClass({
   render() {
     return (
-      <Image source={{uri}} style={styles.menu}>
-        <BlurView blurType="light" blurAmount={10} style={styles.blur}>
-          <Text>Hi, I am a tiny menu item</Text>
-        </BlurView>
-      </Image>
+      <View>
+        <Image source={{uri}} style={styles.menu} />
+        <BlurView blurType="light" blurAmount={10} style={styles.blur} />
+        <Text style={styles.text}>Hi, I am a tiny menu item</Text>
+      </View>
     );
   }
 });
 ```
 
 In this example, `Image` component will be blurred, a `BlurView` content will stay untouched.
+
+Note that if you need to support Android, the `BlurView` cannot be a child of the view that is being
+blurred, and it cannot contain any child components. See the [Android section](#android) for more information.
 
 #### Vibrancy View
 > The vibrancy effect lets the content underneath a blurred view show through more vibrantly
@@ -122,6 +157,8 @@ const Menu = React.createClass({
 });
 ```
 
+> Note: `VibrancyView` is only supported on iOS. It must contain child views, otherwise the effect does not work.
+
 ### Component properties
 - `blurType` (String) - blur type effect
   - `xlight` - extra light blur type
@@ -139,6 +176,7 @@ Android support uses an [external library](https://github.com/500px/500px-androi
 The android BlurView works by blurring an existing referenced view, so you must wait till the view you want to blur is rendered and then provide the reference to the BlurView as the `viewRef` prop. Take a look at the example to see how it works.
 
 It has the following props:
+
 - `viewRef` (Number) - a reference to the existing view you want to blur
 - `blurRadius` (Number)
 - `downsampleFactor` (Number)

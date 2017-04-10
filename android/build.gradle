@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.1.3'
+        classpath 'com.android.tools.build:gradle:2.2.3'
     }
 }
 
@@ -34,6 +34,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:0.41.+'
+    compile 'com.facebook.react:react-native:0.43.+'
     compile 'com.fivehundredpx:blurringview:1.0.0'
 }
