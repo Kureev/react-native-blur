@@ -2,13 +2,16 @@
 #import <objc/runtime.h>
 
 @interface UIBlurEffect (Protected)
+
 @property (nonatomic, readonly) id effectSettings;
+@property (nonatomic, copy, class) NSNumber *localBlurAmount;
+
 @end
 
 
 @implementation BlurAmount
 
-  NSNumber *localBlurAmount;
+static NSNumber *_localBlurAmount = nil;
 
 + (instancetype)effectWithStyle:(UIBlurEffectStyle)style
 {
@@ -21,7 +24,7 @@
 - (id)effectSettings
 {
     id settings = [super effectSettings];
-    [settings setValue:localBlurAmount forKey:@"blurRadius"];
+    [settings setValue:BlurAmount.localBlurAmount forKey:@"blurRadius"];
     return settings;
 }
 
@@ -32,9 +35,19 @@
     return result;
 }
 
++ (void)setLocalBlurAmount:(NSNumber *)localBlurAmount {
+    if (localBlurAmount != _localBlurAmount) {
+        _localBlurAmount = localBlurAmount;
+    }
+}
+
++ (NSNumber *)localBlurAmount {
+    return _localBlurAmount;
+}
+
 + (id)updateBlurAmount:(NSNumber*)blurAmount
 {
-    localBlurAmount = blurAmount;
+    self.localBlurAmount = blurAmount;
     return blurAmount;
 }
 
