@@ -1,57 +1,61 @@
+#import <UIKit/UIKit.h>
 #import "VibrancyView.h"
 #import "BlurView.h"
 #import <React/RCTComponent.h>
 
-@implementation VibrancyView {
-  UIVisualEffectView *_visualEffectView;
-  UIVisualEffectView *_vibrancyView;
+@interface VibrancyView ()
+
+@property (nonatomic, strong) UIVisualEffectView *visualEffectView;
+@property (nonatomic, strong) UIVisualEffectView *vibrancyView;
+
+@end
+
+@implementation VibrancyView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        self.visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+
+        UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+        self.vibrancyView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+
+        self.visualEffectView.frame = frame;
+        self.vibrancyView.frame = frame;
+
+        [self addSubview:self.visualEffectView];
+        [self.visualEffectView.contentView addSubview:self.vibrancyView];
+    }
+
+    return self;
 }
 
 -(void)layoutSubviews
 {
-  [super layoutSubviews];
+    [super layoutSubviews];
 
-  _visualEffectView.frame = self.bounds;
-  _vibrancyView.frame = self.bounds;
+    self.visualEffectView.frame = self.bounds;
+    self.vibrancyView.frame = self.bounds;
 }
 
 - (void)setBlurType:(NSString *)blurType {
-  NSArray *subviews;
-  if (_visualEffectView) {
-    [_visualEffectView removeFromSuperview];
-    subviews = [_vibrancyView.contentView.subviews copy];
-  }
+    UIBlurEffect *blurEffect;
 
-  UIBlurEffect *blurEffect;
-
-  self.clipsToBounds = true;
-  if ([blurType isEqual: @"xlight"]) {
-    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-  } else if ([blurType isEqual: @"light"]) {
-    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-  } else if ([blurType isEqual: @"dark"]) {
-    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-  } else {
-    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-  }
-
-  _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-
-  UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
-  _vibrancyView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
-
-  [_visualEffectView.contentView addSubview:_vibrancyView];
-
-  if (subviews) {
-    for (UIView *v in subviews) {
-      [_vibrancyView.contentView addSubview:v];
+    self.clipsToBounds = true;
+    if ([blurType isEqual: @"xlight"]) {
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    } else if ([blurType isEqual: @"light"]) {
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    } else if ([blurType isEqual: @"dark"]) {
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    } else {
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     }
-  }
-  [self addSubview:_visualEffectView];
+    self.visualEffectView.effect = blurEffect;
 }
 
 - (void)insertReactSubview:(id<RCTComponent>)subview atIndex:(NSInteger)atIndex {
-  [_vibrancyView.contentView addSubview:(UIView*)subview];
+    [self.vibrancyView.contentView addSubview:(UIView*)subview];
 }
 
 @end
