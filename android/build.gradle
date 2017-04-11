@@ -34,6 +34,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:0.19.+'
+    compile 'com.facebook.react:react-native:0.41.+'
     compile 'com.fivehundredpx:blurringview:1.0.0'
 }

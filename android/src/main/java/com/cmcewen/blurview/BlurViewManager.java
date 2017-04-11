@@ -1,5 +1,6 @@
 package com.cmcewen.blurview;
 
+import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,6 +15,8 @@ public class BlurViewManager extends SimpleViewManager<BlurringView> {
     public static final int defaultRadius = 10;
     public static final int defaultSampling = 10;
 
+    private static Activity currentActivity;
+
     @Override
     public String getName() {
         return REACT_CLASS;
@@ -21,6 +24,8 @@ public class BlurViewManager extends SimpleViewManager<BlurringView> {
 
     @Override
     public BlurringView createViewInstance(ThemedReactContext context) {
+        currentActivity = context.getCurrentActivity();
+
         BlurringView blurringView = new BlurringView(context);
         blurringView.setBlurRadius(defaultRadius);
         blurringView.setDownsampleFactor(defaultSampling);
@@ -44,12 +49,11 @@ public class BlurViewManager extends SimpleViewManager<BlurringView> {
 
     @ReactProp(name = "viewRef")
     public void setViewRef(BlurringView view, int viewRef) {
-        ViewGroup viewGroup = (ViewGroup) view.getRootView().findViewById(viewRef);
-        if (viewGroup != null) {
-            View v = viewGroup.getChildAt(0);
-            view.setBlurredView(v);
+        View blurredView = currentActivity.findViewById(viewRef);
+
+        if (blurredView != null) {
+            view.setBlurredView(blurredView);
             view.invalidate();
         }
     }
 }
-
