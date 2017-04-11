@@ -52,7 +52,7 @@
 
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
-    if ([UIViewPropertyAnimator class]) {
+    if (self.animator) {
         CGFloat maxValue = 25.0f;
         CGFloat clampedValue = fminf(fmaxf([blurAmount floatValue], 0), maxValue);
         CGFloat fractionComplete = 1.0f - (clampedValue / maxValue);
