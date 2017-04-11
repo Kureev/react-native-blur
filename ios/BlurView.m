@@ -22,7 +22,6 @@
         self.clipsToBounds = true;
 
         [self addSubview:self.visualEffectView];
-
         if ([UIViewPropertyAnimator class]) {
           UICubicTimingParameters *timingParameters = [[UICubicTimingParameters alloc] initWithAnimationCurve:UIViewAnimationCurveLinear];
           self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0 timingParameters:timingParameters];

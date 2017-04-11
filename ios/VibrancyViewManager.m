@@ -1,3 +1,5 @@
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "VibrancyViewManager.h"
 #import "VibrancyView.h"
 
