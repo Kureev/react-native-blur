@@ -40,6 +40,7 @@ Check the [roadmap here](https://github.com/Kureev/react-native-blur/issues/1)
 
   allprojects {
     repositories {
+        // Add the following in a new line, underneath "maven { url '$rootDir/../node_modules/react-native/android' }"
         maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
     }
 }
