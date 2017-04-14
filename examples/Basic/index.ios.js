@@ -10,7 +10,8 @@ import {
   Image,
   View,
   SegmentedControlIOS,
-  Switch,
+  Slider,
+  Switch
 } from 'react-native'
 
 import { BlurView, VibrancyView } from 'react-native-blur'
@@ -25,6 +26,7 @@ class Basic extends Component {
       blurActiveSegment: 1,
       vibrancyBlurType: 'dark',
       vibrancyActiveSegment: 2,
+      blurAmount: 5,
     }
   }
 
@@ -34,6 +36,10 @@ class Basic extends Component {
 
   _onBlurValueChange(value) {
     this.setState({blurBlurType: value})
+  }
+
+  _onBlurAmountChange(blurAmount) {
+    this.setState({ blurAmount });
   }
 
   _onVibrancyChange(event) {
@@ -57,7 +63,7 @@ class Basic extends Component {
           */}
           <BlurView
             blurType={this.state.blurBlurType}
-            blurAmount={10}
+            blurAmount={this.state.blurAmount}
             style={[styles.blurView]} />
 
           <Text style={styles.welcome}>{`Blur component`}</Text>
@@ -68,6 +74,11 @@ class Basic extends Component {
             onChange={(event) => {this._onBlurChange(event)}}
             onValueChange={(value) => {this._onBlurValueChange(value)}}
             tintColor={this.state.blurBlurType == 'xlight' ? 'black' : 'white'}/>
+
+            <Slider
+              minimumValue={0}
+              maximumValue={25}
+              onValueChange={(value) => this._onBlurAmountChange(value)} />
         </View>
 
         {/*
