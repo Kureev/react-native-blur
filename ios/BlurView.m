@@ -37,12 +37,13 @@
     } else {
         self.blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     }
-    self.visualEffectView.effect = self.blurEffect;
-}
-
-- (void)setBlurAmount:(NSNumber *)blurAmount
-{
-    [BlurAmount updateBlurAmount:blurAmount];
+    self.blurEffect.blurAmount = self.blurAmount;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.visualEffectView = [[UIVisualEffectView alloc] initWithEffect:self.blurEffect];
+        self.visualEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.visualEffectView.frame = self.bounds;
+        [self bringSubviewToFront:self.visualEffectView];
+    });
 }
 
 @end
