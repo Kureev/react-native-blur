@@ -1,9 +1,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BlurAmount : UIBlurEffect
-
-@property (nonatomic, copy) NSNumber *blurAmount;
-
 + (id)updateBlurAmount:(NSNumber*)blurAmount;
 
+@property (nonatomic, copy) NSNumber *blurAmount;
 @end
