@@ -8,7 +8,7 @@ class VibrancyView extends Component {
         {...this.props}
         style={[{
           backgroundColor: 'transparent',
-        }, this.props.style
+        }, this.props.style,
         ]}
       />
     );
@@ -17,6 +17,11 @@ class VibrancyView extends Component {
 
 VibrancyView.propTypes = {
   blurType: PropTypes.string,
+  blurAmount: PropTypes.number.isRequired,
+};
+
+VibrancyView.defaultProps = {
+  blurAmount: 10,
 };
 
 const NativeVibrancyView = requireNativeComponent('VibrancyView', VibrancyView);

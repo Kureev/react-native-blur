@@ -168,8 +168,6 @@ const Menu = React.createClass({
 - `blurAmount` (Default: 10, Number) - blur amount effect
   - `0-100` - Adjusts blur intensity
 
-*Note: `blurAmount` does not refresh with Hot Reloading. You must a refresh the app to view the results of the changes*
-
 ### Android
 
 Android support uses an [external library](https://github.com/500px/500px-android-blur) which has slightly different properties and setup requirements. This is why extra code must be added manually to the `android/app/build.gradle` file as documented above.

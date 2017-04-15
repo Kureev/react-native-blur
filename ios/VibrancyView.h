@@ -1,7 +1,4 @@
-#import <UIKit/UIKit.h>
+#import "BlurView.h"
 
-@interface VibrancyView : UIView
-
-@property (nonatomic, copy) NSString *blurType;
-
+@interface VibrancyView : BlurView
 @end
