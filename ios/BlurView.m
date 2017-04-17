@@ -1,11 +1,7 @@
-#import <UIKit/UIKit.h>
 #import "BlurView.h"
-#import "BlurAmount.h"
+#import "BlurEffectWithAmount.h"
 
 @interface BlurView ()
-
-@property (nonatomic, strong) UIVisualEffectView *visualEffectView;
-@property (nonatomic, strong) UIBlurEffect *blurEffect;
 
 @end
 
@@ -13,36 +9,58 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        self.visualEffectView = [[UIVisualEffectView alloc] initWithEffect:self.blurEffect];
-        self.visualEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.visualEffectView.frame = frame;
+        self.blurEffectView = [[UIVisualEffectView alloc] init];
+        self.blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.blurEffectView.frame = frame;
+
+        self.blurAmount = @10;
+        self.blurType = @"dark";
+        [self updateBlurEffect];
 
         self.clipsToBounds = true;
 
-        [self addSubview:self.visualEffectView];
+        [self addSubview:self.blurEffectView];
     }
 
     return self;
 }
 
+- (void)layoutSubviews
+{
+  [super layoutSubviews];
+  self.blurEffectView.frame = self.bounds;
+}
+
 - (void)setBlurType:(NSString *)blurType
 {
-    if ([blurType isEqual: @"xlight"]) {
-        self.blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-    } else if ([blurType isEqual: @"light"]) {
-        self.blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    } else if ([blurType isEqual: @"dark"]) {
-        self.blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    } else {
-        self.blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    }
-    self.visualEffectView.effect = self.blurEffect;
+  if (blurType && ![self.blurType isEqual:blurType]) {
+    _blurType = blurType;
+    [self updateBlurEffect];
+  }
 }
 
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
-    [BlurAmount updateBlurAmount:blurAmount];
+  if (blurAmount && ![self.blurAmount isEqualToNumber:blurAmount]) {
+    _blurAmount = blurAmount;
+    [self updateBlurEffect];
+  }
+}
+
+
+- (UIBlurEffectStyle)blurEffectStyle
+{
+  if ([self.blurType isEqual: @"xlight"]) return UIBlurEffectStyleExtraLight;
+  if ([self.blurType isEqual: @"light"]) return UIBlurEffectStyleLight;
+  if ([self.blurType isEqual: @"dark"]) return UIBlurEffectStyleDark;
+  return UIBlurEffectStyleDark;
+}
+
+- (void)updateBlurEffect
+{
+  UIBlurEffectStyle style = [self blurEffectStyle];
+  self.blurEffect = [BlurEffectWithAmount effectWithStyle:style andBlurAmount:self.blurAmount];
+  self.blurEffectView.effect = self.blurEffect;
 }
 
 @end

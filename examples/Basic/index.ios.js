@@ -16,9 +16,9 @@ import {
 import { BlurView, VibrancyView } from 'react-native-blur'
 
 class Basic extends Component {
+  constructor(props) {
+    super(props)
 
-  constructor() {
-    super()
     this.state = {
       showBlurs: true,
       blurBlurType: 'light',
@@ -60,14 +60,15 @@ class Basic extends Component {
             blurAmount={10}
             style={[styles.blurView]} />
 
-          <Text style={styles.welcome}>{`Blur component`}</Text>
+          <Text style={styles.welcome}>Blur component</Text>
 
           <SegmentedControlIOS
             values={['xlight', 'light', 'dark']}
             selectedIndex={this.state.blurActiveSegment}
             onChange={(event) => {this._onBlurChange(event)}}
             onValueChange={(value) => {this._onBlurValueChange(value)}}
-            tintColor={this.state.blurBlurType == 'xlight' ? 'black' : 'white'}/>
+            tintColor={this.state.blurBlurType === 'xlight' ? 'black' : 'white'}
+          />
         </View>
 
         {/*
@@ -76,15 +77,16 @@ class Basic extends Component {
         */}
         <VibrancyView
           blurType={this.state.vibrancyBlurType}
-          blurAmount={1}
+          blurAmount={10}
           style={[styles.container, styles.blurContainer]}>
-          <Text style={styles.welcome}>{`Vibrancy component`}</Text>
+          <Text style={styles.welcome}>Vibrancy component</Text>
           <SegmentedControlIOS
             values={['xlight', 'light', 'dark']}
             selectedIndex={this.state.vibrancyActiveSegment}
             onChange={(event) => {this._onVibrancyChange(event)}}
             onValueChange={(value) => {this._onVibrancyValueChange(value)}}
-            tintColor={this.state.vibrancyBlurType == 'xlight' ? 'black' : 'white'}/>
+            tintColor="white"
+          />
         </VibrancyView>
       </View>
     )
