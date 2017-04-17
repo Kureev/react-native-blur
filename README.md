@@ -18,6 +18,8 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px
 
 ### Installation
 
+**NOTE:** Latest version of the package is available in npm as `react-native-blur@3.0.0-alpha`
+
 1. Install package via npm:
 
   ```
