@@ -45,6 +45,8 @@ class Basic extends Component {
   }
 
   renderBlurs() {
+    const tintColor = this.state.blurBlurType === 'xlight' ? 'black' : 'white';
+
     return (
       <View style={styles.container}>
 
@@ -57,17 +59,19 @@ class Basic extends Component {
           */}
           <BlurView
             blurType={this.state.blurBlurType}
-            blurAmount={10}
+            blurAmount={100}
             style={[styles.blurView]} />
 
-          <Text style={styles.welcome}>Blur component</Text>
+          <Text style={[styles.text, { color: tintColor }]}>
+            Blur component (iOS)
+          </Text>
 
           <SegmentedControlIOS
             values={['xlight', 'light', 'dark']}
             selectedIndex={this.state.blurActiveSegment}
             onChange={(event) => {this._onBlurChange(event)}}
             onValueChange={(value) => {this._onBlurValueChange(value)}}
-            tintColor={this.state.blurBlurType === 'xlight' ? 'black' : 'white'}
+            tintColor={tintColor}
           />
         </View>
 
@@ -79,7 +83,11 @@ class Basic extends Component {
           blurType={this.state.vibrancyBlurType}
           blurAmount={10}
           style={[styles.container, styles.blurContainer]}>
-          <Text style={styles.welcome}>Vibrancy component</Text>
+
+          <Text style={styles.text}>
+            Vibrancy component (iOS-only)
+          </Text>
+
           <SegmentedControlIOS
             values={['xlight', 'light', 'dark']}
             selectedIndex={this.state.vibrancyActiveSegment}
@@ -143,7 +151,7 @@ const styles = StyleSheet.create({
     height: null,
     width: null,
   },
-  welcome: {
+  text: {
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',

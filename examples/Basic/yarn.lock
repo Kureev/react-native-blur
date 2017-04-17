@@ -2922,6 +2922,10 @@ react-devtools-core@^2.0.8:
 "react-native-blur@file:../../":
   version "2.0.0"
 
+react-native-segmented-android@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-segmented-android/-/react-native-segmented-android-1.0.4.tgz#223424ab2b6b31acdd90be1ff3d49953a0df2c1d"
+
 react-native@0.43.3:
   version "0.43.3"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.43.3.tgz#4f8e0d8d88827553789c02ef21cbc1afb68474d0"
