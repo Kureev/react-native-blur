@@ -20,6 +20,5 @@ allprojects {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
-        maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
     }
 }
