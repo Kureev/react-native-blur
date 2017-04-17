@@ -1,6 +1,6 @@
 {
   "name": "react-native-blur",
-  "version": "2.0.0",
+  "version": "3.0.0-alpha",
   "description": "React Native Blur component",
   "main": "index.js",
   "scripts": {
