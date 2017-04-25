@@ -6,12 +6,7 @@ import {
   findNodeHandle,
 } from 'react-native';
 
-const OVERLAY_COLORS = {
-  light: 'rgba(255, 255, 255, 0.2)',
-  xlight: 'rgba(255, 255, 255, 0.75)',
-  dark: 'rgba(16, 12, 12, 0.64)',
-};
-
+import { overlayColorForProps, blurRadiusForProps } from './lib/ios_blur_view_emulation';
 
 class BlurView extends Component {
   constructor(props) {
@@ -27,10 +22,6 @@ class BlurView extends Component {
     });
   }
 
-  componentWillUnmount() {
-    DeviceEventEmitter.removeAllListeners('ReactNativeBlurError');
-  }
-
   componentDidMount() {
     this.updateNodeHandle();
   }
@@ -38,6 +29,10 @@ class BlurView extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.props.viewRef === prevProps.viewRef) return;
     this.updateNodeHandle();
+  }
+
+  componentWillUnmount() {
+    DeviceEventEmitter.removeAllListeners('ReactNativeBlurError');
   }
 
   getNodeHandle() {
@@ -65,33 +60,14 @@ class BlurView extends Component {
     }
   }
 
-  overlayColor() {
-    if (this.props.overlayColor != null) return this.props.overlayColor;
-    return OVERLAY_COLORS[this.props.blurType] || OVERLAY_COLORS.dark;
-  }
-
   blurRadius() {
-    const { blurRadius, blurAmount } = this.props;
-
-    if (blurRadius != null) {
-      if (blurRadius > 25) {
-        throw new Error(`[ReactNativeBlur]: blurRadius cannot be greater than 25! (was: ${blurRadius})`);
-      }
-      return blurRadius;
-    }
-
-    // iOS seems to use a slightly different blurring algorithm (or scale?).
-    // Android blurRadius + downsampleFactor is approximately 80% of blurAmount.
-    const equivalentBlurRadius = Math.round(blurAmount * 0.8);
-
-    if (equivalentBlurRadius > 25) return 25;
-    return equivalentBlurRadius;
+    return blurRadiusForProps(this.props, { limit: 25 });
   }
 
   downsampleFactor() {
-    const { downsampleFactor, blurRadius } = this.props;
+    const { downsampleFactor } = this.props;
     if (downsampleFactor != null) return downsampleFactor;
-    return blurRadius;
+    return this.blurRadius();
   }
 
   render() {
@@ -102,18 +78,19 @@ class BlurView extends Component {
         'and place other views in front of it.');
     }
 
-    const { viewRef, style } = this.props;
+    const overlayColor = overlayColorForProps(this.props);
+    const styles = [
+      { backgroundColor: 'transparent' },
+      this.props.style,
+    ];
 
     return (
       <NativeBlurView
         nodeHandle={this.state.nodeHandle}
         blurRadius={this.blurRadius()}
         downsampleFactor={this.downsampleFactor()}
-        overlayColor={this.overlayColor()}
-        style={[
-          { backgroundColor: 'transparent' },
-          style,
-        ]}
+        overlayColor={overlayColor}
+        style={styles}
       />
     );
   }

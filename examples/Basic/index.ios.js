@@ -59,7 +59,7 @@ class Basic extends Component {
           */}
           <BlurView
             blurType={this.state.blurBlurType}
-            blurAmount={100}
+            blurAmount={10}
             style={[styles.blurView]} />
 
           <Text style={[styles.text, { color: tintColor }]}>

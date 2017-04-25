@@ -2,7 +2,7 @@
 
 ### React Native Blur
 
-A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px-android-blur](https://github.com/500px/500px-android-blur) on Android.<br>
+A component for UIVisualEffectView's blur and vibrancy effect on iOS, the [500px-android-blur](https://github.com/500px/500px-android-blur) library on Android, and a CSS blur filter on [react-native-web](https://github.com/necolas/react-native-web).<br>
 
 <img src='https://cloud.githubusercontent.com/assets/139536/25066337/3c9d44c0-224d-11e7-8ca6-028478bf4a7d.gif' />
 
@@ -70,7 +70,7 @@ android {
 
 > Note: The maximum `blurAmount` on Android is 32, so higher values will be clamped to 32.
 
-> Complete usage example that works on iOS and Android:
+> Complete usage example that works on iOS, Android, and Web (with [react-native-web](https://github.com/necolas/react-native-web)):
 
 ```javascript
 import React, { Component } from 'react';
@@ -160,11 +160,31 @@ The Android library introduces some limitations:
 
 If you only need to support iOS, then you can safely ignore these limitations.
 
-In addition to `blurType` and `blurAmount`, Android has some extra props that can be used to override the default behavior (or configure Android-specific behavior):
+In addition to `blurType` and `blurAmount`, you can pass the following props to override default behavior:
 
 - `blurRadius`       (Number - between 0 and 25) - Manually adjust the blur radius. (Default: matches iOS blurAmount)
 - `downsampleFactor` (Number - between 0 and 25) - Scales down the image before blurring (Default: matches iOS blurAmount)
 - `overlayColor`     (Color) - Set a custom overlay color (Default color based on iOS blurType)
+
+### Web
+
+![react-native-web-blur](https://cloud.githubusercontent.com/assets/139536/25307305/080119cc-27c9-11e7-91b4-242754496a2a.gif)
+
+`react-native-blur` has web support via the [react-native-web](https://github.com/necolas/react-native-web) project.
+
+`BlurView` on web is similar to Android, in that you need pass a reference to the view you want to blur as the `viewRef` prop.
+
+When the `BlurView` is mounted, it will add `filter: blur(<amount>)` to the `viewRef` element's style. It will remove the `filter` property when the `BlurView` is unmounted. The `BlurView` also contains an overlay `div`, with a semi-transparent background color.
+
+In addition to `blurType` and `blurAmount`, you can pass the following props to override default behavior:
+
+- `blurRadius`          (Number) - Manually adjust the blur radius. (Default: matches iOS blurAmount)
+- `overlayColor`        (Color) - Set a custom overlay color (Default color based on iOS blurType)
+- `transitionDuration`  (Number - ms) - Animate the blur amount (Default: 0)
+
+> Note: `transitionDuration` is not very useful out of the box. If you also want to animate the overlay opacity, then you will need to write some custom animation code.
+
+> Note: The blurred edges of the `viewRef` will become transparent, and in some cases it doesn't look very good. One workaround is to [add some negative margins](http://stackoverflow.com/a/12224347/304706), to extend the blurred view and clip the edges. `react-native-blur` will not handle this for you.
 
 
 ### Example React Native App
@@ -204,6 +224,21 @@ react-native run-ios
 ```
 react-native run-android
 ```
+
+#### Run the web app
+
+```
+npm run web
+
+# Then visit http://localhost:3000 in your browser.
+```
+
+> Note: react-native-web requires a custom webpack config. This example includes a complete
+> configuration that can be used in production. When running `npm run web` for the first time,
+> it will build a vendored "DLL" containing react-native-web and all of it's dependencies.
+> It only needs to build this once, so starting the dev server will be much faster the next time.
+> If you update `react-native-web`, make sure you run `npm run web:clean` so that
+> the vendored libraries are updated. Run `npm run web:build:vendor-dev` to regenerate them manually.
 
 
 ### Troubleshooting

@@ -36,6 +36,11 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+# Web
+web/build
+web/vendor
+web/vendor-dev
+
 # BUCK
 buck-out/
 \.buckd/
