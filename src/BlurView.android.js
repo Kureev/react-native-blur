@@ -1,5 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import { View, requireNativeComponent, DeviceEventEmitter, } from 'react-native';
+import {
+  View,
+  requireNativeComponent,
+  DeviceEventEmitter,
+  findNodeHandle,
+} from 'react-native';
 
 const OVERLAY_COLORS = {
   light: 'rgba(255, 255, 255, 0.2)',
@@ -9,6 +14,13 @@ const OVERLAY_COLORS = {
 
 
 class BlurView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nodeHandle: null,
+    };
+  }
+
   componentWillMount() {
     DeviceEventEmitter.addListener('ReactNativeBlurError', (message) => {
       throw new Error(`[ReactNativeBlur]: ${message}`);
@@ -17,6 +29,40 @@ class BlurView extends Component {
 
   componentWillUnmount() {
     DeviceEventEmitter.removeAllListeners('ReactNativeBlurError');
+  }
+
+  componentDidMount() {
+    this.updateNodeHandle();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.viewRef === prevProps.viewRef) return;
+    this.updateNodeHandle();
+  }
+
+  getNodeHandle() {
+    if (this.props.nodeHandle != null) return this.props.nodeHandle;
+    return findNodeHandle(this.props.viewRef);
+  }
+
+  // We need to do this in componentDidMount and componentDidUpdate,
+  // because React Native complains if you use findNodeHandle
+  // during the render cycle.
+  updateNodeHandle() {
+    if (this.props.viewRef == null) return;
+
+    // Backwards compatibility with code that passes node handles as the viewRef.
+    if (this.props.viewRef.setNativeProps === undefined) {
+      console.warn('[ReactNativeBlur]: Using findNodeHandle for the viewRef is deprecated. ' +
+        'Please pass the ref directly.');
+      this.setState({ nodeHandle: this.props.viewRef });
+      return;
+    }
+
+    const nodeHandle = this.getNodeHandle();
+    if (nodeHandle !== this.state.nodeHandle) {
+      this.setState({ nodeHandle });
+    }
   }
 
   overlayColor() {
@@ -60,7 +106,7 @@ class BlurView extends Component {
 
     return (
       <NativeBlurView
-        viewRef={viewRef}
+        nodeHandle={this.state.nodeHandle}
         blurRadius={this.blurRadius()}
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
@@ -81,7 +127,12 @@ BlurView.propTypes = {
   blurRadius: PropTypes.number,
   downsampleFactor: PropTypes.number,
   overlayColor: PropTypes.string,
-  viewRef: PropTypes.number.isRequired,
+  viewRef: PropTypes.shape({
+    setNativeProps: PropTypes.func.isRequired,
+  }),
+
+  // RN complains if this is not present. It can also be used to override the node handle
+  nodeHandle: PropTypes.number,
 };
 
 BlurView.defaultProps = {

@@ -74,7 +74,7 @@ android {
 
 ```javascript
 import React, { Component } from 'react';
-import { View, Image, Text, findNodeHandle, StyleSheet } from 'react-native';
+import { View, Image, Text, StyleSheet } from 'react-native';
 import { BlurView } from 'react-native-blur';
 
 export default class Menu extends Component {
@@ -84,7 +84,8 @@ export default class Menu extends Component {
   }
 
   imageLoaded() {
-    this.setState({ viewRef: findNodeHandle(this.backgroundImage) });
+    // Only set the viewRef when we are ready to blur the image
+    this.setState({ viewRef: this.backgroundImage });
   }
 
   render() {
@@ -150,7 +151,7 @@ export default class Menu extends Component {
 
 ### Android
 
-Android uses the [500px-android-blur](https://github.com/500px/500px-android-blur) library, which works by blurring a referenced view. This means that you must wait until the view you want to blur is rendered. You then use `findNodeHandle` to get a reference to that view, and pass that reference to the `BlurView` as the `viewRef` prop. Take a look at [the BlurView example](#blurview) to see how it works.
+Android uses the [500px-android-blur](https://github.com/500px/500px-android-blur) library, which works by blurring a referenced view. This means that you must wait until the view you want to blur is rendered, and then pass the reference to the `BlurView` as the `viewRef` prop. Take a look at [the BlurView example](#blurview) to see how it works.
 
 The Android library introduces some limitations:
 

@@ -7,7 +7,6 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   Image,
-  findNodeHandle,
   StyleSheet,
   Text,
   View,
@@ -33,12 +32,10 @@ class Basic extends Component {
   }
 
   imageLoaded() {
-    // Workaround for a tricky race condition on initial load.
-    InteractionManager.runAfterInteractions(() => {
-      setTimeout(() => {
-        this.setState({ viewRef: findNodeHandle(this.refs.backgroundImage) });
-      }, 500);
-    });
+    // Workaround for a tricky race condition on initial load
+    setTimeout(() => {
+      this.setState({ viewRef: this.backgroundImage });
+    }, 500);
   }
 
   _onChange(selected) {
@@ -58,14 +55,14 @@ class Basic extends Component {
           viewRef={this.state.viewRef}
           style={styles.blurView}
 
-          blurRadius={9}
+          blurAmount={10}
           blurType={this.state.blurType}
 
           // The following props are also available on Android:
-
-          // blurRadius={20}
-          // downsampleFactor={10}
-          // overlayColor={'rgba(0, 0, 255, .6)'}   // set a blue overlay
+          //
+          // blurAmount=10                          // Matches blurAmount on iOS
+          // downsampleFactor={10}                  // Shrink the image before blurring (we do this by default)
+          // overlayColor={'rgba(0, 0, 255, .6)'}   // Set a blue overlay
         />}
 
         <Text style={[styles.text, { color: tintColor[0] }]}>
@@ -83,8 +80,8 @@ class Basic extends Component {
           childText={BLUR_TYPES}
           orientation='horizontal'
           selectedPosition={this.state.activeSegment}
-          onChange={this._onChange.bind(this)} />
-
+          onChange={this._onChange.bind(this)}
+        />
       </View>
     )
   }
@@ -95,7 +92,7 @@ class Basic extends Component {
         <Image
           source={require('./bgimage.jpeg')}
           style={styles.image}
-          ref={'backgroundImage'}
+          ref={(i) => { this.backgroundImage = i; }}
           onLoadEnd={this.imageLoaded.bind(this)} />
 
         { this.state.showBlur ? this.renderBlurView() : null }

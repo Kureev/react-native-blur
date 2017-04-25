@@ -48,9 +48,9 @@ public class BlurViewManager extends SimpleViewManager<BlurringView> {
         view.setDownsampleFactor(factor);
     }
 
-    @ReactProp(name = "viewRef")
-    public void setViewRef(BlurringView view, int viewRef) {
-        View viewToBlur = context.getCurrentActivity().findViewById(viewRef);
+    @ReactProp(name = "nodeHandle")
+    public void setNodeHandle(BlurringView view, int nodeHandle) {
+        View viewToBlur = context.getCurrentActivity().findViewById(nodeHandle);
 
         if (viewToBlur != null) {
             view.setBlurredView(viewToBlur);
