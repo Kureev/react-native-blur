@@ -2920,11 +2920,11 @@ react-devtools-core@^2.0.8:
     ws "^2.0.3"
 
 "react-native-blur@file:../../":
-  version "2.0.0"
+  version "3.0.0-alpha"
 
-react-native-segmented-android@^1.0.4:
+react-native-segmented-android@sooth-sayer/react-native-segmented-android:
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-native-segmented-android/-/react-native-segmented-android-1.0.4.tgz#223424ab2b6b31acdd90be1ff3d49953a0df2c1d"
+  resolved "https://codeload.github.com/sooth-sayer/react-native-segmented-android/tar.gz/e674a9c0d06f40eec03cc94db106726e2916d671"
 
 react-native@0.43.3:
   version "0.43.3"
