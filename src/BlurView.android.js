@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, requireNativeComponent, DeviceEventEmitter, } from 'react-native';
+import { View, requireNativeComponent, DeviceEventEmitter, ViewPropTypes } from 'react-native';
 
 const OVERLAY_COLORS = {
   light: 'rgba(255, 255, 255, 0.2)',
@@ -74,7 +74,7 @@ class BlurView extends Component {
 }
 
 BlurView.propTypes = {
-  ...View.propTypes,
+  ...(ViewPropTypes || View.propTypes),
   blurAmount: PropTypes.number,
   blurType: PropTypes.oneOf(['dark', 'light', 'xlight']),
 
