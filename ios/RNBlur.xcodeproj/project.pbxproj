@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		256D23D71E1EBA540023CA16 /* BlurEffectWithAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 256D23D61E1EBA540023CA16 /* BlurEffectWithAmount.m */; };
+		64D1BD3F1EEFE8AB00F3F219 /* BlurEffectWithAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 256D23D61E1EBA540023CA16 /* BlurEffectWithAmount.m */; };
+		64D1BD401EEFE8AB00F3F219 /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CF1BC31341005F02DF /* BlurView.m */; };
+		64D1BD411EEFE8AB00F3F219 /* BlurViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7D11BC31341005F02DF /* BlurViewManager.m */; };
+		64D1BD421EEFE8AB00F3F219 /* VibrancyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7C91BC31332005F02DF /* VibrancyView.m */; };
+		64D1BD431EEFE8AB00F3F219 /* VibrancyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CB1BC31332005F02DF /* VibrancyViewManager.m */; };
 		A68BD7CC1BC31332005F02DF /* VibrancyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7C91BC31332005F02DF /* VibrancyView.m */; };
 		A68BD7CD1BC31332005F02DF /* VibrancyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CB1BC31332005F02DF /* VibrancyViewManager.m */; };
 		A68BD7D21BC31341005F02DF /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A68BD7CF1BC31341005F02DF /* BlurView.m */; };
@@ -15,6 +20,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		64D1BD341EEFE88700F3F219 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A68BD7BA1BC31318005F02DF /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,6 +43,7 @@
 /* Begin PBXFileReference section */
 		256D23D51E1EBA540023CA16 /* BlurEffectWithAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurEffectWithAmount.h; sourceTree = "<group>"; };
 		256D23D61E1EBA540023CA16 /* BlurEffectWithAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurEffectWithAmount.m; sourceTree = "<group>"; };
+		64D1BD361EEFE88700F3F219 /* libRNBlur.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNBlur.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68BD7BC1BC31318005F02DF /* libRNBlur.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNBlur.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68BD7C81BC31332005F02DF /* VibrancyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibrancyView.h; sourceTree = SOURCE_ROOT; };
 		A68BD7C91BC31332005F02DF /* VibrancyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyView.m; sourceTree = SOURCE_ROOT; };
@@ -41,6 +56,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		64D1BD331EEFE88700F3F219 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A68BD7B91BC31318005F02DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				A68BD7BC1BC31318005F02DF /* libRNBlur.a */,
+				64D1BD361EEFE88700F3F219 /* libRNBlur.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +102,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		64D1BD351EEFE88700F3F219 /* RNBlur-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64D1BD3E1EEFE88700F3F219 /* Build configuration list for PBXNativeTarget "RNBlur-tvOS" */;
+			buildPhases = (
+				64D1BD321EEFE88700F3F219 /* Sources */,
+				64D1BD331EEFE88700F3F219 /* Frameworks */,
+				64D1BD341EEFE88700F3F219 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNBlur-tvOS";
+			productName = "RNBlur-tvOS";
+			productReference = 64D1BD361EEFE88700F3F219 /* libRNBlur.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		A68BD7BB1BC31318005F02DF /* RNBlur */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A68BD7C51BC31318005F02DF /* Build configuration list for PBXNativeTarget "RNBlur" */;
@@ -105,6 +145,10 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Kureev;
 				TargetAttributes = {
+					64D1BD351EEFE88700F3F219 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
 					A68BD7BB1BC31318005F02DF = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
@@ -123,11 +167,24 @@
 			projectRoot = "";
 			targets = (
 				A68BD7BB1BC31318005F02DF /* RNBlur */,
+				64D1BD351EEFE88700F3F219 /* RNBlur-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		64D1BD321EEFE88700F3F219 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D1BD3F1EEFE8AB00F3F219 /* BlurEffectWithAmount.m in Sources */,
+				64D1BD401EEFE8AB00F3F219 /* BlurView.m in Sources */,
+				64D1BD411EEFE8AB00F3F219 /* BlurViewManager.m in Sources */,
+				64D1BD421EEFE8AB00F3F219 /* VibrancyView.m in Sources */,
+				64D1BD431EEFE8AB00F3F219 /* VibrancyViewManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A68BD7B81BC31318005F02DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +200,38 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		64D1BD3C1EEFE88700F3F219 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNBlur;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		64D1BD3D1EEFE88700F3F219 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNBlur;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
 		A68BD7C31BC31318005F02DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -251,6 +340,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		64D1BD3E1EEFE88700F3F219 /* Build configuration list for PBXNativeTarget "RNBlur-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64D1BD3C1EEFE88700F3F219 /* Debug */,
+				64D1BD3D1EEFE88700F3F219 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A68BD7B71BC31318005F02DF /* Build configuration list for PBXProject "RNBlur" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
