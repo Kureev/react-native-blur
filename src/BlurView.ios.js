@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { View, requireNativeComponent, ViewPropTypes } from 'react-native';
 
 class BlurView extends Component {
+  setNativeProps = nativeProps => {
+    if (this._root) {
+      this._root.setNativeProps(nativeProps);
+    }
+  }
+
   render() {
     return (
       <NativeBlurView
