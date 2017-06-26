@@ -53,6 +53,13 @@
   if ([self.blurType isEqual: @"xlight"]) return UIBlurEffectStyleExtraLight;
   if ([self.blurType isEqual: @"light"]) return UIBlurEffectStyleLight;
   if ([self.blurType isEqual: @"dark"]) return UIBlurEffectStyleDark;
+    
+  #ifdef TARGET_OS_TV
+    if ([self.blurType isEqual: @"extraDark"]) return UIBlurEffectStyleExtraDark;
+    if ([self.blurType isEqual: @"regular"]) return UIBlurEffectStyleRegular;
+    if ([self.blurType isEqual: @"prominent"]) return UIBlurEffectStyleProminent;
+  #endif
+    
   return UIBlurEffectStyleDark;
 }
 
