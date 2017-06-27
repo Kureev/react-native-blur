@@ -231,6 +231,13 @@ public class MainApplication extends Application implements ReactApplication {
 }
 ```
 
+In `app/build.gradle` under `dependencies` add:
+```java
+dependencies {
+  compile project(':react-native-blur')
+}
+```
+
 
 ### Questions?
 
