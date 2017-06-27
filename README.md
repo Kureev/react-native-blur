@@ -238,6 +238,12 @@ dependencies {
 }
 ```
 
+In `settings.gradle` add:
+```java
+include ':react-native-blur'
+project(':react-native-blur').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-blur/android')
+```
+
 
 ### Questions?
 
