@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, requireNativeComponent, DeviceEventEmitter, ViewPropTypes } from 'react-native';
 
 const OVERLAY_COLORS = {

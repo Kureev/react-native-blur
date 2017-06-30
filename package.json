@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/react-native-fellowship/react-native-blur/issues"
   },
-  "homepage": "https://github.com/react-native-fellowship/react-native-blur"
+  "homepage": "https://github.com/react-native-fellowship/react-native-blur",
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  }
 }
