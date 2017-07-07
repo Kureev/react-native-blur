@@ -32,3 +32,6 @@ android/react-native-blur.iml
 
 # Misc
 .idea/
+
+# Assets
+docs/
