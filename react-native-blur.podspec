@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
   s.authors       = { "Alexey Kureev" => "kureev-mail@ya.ru" }
   s.license       = "MIT"
   s.summary       = "Component implementation for UIVisualEffectView's blur and vibrancy effect."
-  s.homepage      = "https://github.com/react-native-fellowship/react-native-blur"
-  s.source        = { :git => "https://github.com/react-native-fellowship/react-native-blur.git" }
+  s.homepage      = "https://github.com/react-native-community/react-native-blur"
+  s.source        = { :git => "https://github.com/react-native-community/react-native-blur.git" }
 
   s.dependency 'React'
 end
