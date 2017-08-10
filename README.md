@@ -35,6 +35,9 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px
 
 ```
 android {
+    // make sure to use 23.0.3 instead of 23.0.1
+    buildToolsVersion '23.0.3'
+
     // ...
     defaultConfig {
         // Add these lines below the existing config
