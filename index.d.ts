@@ -7,7 +7,7 @@ export interface BlurViewProperties {
     | 'extraDark' | 'regular' | 'prominent';
   blurAmount?: number; // 0 - 100
   style?: ViewStyle;
-  viewRef?: number | null
+  viewRef?: number | null;
 }
 
 export class BlurView extends React.Component<BlurViewProperties, {}> {}
