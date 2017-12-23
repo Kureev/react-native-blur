@@ -44,10 +44,9 @@
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
     _blurAmount = blurAmount;
-    if (blurAmount && ![self.blurAmount isEqualToNumber:blurAmount]) {
+    //if (blurAmount && ![self.blurAmount isEqualToNumber:blurAmount]) {
         [self updateBlurAmount];
-    }
-  }
+    //}
 }
 
 
@@ -92,6 +91,11 @@
     CGFloat clampedValue = fminf(fmaxf([self.blurAmount floatValue], 0), maxValue);
     CGFloat fractionComplete = 1.0f - (clampedValue / maxValue);
     [self.animator setFractionComplete:fractionComplete];
+}
+
+- (void)dealloc
+{
+    [self.animator stopAnimation:TRUE];
 }
 
 @end
