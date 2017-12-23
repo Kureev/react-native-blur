@@ -1,8 +1,9 @@
 #import "BlurView.h"
 #import "BlurEffectWithAmount.h"
+#import <React/RCTLog.h>
 
 @interface BlurView ()
-
+@property (nonatomic, strong) id animator;
 @end
 
 @implementation BlurView
@@ -29,6 +30,7 @@
 {
   [super layoutSubviews];
   self.blurEffectView.frame = self.bounds;
+  [self updateBlurEffect];
 }
 
 - (void)setBlurType:(NSString *)blurType
@@ -41,9 +43,10 @@
 
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
-  if (blurAmount && ![self.blurAmount isEqualToNumber:blurAmount]) {
     _blurAmount = blurAmount;
-    [self updateBlurEffect];
+    if (blurAmount && ![self.blurAmount isEqualToNumber:blurAmount]) {
+        [self updateBlurAmount];
+    }
   }
 }
 
@@ -53,6 +56,7 @@
   if ([self.blurType isEqual: @"xlight"]) return UIBlurEffectStyleExtraLight;
   if ([self.blurType isEqual: @"light"]) return UIBlurEffectStyleLight;
   if ([self.blurType isEqual: @"dark"]) return UIBlurEffectStyleDark;
+
 
   #if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000 /* __IPHONE_10_0 */
     if ([self.blurType isEqual: @"regular"]) return UIBlurEffectStyleRegular;
@@ -70,9 +74,24 @@
 
 - (void)updateBlurEffect
 {
-  UIBlurEffectStyle style = [self blurEffectStyle];
-  self.blurEffect = [BlurEffectWithAmount effectWithStyle:style andBlurAmount:self.blurAmount];
-  self.blurEffectView.effect = self.blurEffect;
+    UIBlurEffectStyle style = [self blurEffectStyle];
+    self.blurEffectView.effect = [UIBlurEffect effectWithStyle:style];
+    UICubicTimingParameters *timingParameters = [[UICubicTimingParameters alloc] initWithAnimationCurve:UIViewAnimationCurveLinear];
+    [self.animator stopAnimation:TRUE];
+    self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0 timingParameters:timingParameters];
+    __weak typeof(self) weakSelf = self;
+    [self.animator addAnimations:^{
+        weakSelf.blurEffectView.effect = nil;
+    }];
+    [self updateBlurAmount];
+}
+
+- (void)updateBlurAmount
+{
+    CGFloat maxValue = 25.0f;
+    CGFloat clampedValue = fminf(fmaxf([self.blurAmount floatValue], 0), maxValue);
+    CGFloat fractionComplete = 1.0f - (clampedValue / maxValue);
+    [self.animator setFractionComplete:fractionComplete];
 }
 
 @end
