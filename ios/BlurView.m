@@ -71,7 +71,9 @@
     self.blurEffectView.effect = [UIBlurEffect effectWithStyle:style];
     UICubicTimingParameters *timingParameters = [[UICubicTimingParameters alloc] initWithAnimationCurve:UIViewAnimationCurveLinear];
     [self.animator stopAnimation:TRUE];
-    self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0 timingParameters:timingParameters];
+    self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0
+                                                    timingParameters:timingParameters];
+    [self.animator setPausesOnCompletion:TRUE];
     __weak typeof(self) weakSelf = self;
     [self.animator addAnimations:^{
         weakSelf.blurEffectView.effect = nil;
@@ -81,6 +83,8 @@
 
 - (void)updateBlurAmount
 {
+    UICubicTimingParameters *timingParameters = [[UICubicTimingParameters alloc] initWithAnimationCurve:UIViewAnimationCurveLinear];
+    [self.animator continueAnimationWithTimingParameters:timingParameters durationFactor:1.0];
     CGFloat maxValue = 25.0f;
     CGFloat clampedValue = fminf(fmaxf([self.blurAmount floatValue], 0), maxValue);
     CGFloat fractionComplete = 1.0f - (clampedValue / maxValue);
