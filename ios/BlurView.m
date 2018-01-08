@@ -44,9 +44,7 @@
 - (void)setBlurAmount:(NSNumber *)blurAmount
 {
     _blurAmount = blurAmount;
-    //if (blurAmount && ![self.blurAmount isEqualToNumber:blurAmount]) {
-        [self updateBlurAmount];
-    //}
+    [self updateBlurAmount];
 }
 
 
@@ -70,8 +68,11 @@
     UIBlurEffectStyle style = [self blurEffectStyle];
     self.blurEffectView.effect = [UIBlurEffect effectWithStyle:style];
     UICubicTimingParameters *timingParameters = [[UICubicTimingParameters alloc] initWithAnimationCurve:UIViewAnimationCurveLinear];
-    [self.animator stopAnimation:TRUE];
-    self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0 timingParameters:timingParameters];
+    [self.animator stopAnimation:FALSE];
+    [self.animator finishAnimationAtPosition:UIViewAnimatingPositionCurrent];
+    self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0
+                                                    timingParameters:timingParameters];
+    [self.animator setPausesOnCompletion:TRUE];
     __weak typeof(self) weakSelf = self;
     [self.animator addAnimations:^{
         weakSelf.blurEffectView.effect = nil;
