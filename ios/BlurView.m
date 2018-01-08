@@ -72,7 +72,9 @@
     [self.animator finishAnimationAtPosition:UIViewAnimatingPositionCurrent];
     self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0
                                                     timingParameters:timingParameters];
-    [self.animator setPausesOnCompletion:TRUE];
+    if (@available(iOS 11, *)) {
+        [self.animator setPausesOnCompletion:TRUE];
+    }
     __weak typeof(self) weakSelf = self;
     [self.animator addAnimations:^{
         weakSelf.blurEffectView.effect = nil;
