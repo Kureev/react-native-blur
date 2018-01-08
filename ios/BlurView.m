@@ -2,6 +2,8 @@
 #import "BlurEffectWithAmount.h"
 #import <React/RCTLog.h>
 
+#define IS_IOS11orHIGHER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
+
 @interface BlurView ()
 @property (nonatomic, strong) id animator;
 @end
@@ -72,7 +74,7 @@
     [self.animator finishAnimationAtPosition:UIViewAnimatingPositionCurrent];
     self.animator = [[UIViewPropertyAnimator alloc] initWithDuration:1.0
                                                     timingParameters:timingParameters];
-    if (@available(iOS 11, *)) {
+    if (IS_IOS11orHIGHER) {
         [self.animator setPausesOnCompletion:TRUE];
     }
     __weak typeof(self) weakSelf = self;
