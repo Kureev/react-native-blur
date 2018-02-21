@@ -14,7 +14,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class BlurViewPackage implements ReactPackage {
-    @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactApplicationContext) {
         List<NativeModule> modules = new ArrayList<>();
         return modules;
@@ -24,7 +23,6 @@ public class BlurViewPackage implements ReactPackage {
         return Collections.emptyList();
     }
 
-    @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
                 new BlurViewManager()
