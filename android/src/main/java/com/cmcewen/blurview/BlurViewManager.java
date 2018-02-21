@@ -16,12 +16,10 @@ public class BlurViewManager extends SimpleViewManager<BlurringView> {
 
     private static ThemedReactContext context;
 
-    @Override
     public String getName() {
         return REACT_CLASS;
     }
 
-    @Override
     public BlurringView createViewInstance(ThemedReactContext ctx) {
         context = ctx;
 
