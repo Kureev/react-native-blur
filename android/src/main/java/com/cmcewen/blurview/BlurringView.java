@@ -54,7 +54,6 @@ public class BlurringView extends View {
         invalidate();
     }
 
-    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
@@ -163,14 +162,12 @@ public class BlurringView extends View {
         mBlurOutput.copyTo(mBlurredBitmap);
     }
 
-    @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         invalidate();
         checkForCircularReference();
     }
 
-    @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         if (mRenderScript != null) {
