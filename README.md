@@ -31,7 +31,15 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px
   react-native link react-native-blur
   ```
 
-3. (Android only) Add the following to `android/app/build.gradle`
+3. (iOS only) Install pod:
+
+  ```
+  cd ios
+  pod install
+  ```
+
+
+4. (Android only) Add the following to `android/app/build.gradle`
 
 ```
 android {
@@ -47,7 +55,7 @@ android {
 }
 ```
 
-4. Include the library in your code:
+5. Include the library in your code:
 
   ```javascript
   import { BlurView, VibrancyView } from 'react-native-blur';
@@ -57,7 +65,7 @@ android {
   const { BlurView, VibrancyView } = require('react-native-blur');
   ```
 
-5. Compile and have fun!
+6. Compile and have fun!
 
 
 ### BlurView
