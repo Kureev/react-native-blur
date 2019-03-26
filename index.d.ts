@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import * as React from "react";
+import { StyleProp, ViewStyle } from "react-native";
 
 export interface BlurViewProperties {
   blurType:
-    | 'xlight'
-    | 'light'
-    | 'dark'
+    | "xlight"
+    | "light"
+    | "dark"
     // tvOS only
-    | 'extraDark'
-    | 'regular'
-    | 'prominent';
+    | "extraDark"
+    | "regular"
+    | "prominent";
   blurAmount?: number; // 0 - 100
   style?: StyleProp<ViewStyle>;
   viewRef?: number | null;
