@@ -96,19 +96,19 @@ export default class Menu extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          ref={(img) => { this.backgroundImage = img; }}
-          source={{uri}}
-          style={styles.absolute}
-          onLoadEnd={this.imageLoaded.bind(this)}
-        />
+        <Text>Hi, I am some unblurred text</Text>
         <BlurView
           style={styles.absolute}
           viewRef={this.state.viewRef}
           blurType="light"
           blurAmount={10}
         />
-        <Text>Hi, I am some unblurred text</Text>
+        <Image
+          ref={(img) => { this.backgroundImage = img; }}
+          source={{uri}}
+          style={styles.absolute}
+          onLoadEnd={this.imageLoaded.bind(this)}
+        />
       </View>
     );
   }
