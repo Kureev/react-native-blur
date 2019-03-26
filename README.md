@@ -28,7 +28,7 @@ npm install react-native-blur
 react-native link react-native-blur
 ```
 
-3. (iOS only) Install
+3. (iOS only) Install to Xcode:
 
 ```
 cd ios
