@@ -28,6 +28,13 @@ npm install react-native-blur
 react-native link react-native-blur
 ```
 
+3. (iOS only) Install
+
+```
+cd ios
+pod install
+```
+
 3. (Android only) Add the following to `android/app/build.gradle`
 
 ```
