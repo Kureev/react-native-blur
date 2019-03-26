@@ -44,13 +44,30 @@ android {
 }
 ```
 
-4. Include the library in your code:
+4. (Android only, optional) 
+If you've defined _[project-wide properties](https://developer.android.com/studio/build/gradle-tips.html)_ (**recommended**) in your root `build.gradle`, this library will detect the presence of the following properties:
+
+```groovy
+buildscript {...}
+allprojects {...}
+
+/**
+  + Project-wide Gradle configuration properties
+  */
+ext {
+    compileSdkVersion   = 27
+    targetSdkVersion    = 27
+    buildToolsVersion   = "27.0.3"
+}
+```
+
+5. Include the library in your code:
 
 ```javascript
 import { BlurView, VibrancyView } from "react-native-blur";
 ```
 
-5. Compile and have fun!
+6. Compile and have fun!
 
 ### BlurView
 
