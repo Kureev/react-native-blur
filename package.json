@@ -30,7 +30,9 @@
     "eslint": "^5.15.3",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.5",
-    "prettier": "1.16.4"
+    "prettier": "1.16.4",
+    "react": "16.8.3",
+    "react-native": "0.59.2"
   },
   "husky": {
     "hooks": {
@@ -38,6 +40,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
