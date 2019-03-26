@@ -1,6 +1,6 @@
 {
   "name": "@react-native-community/blur",
-  "version": "3.2.2",
+  "version": "3.3.0",
   "description": "React Native Blur component",
   "main": "index.js",
   "scripts": {
