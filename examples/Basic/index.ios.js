@@ -2,7 +2,7 @@
  * Basic [iOS] Example for react-native-blur
  * https://github.com/react-native-community/react-native-blur
  */
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -11,13 +11,13 @@ import {
   View,
   SegmentedControlIOS,
   Switch,
-} from 'react-native'
+} from 'react-native';
 
-import { BlurView, VibrancyView } from 'react-native-blur'
+import { BlurView, VibrancyView } from 'react-native-blur';
 
 class Basic extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       showBlurs: true,
@@ -25,23 +25,23 @@ class Basic extends Component {
       blurActiveSegment: 1,
       vibrancyBlurType: 'dark',
       vibrancyActiveSegment: 2,
-    }
+    };
   }
 
   _onBlurChange(event) {
-    this.setState({blurActiveSegment: event.nativeEvent.selectedSegmentIndex})
+    this.setState({blurActiveSegment: event.nativeEvent.selectedSegmentIndex});
   }
 
   _onBlurValueChange(value) {
-    this.setState({blurBlurType: value})
+    this.setState({blurBlurType: value});
   }
 
   _onVibrancyChange(event) {
-    this.setState({vibrancyActiveSegment: event.nativeEvent.selectedSegmentIndex})
+    this.setState({vibrancyActiveSegment: event.nativeEvent.selectedSegmentIndex});
   }
 
   _onVibrancyValueChange(value) {
-    this.setState({vibrancyBlurType: value})
+    this.setState({vibrancyBlurType: value});
   }
 
   renderBlurs() {
@@ -69,8 +69,8 @@ class Basic extends Component {
           <SegmentedControlIOS
             values={['xlight', 'light', 'dark', 'regular', 'prominent']}
             selectedIndex={this.state.blurActiveSegment}
-            onChange={(event) => {this._onBlurChange(event)}}
-            onValueChange={(value) => {this._onBlurValueChange(value)}}
+            onChange={(event) => {this._onBlurChange(event);}}
+            onValueChange={(value) => {this._onBlurValueChange(value);}}
             tintColor={tintColor}
           />
         </View>
@@ -91,13 +91,13 @@ class Basic extends Component {
           <SegmentedControlIOS
             values={['xlight', 'light', 'dark', 'regular', 'prominent']}
             selectedIndex={this.state.vibrancyActiveSegment}
-            onChange={(event) => {this._onVibrancyChange(event)}}
-            onValueChange={(value) => {this._onVibrancyValueChange(value)}}
+            onChange={(event) => {this._onVibrancyChange(event);}}
+            onValueChange={(value) => {this._onVibrancyValueChange(value);}}
             tintColor="white"
           />
         </VibrancyView>
       </View>
-    )
+    );
   }
 
   render() {
@@ -106,7 +106,7 @@ class Basic extends Component {
         style={styles.container}>
         <Image
           source={require('./bgimage.jpeg')}
-          resizeMode='cover'
+          resizeMode="cover"
           style={styles.img}/>
 
         { this.state.showBlurs ? this.renderBlurs() : null }
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     top: 30,
     right: 10,
     alignItems: 'flex-end',
-  }
+  },
 });
 
 AppRegistry.registerComponent('Basic', () => Basic);

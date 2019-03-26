@@ -6,7 +6,6 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px
 
 <img src='https://cloud.githubusercontent.com/assets/139536/25066337/3c9d44c0-224d-11e7-8ca6-028478bf4a7d.gif' />
 
-
 ### Content
 
 - [Installation](#installation)
@@ -15,21 +14,21 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px
 - [Example React Native app](#example-react-native-app)
 - [Questions?](#questions)
 
-
 ### Installation
 
 **NOTE:** Latest version of the package is available in npm as `react-native-blur@3.0.0-alpha`
 
 1. Install package via npm:
 
-  ```
-  npm install react-native-blur
-  ```
+```
+npm install react-native-blur
+```
 
 2. Link your native dependencies:
-  ```
-  react-native link react-native-blur
-  ```
+
+```
+react-native link react-native-blur
+```
 
 3. (Android only) Add the following to `android/app/build.gradle`
 
@@ -49,16 +48,15 @@ android {
 
 4. Include the library in your code:
 
-  ```javascript
-  import { BlurView, VibrancyView } from 'react-native-blur';
+```javascript
+import { BlurView, VibrancyView } from "react-native-blur";
 
-  // OR
+// OR
 
-  const { BlurView, VibrancyView } = require('react-native-blur');
-  ```
+const { BlurView, VibrancyView } = require("react-native-blur");
+```
 
 5. Compile and have fun!
-
 
 ### BlurView
 
@@ -79,9 +77,9 @@ android {
 > Complete usage example that works on iOS and Android:
 
 ```javascript
-import React, { Component } from 'react';
-import { View, Image, Text, findNodeHandle, StyleSheet } from 'react-native';
-import { BlurView } from 'react-native-blur';
+import React, { Component } from "react";
+import { View, Image, Text, findNodeHandle, StyleSheet } from "react-native";
+import { BlurView } from "react-native-blur";
 
 export default class Menu extends Component {
   constructor(props) {
@@ -104,8 +102,10 @@ export default class Menu extends Component {
           blurAmount={10}
         />
         <Image
-          ref={(img) => { this.backgroundImage = img; }}
-          source={{uri}}
+          ref={img => {
+            this.backgroundImage = img;
+          }}
+          source={{ uri }}
           style={styles.absolute}
           onLoadEnd={this.imageLoaded.bind(this)}
         />
@@ -116,13 +116,16 @@ export default class Menu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   absolute: {
     position: "absolute",
-    top: 0, left: 0, bottom: 0, right: 0,
-  },
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  }
 });
 ```
 
@@ -139,12 +142,12 @@ Note that `viewRef` is only required if you need to support Android. See the [An
 > (Note: `VibrancyView` is only supported on iOS. Also note that the `VibrancyView` must contain nested views.)
 
 ```javascript
-import { VibrancyView } from 'react-native-blur';
+import { VibrancyView } from "react-native-blur";
 
 export default class Menu extends Component {
   render() {
     return (
-      <Image source={{uri}} style={styles.absolute}>
+      <Image source={{ uri }} style={styles.absolute}>
         <VibrancyView blurType="light" style={styles.flex}>
           <Text>Hi, I am some vibrant text.</Text>
         </VibrancyView>
@@ -160,17 +163,16 @@ Android uses the [500px-android-blur](https://github.com/500px/500px-android-blu
 
 The Android library introduces some limitations:
 
-* `BlurView` cannot be a child of the view that is being blurred (this would cause an infinite loop)
-* `BlurView` cannot contain any child components.
+- `BlurView` cannot be a child of the view that is being blurred (this would cause an infinite loop)
+- `BlurView` cannot contain any child components.
 
 If you only need to support iOS, then you can safely ignore these limitations.
 
 In addition to `blurType` and `blurAmount`, Android has some extra props that can be used to override the default behavior (or configure Android-specific behavior):
 
-- `blurRadius`       (Number - between 0 and 25) - Manually adjust the blur radius. (Default: matches iOS blurAmount)
+- `blurRadius` (Number - between 0 and 25) - Manually adjust the blur radius. (Default: matches iOS blurAmount)
 - `downsampleFactor` (Number - between 0 and 25) - Scales down the image before blurring (Default: matches iOS blurAmount)
-- `overlayColor`     (Color) - Set a custom overlay color (Default color based on iOS blurType)
-
+- `overlayColor` (Color) - Set a custom overlay color (Default color based on iOS blurType)
 
 ### Example React Native App
 
@@ -207,6 +209,7 @@ react-native run-ios
 #### Run the tvOS app
 
 type:
+
 ```
 react-native run-ios
 ```
@@ -237,12 +240,12 @@ That’s all, you can use react-native-blur for your tvOS application
 react-native run-android
 ```
 
-
 ### Troubleshooting
 
 On older instances of react-native, BlurView package does not get added into the MainActivity/MainApplication classes where you would see `Warning: Native component for 'BlurView' does not exist` in RN YellowBox or console.
 
 To rectify this, you can add the BlurViewPackage manually in MainActivity/MainApplication classes
+
 ```java
 ...
 import com.cmcewen.blurview.BlurViewPackage;
@@ -260,7 +263,6 @@ public class MainApplication extends Application implements ReactApplication {
 ...
 }
 ```
-
 
 ### Questions?
 

@@ -50,7 +50,7 @@ class Basic extends Component {
 
   renderBlurView() {
     const tintColor = ['#ffffff', '#000000'];
-    if (this.state.blurType === 'xlight') tintColor.reverse();
+    if (this.state.blurType === 'xlight') {tintColor.reverse();}
 
     return (
       <View style={styles.container}>
@@ -81,12 +81,12 @@ class Basic extends Component {
             alignItems: 'center',
           }}
           childText={BLUR_TYPES}
-          orientation='horizontal'
+          orientation="horizontal"
           selectedPosition={this.state.activeSegment}
           onChange={this._onChange.bind(this)} />
 
       </View>
-    )
+    );
   }
 
   render() {
