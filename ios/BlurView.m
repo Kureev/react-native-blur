@@ -53,13 +53,18 @@
   if ([self.blurType isEqual: @"xlight"]) return UIBlurEffectStyleExtraLight;
   if ([self.blurType isEqual: @"light"]) return UIBlurEffectStyleLight;
   if ([self.blurType isEqual: @"dark"]) return UIBlurEffectStyleDark;
-    
-  #if TARGET_OS_TV
-    if ([self.blurType isEqual: @"extraDark"]) return UIBlurEffectStyleExtraDark;
+
+  #if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000 /* __IPHONE_10_0 */
     if ([self.blurType isEqual: @"regular"]) return UIBlurEffectStyleRegular;
     if ([self.blurType isEqual: @"prominent"]) return UIBlurEffectStyleProminent;
   #endif
-    
+
+  #if TARGET_OS_TV
+    if ([self.blurType isEqual: @"regular"]) return UIBlurEffectStyleRegular;
+    if ([self.blurType isEqual: @"prominent"]) return UIBlurEffectStyleProminent;
+    if ([self.blurType isEqual: @"extraDark"]) return UIBlurEffectStyleExtraDark;
+  #endif
+
   return UIBlurEffectStyleDark;
 }
 

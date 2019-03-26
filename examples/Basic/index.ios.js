@@ -67,7 +67,7 @@ class Basic extends Component {
           </Text>
 
           <SegmentedControlIOS
-            values={['xlight', 'light', 'dark']}
+            values={['xlight', 'light', 'dark', 'regular', 'prominent']}
             selectedIndex={this.state.blurActiveSegment}
             onChange={(event) => {this._onBlurChange(event)}}
             onValueChange={(value) => {this._onBlurValueChange(value)}}
@@ -89,7 +89,7 @@ class Basic extends Component {
           </Text>
 
           <SegmentedControlIOS
-            values={['xlight', 'light', 'dark']}
+            values={['xlight', 'light', 'dark', 'regular', 'prominent']}
             selectedIndex={this.state.vibrancyActiveSegment}
             onChange={(event) => {this._onVibrancyChange(event)}}
             onValueChange={(value) => {this._onVibrancyValueChange(value)}}

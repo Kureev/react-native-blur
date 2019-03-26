@@ -69,8 +69,8 @@ android {
   - `light` - light blur type
   - `dark` - dark blur type
   - `extraDark` - extra dark blur type (tvOS only)
-  - `regular` - regular blur type (tvOS only)
-  - `prominent` - prominent blur type (tvOS only)
+  - `regular` - regular blur type (iOS 10+ and tvOS only)
+  - `prominent` - prominent blur type (iOS 10+ and tvOS only)
 - `blurAmount` (Default: 10, Number)
   - `0-100` - Adjusts blur intensity
 
