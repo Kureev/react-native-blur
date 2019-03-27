@@ -19,13 +19,13 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px
 1. Install package via npm:
 
 ```
-npm install react-native-blur
+npm install @react-native-community/blur
 ```
 
 2. Link your native dependencies:
 
 ```
-react-native link react-native-blur
+react-native link @react-native-community/blur
 ```
 
 3. (Android only) Add the following to `android/app/build.gradle`
@@ -64,7 +64,7 @@ ext {
 5. Include the library in your code:
 
 ```javascript
-import { BlurView, VibrancyView } from "react-native-blur";
+import { BlurView, VibrancyView } from "@react-native-community/blur";
 ```
 
 6. Compile and have fun!
@@ -90,7 +90,7 @@ import { BlurView, VibrancyView } from "react-native-blur";
 ```javascript
 import React, { Component } from "react";
 import { View, Image, Text, findNodeHandle, StyleSheet } from "react-native";
-import { BlurView } from "react-native-blur";
+import { BlurView } from "@react-native-community/blur";
 
 export default class Menu extends Component {
   constructor(props) {
@@ -153,7 +153,7 @@ Note that `viewRef` is only required if you need to support Android. See the [An
 > (Note: `VibrancyView` is only supported on iOS. Also note that the `VibrancyView` must contain nested views.)
 
 ```javascript
-import { VibrancyView } from "react-native-blur";
+import { VibrancyView } from "@react-native-community/blur";
 
 export default class Menu extends Component {
   render() {
