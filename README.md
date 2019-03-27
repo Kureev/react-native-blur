@@ -16,16 +16,22 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px
 
 ### Installation
 
-1. Install package via npm:
+1. Install the library using either Yarn:
 
 ```
-npm install react-native-blur
+yarn add @react-native-community/blur
+```
+
+or npm:
+
+```
+npm install --save @react-native-community/blur
 ```
 
 2. Link your native dependencies:
 
 ```
-react-native link react-native-blur
+react-native link @react-native-community/blur
 ```
 
 3. (Android only) Add the following to `android/app/build.gradle`
