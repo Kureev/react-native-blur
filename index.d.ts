@@ -6,10 +6,11 @@ export interface BlurViewProperties {
     | "xlight"
     | "light"
     | "dark"
-    // tvOS only
-    | "extraDark"
+    // tvOS and iOS 10+ only
     | "regular"
-    | "prominent";
+    | "prominent"
+    // tvOS only
+    | "extraDark";
   blurAmount?: number; // 0 - 100
   style?: StyleProp<ViewStyle>;
   viewRef?: number | null;
