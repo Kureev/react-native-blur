@@ -12,7 +12,7 @@ import {
   View,
 } from 'react-native';
 
-import { BlurView, VibrancyView } from 'react-native-blur';
+import { BlurView, VibrancyView } from '@react-native-community/blur';
 
 export default class Basic extends Component {
   constructor(props) {

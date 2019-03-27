@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 
-import { BlurView } from 'react-native-blur';
+import { BlurView } from '@react-native-community/blur';
 
 const BLUR_TYPES = ['xlight', 'light', 'dark'];
 
