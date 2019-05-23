@@ -283,4 +283,4 @@ public class MainApplication extends Application implements ReactApplication {
 
 ### Questions?
 
-Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
+Feel free to contact me on [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
