@@ -7,15 +7,17 @@ class VibrancyView extends Component {
     if (this._root) {
       this._root.setNativeProps(nativeProps);
     }
-  }
+  };
 
   render() {
     return (
       <NativeVibrancyView
         {...this.props}
-        style={[{
-          backgroundColor: 'transparent',
-        }, this.props.style,
+        style={[
+          {
+            backgroundColor: 'transparent',
+          },
+          this.props.style,
         ]}
       />
     );
