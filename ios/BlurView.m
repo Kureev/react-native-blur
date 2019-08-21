@@ -7,28 +7,52 @@
 
 @implementation BlurView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        self.blurEffectView = [[UIVisualEffectView alloc] init];
-        self.blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.blurEffectView.frame = frame;
+- (instancetype)init
+{
+  if (self = [super init]) {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(reduceTransparencyStatusDidChange:)
+                                          name:UIAccessibilityReduceTransparencyStatusDidChangeNotification
+                                          object:nil];
+  }
 
-        self.blurAmount = @10;
-        self.blurType = @"dark";
-        [self updateBlurEffect];
+  return self;
+}
 
-        self.clipsToBounds = true;
+- (instancetype)initWithFrame:(CGRect)frame
+{
+  if (self = [super initWithFrame:frame]) {
+    self.blurEffectView = [[UIVisualEffectView alloc] init];
+    self.blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.blurEffectView.frame = frame;
 
-        [self addSubview:self.blurEffectView];
-    }
+    self.reducedTransparencyFallbackView = [[UIView alloc] init];
+    self.reducedTransparencyFallbackView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.reducedTransparencyFallbackView.frame = frame;
 
-    return self;
+    self.blurAmount = @10;
+    self.blurType = @"dark";
+    [self updateBlurEffect];
+    [self updateFallbackView];
+
+    self.clipsToBounds = true;
+
+    [self addSubview:self.blurEffectView];
+  }
+
+  return self;
+}
+
+- (void)dealloc
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)layoutSubviews
 {
   [super layoutSubviews];
   self.blurEffectView.frame = self.bounds;
+  self.reducedTransparencyFallbackView.frame = self.bounds;
 }
 
 - (void)setBlurType:(NSString *)blurType
@@ -47,6 +71,13 @@
   }
 }
 
+- (void)setReducedTransparencyFallbackColor:(nullable UIColor *)reducedTransparencyFallbackColor
+{
+  if (reducedTransparencyFallbackColor && ![self.reducedTransparencyFallbackColor isEqual:reducedTransparencyFallbackColor]) {
+    _reducedTransparencyFallbackColor = reducedTransparencyFallbackColor;
+    [self updateFallbackView];
+  }
+}
 
 - (UIBlurEffectStyle)blurEffectStyle
 {
@@ -89,11 +120,44 @@
   return UIBlurEffectStyleDark;
 }
 
+- (BOOL)useReduceTransparencyFallback
+{
+  return UIAccessibilityIsReduceTransparencyEnabled() == YES && self.reducedTransparencyFallbackColor != NULL;
+}
+
 - (void)updateBlurEffect
 {
   UIBlurEffectStyle style = [self blurEffectStyle];
   self.blurEffect = [BlurEffectWithAmount effectWithStyle:style andBlurAmount:self.blurAmount];
   self.blurEffectView.effect = self.blurEffect;
+}
+
+- (void)updateFallbackView
+{
+  if ([self useReduceTransparencyFallback]) {
+    if (![self.subviews containsObject:self.reducedTransparencyFallbackView]) {
+      [self insertSubview:self.reducedTransparencyFallbackView atIndex:0];
+    }
+
+    if ([self.subviews containsObject:self.blurEffectView]) {
+      [self.blurEffectView removeFromSuperview];
+    }
+  } else {
+    if ([self.subviews containsObject:self.reducedTransparencyFallbackView]) {
+      [self.reducedTransparencyFallbackView removeFromSuperview];
+    }
+
+    if (![self.subviews containsObject:self.blurEffectView]) {
+      [self insertSubview:self.blurEffectView atIndex:0];
+    }
+  }
+
+  self.reducedTransparencyFallbackView.backgroundColor = self.reducedTransparencyFallbackColor;
+}
+
+- (void)reduceTransparencyStatusDidChange:(__unused NSNotification *)notification
+{
+  [self updateFallbackView];
 }
 
 @end

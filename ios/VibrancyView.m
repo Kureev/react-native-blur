@@ -30,7 +30,11 @@
 }
 
 - (void)insertReactSubview:(id<RCTComponent>)subview atIndex:(NSInteger)atIndex {
+  if ([self useReduceTransparencyFallback]) {
+    [self addSubview:(UIView*)subview];
+  } else {
     [self.vibrancyEffectView.contentView addSubview:(UIView*)subview];
+  }
 }
 
 - (void)updateBlurEffect
@@ -43,6 +47,26 @@
 {
   self.vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:self.blurEffect];
   self.vibrancyEffectView.effect = self.vibrancyEffect;
+}
+
+- (void)updateFallbackView
+{
+  [super updateFallbackView];
+
+  if ([self useReduceTransparencyFallback]) {
+    for (UIView *subview in self.blurEffectView.contentView.subviews) {
+      [subview removeFromSuperview];
+      [self addSubview:subview];
+    }
+  } else {
+    for (UIView *subview in self.subviews) {
+      if (subview == self.blurEffectView) continue;
+      if (subview == self.reducedTransparencyFallbackView) continue;
+
+      [subview removeFromSuperview];
+      [self.blurEffectView.contentView addSubview:subview];
+    }
+  }
 }
 
 @end
