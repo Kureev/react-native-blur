@@ -6,6 +6,7 @@ import {
   DeviceEventEmitter,
   ViewPropTypes,
   Platform,
+  StyleSheet,
 } from 'react-native';
 
 const OVERLAY_COLORS = {
@@ -79,11 +80,15 @@ class BlurView extends Component {
         blurRadius={this.blurRadius()}
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
-        style={[{ backgroundColor: 'transparent' }, style]}
+        style={StyleSheet.compose(styles.transparent, style)}
       />
     );
   }
 }
+
+const styles = StyleSheet.create({
+  transparent: { backgroundColor: 'transparent' },
+});
 
 BlurView.propTypes = {
   ...(ViewPropTypes || View.propTypes),
