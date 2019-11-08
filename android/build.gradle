@@ -4,11 +4,12 @@ def safeExtGet(prop, fallback) {
 
 buildscript {
     repositories {
+        google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:3.5.2'
     }
 }
 
@@ -37,5 +38,6 @@ repositories {
 }
 
 dependencies {
+    //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'
 }

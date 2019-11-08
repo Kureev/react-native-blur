@@ -2,27 +2,29 @@ package com.cmcewen.blurview;
 
 import android.view.View;
 
-import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
+import javax.annotation.Nonnull;
 
-public class BlurViewManager extends SimpleViewManager<BlurringView> {
-    public static final String REACT_CLASS = "BlurView";
 
-    public static final int defaultRadius = 10;
-    public static final int defaultSampling = 10;
+@SuppressWarnings("unused")
+class BlurViewManager extends SimpleViewManager<BlurringView> {
+    private static final String REACT_CLASS = "BlurView";
+
+    private static final int defaultRadius = 10;
+    private static final int defaultSampling = 10;
 
     private static ThemedReactContext context;
 
     @Override
-    public String getName() {
+    public @Nonnull String getName() {
         return REACT_CLASS;
     }
 
     @Override
-    public BlurringView createViewInstance(ThemedReactContext ctx) {
+    public @Nonnull BlurringView createViewInstance(@Nonnull ThemedReactContext ctx) {
         context = ctx;
 
         BlurringView blurringView = new BlurringView(ctx);

@@ -30,7 +30,7 @@ public class BlurringView extends View {
         this(context, null);
     }
 
-    public BlurringView(ThemedReactContext context, AttributeSet attrs) {
+    public BlurringView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         final Resources res = getResources();
@@ -40,11 +40,11 @@ public class BlurringView extends View {
 
         initializeRenderScript(context);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PxBlurringView);
-        setBlurRadius(a.getInt(R.styleable.PxBlurringView_blurRadius, defaultBlurRadius));
-        setDownsampleFactor(a.getInt(R.styleable.PxBlurringView_downsampleFactor,
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.BlurringView);
+        setBlurRadius(a.getInt(R.styleable.BlurringView_blurRadius, defaultBlurRadius));
+        setDownsampleFactor(a.getInt(R.styleable.BlurringView_downsampleFactor,
                 defaultDownsampleFactor));
-        setOverlayColor(a.getColor(R.styleable.PxBlurringView_overlayColor, defaultOverlayColor));
+        setOverlayColor(a.getColor(R.styleable.BlurringView_overlayColor, defaultOverlayColor));
         a.recycle();
     }
 
@@ -111,7 +111,7 @@ public class BlurringView extends View {
         mBlurScript = ScriptIntrinsicBlur.create(mRenderScript, Element.U8_4(mRenderScript));
     }
 
-    protected boolean prepare() {
+    private boolean prepare() {
         final int width = mBlurredView.getWidth();
         final int height = mBlurredView.getHeight();
 
@@ -156,7 +156,7 @@ public class BlurringView extends View {
         return true;
     }
 
-    protected void blur() {
+    private void blur() {
         mBlurInput.copyFrom(mBitmapToBlur);
         mBlurScript.setInput(mBlurInput);
         mBlurScript.forEach(mBlurOutput);
@@ -182,7 +182,7 @@ public class BlurringView extends View {
         // Need to wait until blurredView is set and the view is attached to window.
         if (mBlurredView == null || getParent() == null) return;
 
-        Boolean circularReference = (mBlurredView.findViewById(getId()) != null);
+        boolean circularReference = (mBlurredView.findViewById(getId()) != null);
         if (circularReference) {
             ThemedReactContext reactContext = (ThemedReactContext) getContext();
             reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
@@ -191,14 +191,13 @@ public class BlurringView extends View {
 
             setBlurredView(null);
             invalidate();
-            return;
         }
     }
 
     private int mDownsampleFactor;
     private int mOverlayColor;
 
-    protected View mBlurredView;
+    private View mBlurredView;
     private int mBlurredViewWidth, mBlurredViewHeight;
 
     private boolean mDownsampleFactorChanged;
