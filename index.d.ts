@@ -10,10 +10,13 @@ export interface BlurViewProperties {
     | "regular"
     | "prominent"
     // tvOS only
-    | "extraDark";
-  blurAmount?: number; // 0 - 100
-  style?: StyleProp<ViewStyle>;
-  viewRef?: number | null;
+    | "extraDark"
+  blurAmount?: number // 0 - 100
+  style?: StyleProp<ViewStyle>
+  viewRef?: number | null
+  blurRadius?: number
+  downsampleFactor?: number
+  overlayColor?: string
 }
 
 export class BlurView extends React.Component<BlurViewProperties, {}> {}
