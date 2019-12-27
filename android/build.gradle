@@ -24,9 +24,6 @@ android {
         targetSdkVersion safeExtGet('targetSdkVersion', 22)
         versionCode 1
         versionName "1.0"
-
-        renderscriptTargetApi 23
-        renderscriptSupportModeEnabled true
     }
     lintOptions {
         abortOnError false
