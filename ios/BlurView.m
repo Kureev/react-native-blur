@@ -58,7 +58,28 @@
     if ([self.blurType isEqual: @"regular"]) return UIBlurEffectStyleRegular;
     if ([self.blurType isEqual: @"prominent"]) return UIBlurEffectStyleProminent;
   #endif
-
+    
+  #if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000 /* __IPHONE_10_0 */
+    // Adaptable blur styles
+    if ([self.blurType isEqual: @"chromeMaterial"]) return UIBlurEffectStyleSystemUltraThinMaterial;
+    if ([self.blurType isEqual: @"material"]) return UIBlurEffectStyleSystemMaterial;
+    if ([self.blurType isEqual: @"thickMaterial"]) return UIBlurEffectStyleSystemThickMaterial;
+    if ([self.blurType isEqual: @"thinMaterial"]) return UIBlurEffectStyleSystemUltraThinMaterial;
+    if ([self.blurType isEqual: @"ultraThinMaterial"]) return UIBlurEffectStyleSystemUltraThinMaterial;
+    // dark blur styles
+    if ([self.blurType isEqual: @"chromeMaterialDark"]) return UIBlurEffectStyleSystemChromeMaterialDark;
+    if ([self.blurType isEqual: @"materialDark"]) return UIBlurEffectStyleSystemMaterialDark;
+    if ([self.blurType isEqual: @"thickMaterialDark"]) return UIBlurEffectStyleSystemThickMaterialDark;
+    if ([self.blurType isEqual: @"thinMaterialDark"]) return UIBlurEffectStyleSystemUltraThinMaterialDark;
+    if ([self.blurType isEqual: @"ultraThinMaterialDark"]) return UIBlurEffectStyleSystemUltraThinMaterialDark;
+    // light blur styles
+    if ([self.blurType isEqual: @"chromeMaterialLight"]) return UIBlurEffectStyleSystemChromeMaterialLight;
+    if ([self.blurType isEqual: @"materialLight"]) return UIBlurEffectStyleSystemMaterialLight;
+    if ([self.blurType isEqual: @"thickMaterialLight"]) return UIBlurEffectStyleSystemThickMaterialLight;
+    if ([self.blurType isEqual: @"thinMaterialLight"]) return UIBlurEffectStyleSystemUltraThinMaterialLight;
+    if ([self.blurType isEqual: @"ultraThinMaterialLight"]) return UIBlurEffectStyleSystemUltraThinMaterialLight;
+  #endif
+    
   #if TARGET_OS_TV
     if ([self.blurType isEqual: @"regular"]) return UIBlurEffectStyleRegular;
     if ([self.blurType isEqual: @"prominent"]) return UIBlurEffectStyleProminent;
