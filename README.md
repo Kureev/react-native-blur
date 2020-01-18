@@ -93,6 +93,22 @@ import { BlurView, VibrancyView } from "@react-native-community/blur";
   - `extraDark` - extra dark blur type (tvOS only)
   - `regular` - regular blur type (iOS 10+ and tvOS only)
   - `prominent` - prominent blur type (iOS 10+ and tvOS only)
+  
+  - `chromeMaterial` - An adaptable blur effect that creates the appearance of the system chrome. (iOS 13+ only)
+  - `material` - An adaptable blur effect that creates the appearance of a material with normal thickness. (iOS 13+ only)
+  - `thickMaterial` - An adaptable blur effect that creates the appearance of a material that is thicker than normal. (iOS 13+ only)
+  - `thinMaterial` - An adaptable blur effect that creates the appearance of an ultra-thin material. (iOS 13+ only)
+  - `ultraThinMaterial` - An adaptable blur effect that creates the appearance of an ultra-thin material. (iOS 13+ only)
+  - `chromeMaterialDark` - A blur effect that creates the appearance of an ultra-thin material and is always dark. (iOS 13+ only)
+  - `materialDark` - A blur effect that creates the appearance of a thin material and is always dark. (iOS 13+ only)
+  - `thickMaterialDark` - A blur effect that creates the appearance of a material with normal thickness and is always dark. (iOS 13+ only)
+  - `thinMaterialDark` - A blur effect that creates the appearance of a material that is thicker than normal and is always dark. (iOS 13+ only)
+  - `ultraThinMaterialDark` - A blur effect that creates the appearance of the system chrome and is always dark. (iOS 13+ only)
+  - `chromeMaterialLight` - An adaptable blur effect that creates the appearance of the system chrome. (iOS 13+ only)
+  - `materialLight` - An adaptable blur effect that creates the appearance of a material with normal thickness. (iOS 13+ only)
+  - `thickMaterialLight` - An adaptable blur effect that creates the appearance of a material that is thicker than normal. (iOS 13+ only)
+  - `thinMaterialLight` - An adaptable blur effect that creates the appearance of a thin material. (iOS 13+ only)
+  - `ultraThinMaterialLight` - An adaptable blur effect that creates the appearance of an ultra-thin material. (iOS 13+ only)
 - `blurAmount` (Default: 10, Number)
   - `0-100` - Adjusts blur intensity
 
