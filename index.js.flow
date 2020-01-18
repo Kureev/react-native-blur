@@ -10,6 +10,22 @@ export type BlurType =
   | 'xlight'
   | 'light'
   | 'dark'
+  // iOS 13+ only
+  | "chromeMaterial"
+  | "material"
+  | "thickMaterial"
+  | "thinMaterial"
+  | "ultraThinMaterial"
+  | "chromeMaterialDark"
+  | "materialDark"
+  | "thickMaterialDark"
+  | "thinMaterialDark"
+  | "ultraThinMaterialDark"
+  | "chromeMaterialLight"
+  | "materialLight"
+  | "thickMaterialLight"
+  | "thinMaterialLight"
+  | "ultraThinMaterialLight"
   // tvOS and iOS 10+ only
   | 'regular'
   | 'prominent'
