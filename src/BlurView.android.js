@@ -72,11 +72,10 @@ class BlurView extends Component {
       );
     }
 
-    const { viewRef, style } = this.props;
+    const { style } = this.props;
 
     return (
       <NativeBlurView
-        viewRef={viewRef}
         blurRadius={this.blurRadius()}
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
@@ -98,10 +97,6 @@ BlurView.propTypes = {
   blurRadius: PropTypes.number,
   downsampleFactor: PropTypes.number,
   overlayColor: PropTypes.string,
-  viewRef: Platform.select({
-    android: PropTypes.number.isRequired,
-    default: PropTypes.number,
-  }),
 };
 
 BlurView.defaultProps = {

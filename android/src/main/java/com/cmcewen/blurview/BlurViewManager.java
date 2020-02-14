@@ -58,9 +58,4 @@ class BlurViewManager extends SimpleViewManager<BlurView> {
     public void setDownsampleFactor(BlurView view, int factor) {
 
     }
-
-    @ReactProp(name = "viewRef")
-    public void setViewRef(BlurView view, int viewRef) {
-      
-    }
 }
