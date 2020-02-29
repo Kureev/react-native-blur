@@ -64,14 +64,6 @@ class BlurView extends Component {
   }
 
   render() {
-    if (this.props.children != null) {
-      throw new Error(
-        '[ReactNativeBlur]: BlurView cannot contain any child views on Android. ' +
-        'You should use "position: absolute" on the BlurView, ' +
-        'and place other views in front of it.'
-      );
-    }
-
     const { style } = this.props;
 
     return (
@@ -80,7 +72,9 @@ class BlurView extends Component {
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
         style={StyleSheet.compose(styles.transparent, style)}
-      />
+      >
+        {this.props.children}
+      </NativeBlurView>
     );
   }
 }

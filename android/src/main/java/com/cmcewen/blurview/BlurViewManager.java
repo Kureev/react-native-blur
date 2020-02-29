@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
@@ -17,7 +18,7 @@ import eightbitlab.com.blurview.RenderScriptBlur;
 
 
 @SuppressWarnings("unused")
-class BlurViewManager extends SimpleViewManager<BlurView> {
+class BlurViewManager extends ViewGroupManager<BlurView> {
     private static final String REACT_CLASS = "BlurView";
 
     private static final int defaultRadius = 10;
