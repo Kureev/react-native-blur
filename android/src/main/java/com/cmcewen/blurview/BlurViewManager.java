@@ -38,7 +38,7 @@ class BlurViewManager extends SimpleViewManager<BlurView> {
             .setFrameClearDrawable(windowBackground)
             .setBlurAlgorithm(new RenderScriptBlur(ctx))
             .setBlurRadius(defaultRadius)
-            .setHasFixedTransformationMatrix(true);
+            .setHasFixedTransformationMatrix(false);
         return blurView;
     }
 
