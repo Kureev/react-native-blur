@@ -71,6 +71,7 @@ class BlurView extends Component {
         blurRadius={this.blurRadius()}
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
+        pointerEvents="none"
         style={StyleSheet.compose(styles.transparent, style)}
       >
         {this.props.children}
