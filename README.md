@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40react-native-community%2Fblur.svg)](https://badge.fury.io/js/%40react-native-community%2Fblur)
 
-A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px-android-blur](https://github.com/Dimezis/BlurView) on Android.<br>
+A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [BlurView](https://github.com/Dimezis/BlurView) on Android.<br>
 
 <img src='https://cloud.githubusercontent.com/assets/139536/25066337/3c9d44c0-224d-11e7-8ca6-028478bf4a7d.gif' />
 
@@ -171,7 +171,7 @@ export default class Menu extends Component {
 
 ### Android
 
-Android uses the [500px-android-blur](https://github.com/Dimezis/BlurView).
+Android uses the [BlurView](https://github.com/Dimezis/BlurView).
 
 If you only need to support iOS, then you can safely ignore these limitations.
 
