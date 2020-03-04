@@ -1,22 +1,28 @@
 package com.cmcewen.blurview;
 
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.view.ViewGroup;
 
+import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
+import java.util.Objects;
+
 import javax.annotation.Nonnull;
+
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
 
 
 @SuppressWarnings("unused")
-class BlurViewManager extends SimpleViewManager<BlurringView> {
+class BlurViewManager extends ViewGroupManager<BlurView> {
     private static final String REACT_CLASS = "BlurView";
 
     private static final int defaultRadius = 10;
     private static final int defaultSampling = 10;
-
-    private static ThemedReactContext context;
 
     @Override
     public @Nonnull String getName() {
@@ -24,40 +30,33 @@ class BlurViewManager extends SimpleViewManager<BlurringView> {
     }
 
     @Override
-    public @Nonnull BlurringView createViewInstance(@Nonnull ThemedReactContext ctx) {
-        context = ctx;
-
-        BlurringView blurringView = new BlurringView(ctx);
-        blurringView.setBlurRadius(defaultRadius);
-        blurringView.setDownsampleFactor(defaultSampling);
-        return blurringView;
+    public @Nonnull BlurView createViewInstance(@Nonnull ThemedReactContext ctx) {
+        BlurView blurView = new BlurView(ctx);
+        View decorView = Objects.requireNonNull(ctx.getCurrentActivity()).getWindow().getDecorView();
+        ViewGroup rootView = decorView.findViewById(android.R.id.content);
+        Drawable windowBackground = decorView.getBackground();
+        blurView.setupWith(rootView)
+            .setFrameClearDrawable(windowBackground)
+            .setBlurAlgorithm(new RenderScriptBlur(ctx))
+            .setBlurRadius(defaultRadius)
+            .setHasFixedTransformationMatrix(false);
+        return blurView;
     }
 
     @ReactProp(name = "blurRadius", defaultInt = defaultRadius)
-    public void setRadius(BlurringView view, int radius) {
+    public void setRadius(BlurView view, int radius) {
         view.setBlurRadius(radius);
         view.invalidate();
     }
 
     @ReactProp(name = "overlayColor", customType = "Color")
-    public void setColor(BlurringView view, int color) {
+    public void setColor(BlurView view, int color) {
         view.setOverlayColor(color);
         view.invalidate();
     }
 
     @ReactProp(name = "downsampleFactor", defaultInt = defaultSampling)
-    public void setDownsampleFactor(BlurringView view, int factor) {
-        view.setDownsampleFactor(factor);
-    }
+    public void setDownsampleFactor(BlurView view, int factor) {
 
-    @ReactProp(name = "viewRef")
-    public void setViewRef(BlurringView view, int viewRef) {
-        if (context != null && context.getCurrentActivity() != null) {
-          View viewToBlur = context.getCurrentActivity().findViewById(viewRef);
-
-          if (viewToBlur != null) {
-              view.setBlurredView(viewToBlur);
-          }
-        }
     }
 }

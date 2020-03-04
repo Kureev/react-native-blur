@@ -7,6 +7,7 @@ import {
   Image,
   SegmentedControlIOS,
   StyleSheet,
+  Platform,
   Switch,
   Text,
   View,
@@ -59,42 +60,47 @@ export default class Basic extends Component {
           <BlurView
             blurType={this.state.blurBlurType}
             blurAmount={100}
-            style={[styles.blurView]} />
-
-          <Text style={[styles.text, { color: tintColor }]}>
-            Blur component (iOS)
-          </Text>
-
-          <SegmentedControlIOS
-            values={['xlight', 'light', 'dark', 'regular', 'prominent']}
-            selectedIndex={this.state.blurActiveSegment}
-            onChange={(event) => {this._onBlurChange(event);}}
-            onValueChange={(value) => {this._onBlurValueChange(value);}}
-            tintColor={tintColor}
-          />
+            style={[styles.blurView]}>
+            <Text style={[styles.text, { color: tintColor }]}>
+              Blur component (iOS)
+            </Text>
+            {{
+              Platform.OS === "ios" && 
+            <SegmentedControlIOS
+              values={['xlight', 'light', 'dark', 'regular', 'prominent']}
+              selectedIndex={this.state.blurActiveSegment}
+              onChange={(event) => {this._onBlurChange(event);}}
+              onValueChange={(value) => {this._onBlurValueChange(value);}}
+              tintColor={tintColor}
+            />
+            }}
+          </BlurView>
         </View>
 
         {/*
           VibrancyView is only supported on iOS, and must contain child views,
           otherwise the vibrancy effect doesn't work.
         */}
-        <VibrancyView
-          blurType={this.state.vibrancyBlurType}
-          blurAmount={10}
-          style={[styles.container, styles.blurContainer]}>
+        {{
+          Platform.OS === "ios" && 
+          <VibrancyView
+            blurType={this.state.vibrancyBlurType}
+            blurAmount={10}
+            style={[styles.container, styles.blurContainer]}>
 
-          <Text style={styles.text}>
-            Vibrancy component (iOS-only)
-          </Text>
+            <Text style={styles.text}>
+              Vibrancy component (iOS-only)
+            </Text>
 
-          <SegmentedControlIOS
-            values={['xlight', 'light', 'dark', 'regular', 'prominent']}
-            selectedIndex={this.state.vibrancyActiveSegment}
-            onChange={(event) => {this._onVibrancyChange(event);}}
-            onValueChange={(value) => {this._onVibrancyValueChange(value);}}
-            tintColor="white"
-          />
-        </VibrancyView>
+            <SegmentedControlIOS
+              values={['xlight', 'light', 'dark', 'regular', 'prominent']}
+              selectedIndex={this.state.vibrancyActiveSegment}
+              onChange={(event) => {this._onVibrancyChange(event);}}
+              onValueChange={(value) => {this._onVibrancyValueChange(value);}}
+              tintColor="white"
+            />
+          </VibrancyView>
+        }}
       </View>
     );
   }

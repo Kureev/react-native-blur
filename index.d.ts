@@ -13,7 +13,6 @@ export interface BlurViewProperties {
     | "extraDark"
   blurAmount?: number // 0 - 100
   style?: StyleProp<ViewStyle>
-  viewRef?: number | null
   blurRadius?: number
   downsampleFactor?: number
   overlayColor?: string

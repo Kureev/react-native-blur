@@ -64,24 +64,18 @@ class BlurView extends Component {
   }
 
   render() {
-    if (this.props.children != null) {
-      throw new Error(
-        '[ReactNativeBlur]: BlurView cannot contain any child views on Android. ' +
-        'You should use "position: absolute" on the BlurView, ' +
-        'and place other views in front of it.'
-      );
-    }
-
-    const { viewRef, style } = this.props;
+    const { style } = this.props;
 
     return (
       <NativeBlurView
-        viewRef={viewRef}
         blurRadius={this.blurRadius()}
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
+        pointerEvents="none"
         style={StyleSheet.compose(styles.transparent, style)}
-      />
+      >
+        {this.props.children}
+      </NativeBlurView>
     );
   }
 }
@@ -98,10 +92,6 @@ BlurView.propTypes = {
   blurRadius: PropTypes.number,
   downsampleFactor: PropTypes.number,
   overlayColor: PropTypes.string,
-  viewRef: Platform.select({
-    android: PropTypes.number.isRequired,
-    default: PropTypes.number,
-  }),
 };
 
 BlurView.defaultProps = {

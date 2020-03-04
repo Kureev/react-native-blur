@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40react-native-community%2Fblur.svg)](https://badge.fury.io/js/%40react-native-community%2Fblur)
 
-A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px-android-blur](https://github.com/500px/500px-android-blur) on Android.<br>
+A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [BlurView](https://github.com/Dimezis/BlurView) on Android.<br>
 
 <img src='https://cloud.githubusercontent.com/assets/139536/25066337/3c9d44c0-224d-11e7-8ca6-028478bf4a7d.gif' />
 
@@ -102,18 +102,10 @@ import { BlurView, VibrancyView } from "@react-native-community/blur";
 
 ```javascript
 import React, { Component } from "react";
-import { View, Image, Text, findNodeHandle, StyleSheet } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
 import { BlurView } from "@react-native-community/blur";
 
 export default class Menu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { viewRef: null };
-  }
-
-  imageLoaded() {
-    this.setState({ viewRef: findNodeHandle(this.backgroundImage) });
-  }
 
   render() {
     return (
@@ -124,14 +116,12 @@ export default class Menu extends Component {
           viewRef={this.state.viewRef}
           blurType="light"
           blurAmount={10}
-        />
+        >
+          <Text>I'm the BlurView content on both iOS and Android</Text>
+        </BlurView>
         <Image
-          ref={img => {
-            this.backgroundImage = img;
-          }}
           source={{ uri }}
           style={styles.absolute}
-          onLoadEnd={this.imageLoaded.bind(this)}
         />
       </View>
     );
@@ -154,8 +144,6 @@ const styles = StyleSheet.create({
 ```
 
 In this example, the `Image` component will be blurred, because the `BlurView` in positioned on top. But the `Text` will stay unblurred.
-
-Note that `viewRef` is only required if you need to support Android. See the [Android section](#android) for more details.
 
 ### VibrancyView
 
@@ -183,12 +171,7 @@ export default class Menu extends Component {
 
 ### Android
 
-Android uses the [500px-android-blur](https://github.com/500px/500px-android-blur) library, which works by blurring a referenced view. This means that you must wait until the view you want to blur is rendered. You then use `findNodeHandle` to get a reference to that view, and pass that reference to the `BlurView` as the `viewRef` prop. Take a look at [the BlurView example](#blurview) to see how it works.
-
-The Android library introduces some limitations:
-
-- `BlurView` cannot be a child of the view that is being blurred (this would cause an infinite loop)
-- `BlurView` cannot contain any child components.
+Android uses the [BlurView](https://github.com/Dimezis/BlurView).
 
 If you only need to support iOS, then you can safely ignore these limitations.
 

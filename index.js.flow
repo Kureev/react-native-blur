@@ -20,7 +20,6 @@ export type BlurViewProps = {
   blurType: BlurType,
   blurAmount: number, // 0 - 100
   style?: ?ViewStyleProp,
-  viewRef?: ?React.ElementRef<any>,
 };
 
 export class BlurView extends React.Component<BlurViewProps> {
