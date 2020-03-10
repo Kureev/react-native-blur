@@ -46,10 +46,10 @@ export default class Basic extends Component {
 
   renderBlurs() {
     const tintColor = this.state.blurBlurType === 'xlight' ? 'black' : 'white';
+    const platform = Platform.OS === 'ios' ? 'iOS' : 'Android';
 
     return (
       <View style={styles.container}>
-
         <View style={styles.blurContainer}>
           {/*
             BlurView is supported on both iOS and Android.
@@ -62,27 +62,25 @@ export default class Basic extends Component {
             blurAmount={100}
             style={[styles.blurView]}>
             <Text style={[styles.text, { color: tintColor }]}>
-              Blur component (iOS)
+              Blur component ({platform})
             </Text>
-            {{
-              Platform.OS === "ios" && 
+            {Platform.OS === 'ios' &&
             <SegmentedControlIOS
               values={['xlight', 'light', 'dark', 'regular', 'prominent']}
               selectedIndex={this.state.blurActiveSegment}
               onChange={(event) => {this._onBlurChange(event);}}
               onValueChange={(value) => {this._onBlurValueChange(value);}}
               tintColor={tintColor}
-            />
-            }}
+            />}
           </BlurView>
         </View>
 
-        {/*
-          VibrancyView is only supported on iOS, and must contain child views,
-          otherwise the vibrancy effect doesn't work.
-        */}
-        {{
-          Platform.OS === "ios" && 
+        {
+          /*
+            VibrancyView is only supported on iOS, and must contain child views,
+            otherwise the vibrancy effect doesn't work.
+          */
+          Platform.OS === 'ios' &&
           <VibrancyView
             blurType={this.state.vibrancyBlurType}
             blurAmount={10}
@@ -100,7 +98,7 @@ export default class Basic extends Component {
               tintColor="white"
             />
           </VibrancyView>
-        }}
+        }
       </View>
     );
   }
