@@ -110,19 +110,20 @@ export default class Menu extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hi, I am some unblurred text</Text>
+        <Image
+          key={'blurryImage'}
+          source={{ uri }}
+          style={styles.absolute}
+        />
+        <Text style={styles.absolute}>Hi, I am some blurred text</Text>
+{/* in terms of positioning and zIndex-ing everything before the BlurView will be blurred */}
         <BlurView
           style={styles.absolute}
           viewRef={this.state.viewRef}
           blurType="light"
           blurAmount={10}
-        >
-          <Text>I'm the BlurView content on both iOS and Android</Text>
-        </BlurView>
-        <Image
-          source={{ uri }}
-          style={styles.absolute}
         />
+        <Text>I'm the non blurred text because I got rendered on top of the BlurView</Text>
       </View>
     );
   }
