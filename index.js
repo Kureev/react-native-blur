@@ -1,7 +1,7 @@
-const BlurView = require('./src/BlurView');
-const VibrancyView = require('./src/VibrancyView');
+import BlurView from './src/BlurView';
+import VibrancyView from './src/VibrancyView';
 
 module.exports = {
-    BlurView: BlurView,
-    VibrancyView: VibrancyView,
+  BlurView: BlurView,
+  VibrancyView: VibrancyView,
 };

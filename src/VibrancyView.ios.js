@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { requireNativeComponent } from 'react-native';
+import {requireNativeComponent, StyleSheet} from 'react-native';
 
 class VibrancyView extends Component {
   setNativeProps = nativeProps => {
     if (this._root) {
       this._root.setNativeProps(nativeProps);
     }
-  }
+  };
 
   render() {
     return (
       <NativeVibrancyView
         {...this.props}
-        style={[{
-          backgroundColor: 'transparent',
-        }, this.props.style,
-        ]}
+        style={StyleSheet.compose(styles.transparent, this.props.style)}
       />
     );
   }
 }
+
+const styles = StyleSheet.create({
+  transparent: { backgroundColor: 'transparent' },
+});
 
 VibrancyView.propTypes = {
   blurType: PropTypes.string,

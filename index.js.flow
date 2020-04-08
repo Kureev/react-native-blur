@@ -1,0 +1,55 @@
+// @flow
+
+import * as React from 'react';
+import {View} from 'react-native';
+
+type ViewProps = React.ElementProps<typeof View>;
+type ViewStyleProp = $PropertyType<ViewProps, 'style'>;
+
+export type BlurType =
+  | 'xlight'
+  | 'light'
+  | 'dark'
+  // iOS 13+ only
+  | "chromeMaterial"
+  | "material"
+  | "thickMaterial"
+  | "thinMaterial"
+  | "ultraThinMaterial"
+  | "chromeMaterialDark"
+  | "materialDark"
+  | "thickMaterialDark"
+  | "thinMaterialDark"
+  | "ultraThinMaterialDark"
+  | "chromeMaterialLight"
+  | "materialLight"
+  | "thickMaterialLight"
+  | "thinMaterialLight"
+  | "ultraThinMaterialLight"
+  // tvOS and iOS 10+ only
+  | 'regular'
+  | 'prominent'
+  // tvOS only
+  | 'extraDark';
+
+export type BlurViewProps = {
+  blurType?: BlurType,
+  blurAmount?: number, // 0 - 100,
+  reducedTransparencyFallbackColor?: String,
+  style?: ?ViewStyleProp,
+};
+
+export class BlurView extends React.Component<BlurViewProps> {
+  static defaultProps = {
+    blurType: 'dark',
+    blurAmount: 10,
+  };
+}
+
+export type VibrancyViewProps = BlurViewProps;
+
+export class VibrancyView extends React.Component<VibrancyViewProps> {
+  static defaultProps = {
+    blurAmount: 10,
+  };
+}

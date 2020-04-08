@@ -1,0 +1,5 @@
+rootProject.name = 'example'
+include ':react-native-blur'
+project(':react-native-blur').projectDir = new File(rootProject.projectDir, '../../android')
+
+include ':app'
