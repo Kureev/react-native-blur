@@ -77,6 +77,22 @@ import { BlurView, VibrancyView } from "@react-native-community/blur";
   - `extraDark` - extra dark blur type (tvOS only)
   - `regular` - regular blur type (iOS 10+ and tvOS only)
   - `prominent` - prominent blur type (iOS 10+ and tvOS only)
+  - iOS 13 only Blur types:
+    - `chromeMaterial` - An adaptable blur effect that creates the appearance of the system chrome.
+    - `material` - An adaptable blur effect that creates the appearance of a material with normal thickness.
+    - `thickMaterial` - An adaptable blur effect that creates the appearance of a material that is thicker than normal.
+    - `thinMaterial` - An adaptable blur effect that creates the appearance of an ultra-thin material.
+    - `ultraThinMaterial` - An adaptable blur effect that creates the appearance of an ultra-thin material.
+    - `chromeMaterialDark` - A blur effect that creates the appearance of an ultra-thin material and is always dark.
+    - `materialDark` - A blur effect that creates the appearance of a thin material and is always dark.
+    - `thickMaterialDark` - A blur effect that creates the appearance of a material with normal thickness and is always dark.
+    - `thinMaterialDark` - A blur effect that creates the appearance of a material that is thicker than normal and is always dark.
+    - `ultraThinMaterialDark` - A blur effect that creates the appearance of the system chrome and is always dark.
+    - `chromeMaterialLight` - An adaptable blur effect that creates the appearance of the system chrome.
+    - `materialLight` - An adaptable blur effect that creates the appearance of a material with normal thickness.
+    - `thickMaterialLight` - An adaptable blur effect that creates the appearance of a material that is thicker than normal.
+    - `thinMaterialLight` - An adaptable blur effect that creates the appearance of a thin material.
+    - `ultraThinMaterialLight` - An adaptable blur effect that creates the appearance of an ultra-thin material.
 - `blurAmount` (Default: 10, Number)
   - `0-100` - Adjusts blur intensity
 
