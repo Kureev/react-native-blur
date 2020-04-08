@@ -41,23 +41,7 @@ cd ios
 pod install
 ```
 
-4. (Android only) Add the following to `android/app/build.gradle`
-
-```
-android {
-    // make sure to use 23.0.3 or greater
-    buildToolsVersion '23.0.3'
-
-    // ...
-    defaultConfig {
-        // Add these lines below the existing config
-        renderscriptTargetApi 23
-        renderscriptSupportModeEnabled true
-    }
-}
-```
-
-5. (Android only, optional) 
+4. (Android only, optional)
 If you've defined _[project-wide properties](https://developer.android.com/studio/build/gradle-tips.html)_ (**recommended**) in your root `build.gradle`, this library will detect the presence of the following properties:
 
 ```groovy
@@ -74,13 +58,13 @@ ext {
 }
 ```
 
-6. Include the library in your code:
+5. Include the library in your code:
 
 ```javascript
 import { BlurView, VibrancyView } from "@react-native-community/blur";
 ```
 
-7. Compile and have fun!
+6. Compile and have fun!
 
 ### BlurView
 
