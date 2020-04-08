@@ -60,6 +60,7 @@ export default class Basic extends Component {
           <BlurView
             blurType={this.state.blurBlurType}
             blurAmount={100}
+            reducedTransparencyFallbackColor={'pink'}
             style={[styles.blurView]}>
             <Text style={[styles.text, { color: tintColor }]}>
               Blur component ({platform})
@@ -84,6 +85,7 @@ export default class Basic extends Component {
           <VibrancyView
             blurType={this.state.vibrancyBlurType}
             blurAmount={10}
+            reducedTransparencyFallbackColor={'pink'}
             style={[styles.container, styles.blurContainer]}>
 
             <Text style={styles.text}>

@@ -95,6 +95,8 @@ import { BlurView, VibrancyView } from "@react-native-community/blur";
     - `ultraThinMaterialLight` - An adaptable blur effect that creates the appearance of an ultra-thin material.
 - `blurAmount` (Default: 10, Number)
   - `0-100` - Adjusts blur intensity
+- `reducedTransparencyFallbackColor` (Color) (iOS only)
+  - `black, white, #rrggbb, etc` - background color to use if accessibility setting ReduceTransparency is enabled
 
 > Note: The maximum `blurAmount` on Android is 32, so higher values will be clamped to 32.
 
@@ -122,6 +124,7 @@ export default class Menu extends Component {
           viewRef={this.state.viewRef}
           blurType="light"
           blurAmount={10}
+          reducedTransparencyFallbackColor="white"
         />
         <Text>I'm the non blurred text because I got rendered on top of the BlurView</Text>
       </View>
@@ -146,9 +149,11 @@ const styles = StyleSheet.create({
 
 In this example, the `Image` component will be blurred, because the `BlurView` in positioned on top. But the `Text` will stay unblurred.
 
+If the [accessibility setting `Reduce Transparency`](https://support.apple.com/guide/iphone/display-settings-iph3e2e1fb0/ios) is enabled the `BlurView` will use `reducedTransparencyFallbackColor` as it's background color rather than blurring. If no `reducedTransparencyFallbackColor` is provided, the`BlurView`will use the default fallback color (white, black, or grey depending on `blurType`)
+
 ### VibrancyView
 
-**Uses the same properties as `BlurView` (`blurType` and `blurAmount`).**
+**Uses the same properties as `BlurView` (`blurType`, `blurAmount`, and `reducedTransparencyFallbackColor`).**
 
 > The vibrancy effect lets the content underneath a blurred view show through more vibrantly
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleProp, ViewStyle } from "react-native";
 
 export interface BlurViewProperties {
-  blurType:
+  blurType?:
     | "xlight"
     | "light"
     | "dark"
@@ -28,6 +28,7 @@ export interface BlurViewProperties {
     // tvOS only
     | "extraDark"
   blurAmount?: number // 0 - 100
+  reducedTransparencyFallbackColor?: string
   style?: StyleProp<ViewStyle>
   blurRadius?: number
   downsampleFactor?: number

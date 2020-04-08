@@ -33,8 +33,9 @@ export type BlurType =
   | 'extraDark';
 
 export type BlurViewProps = {
-  blurType: BlurType,
-  blurAmount: number, // 0 - 100
+  blurType?: BlurType,
+  blurAmount?: number, // 0 - 100,
+  reducedTransparencyFallbackColor?: String,
   style?: ?ViewStyleProp,
 };
 
