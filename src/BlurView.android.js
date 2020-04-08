@@ -5,7 +5,6 @@ import {
   requireNativeComponent,
   DeviceEventEmitter,
   ViewPropTypes,
-  Platform,
   StyleSheet,
 } from 'react-native';
 
