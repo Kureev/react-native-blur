@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {requireNativeComponent, StyleSheet} from 'react-native';
 
 class VibrancyView extends Component {
-  setNativeProps = nativeProps => {
+  setNativeProps = (nativeProps) => {
     if (this._root) {
       this._root.setNativeProps(nativeProps);
     }
@@ -20,7 +20,7 @@ class VibrancyView extends Component {
 }
 
 const styles = StyleSheet.create({
-  transparent: { backgroundColor: 'transparent' },
+  transparent: {backgroundColor: 'transparent'},
 });
 
 VibrancyView.propTypes = {
