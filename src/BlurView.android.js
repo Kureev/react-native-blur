@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -16,7 +16,7 @@ const OVERLAY_COLORS = {
 
 class BlurView extends Component {
   componentDidMount() {
-    DeviceEventEmitter.addListener('ReactNativeBlurError', message => {
+    DeviceEventEmitter.addListener('ReactNativeBlurError', (message) => {
       throw new Error(`[ReactNativeBlur]: ${message}`);
     });
   }
@@ -33,12 +33,12 @@ class BlurView extends Component {
   }
 
   blurRadius() {
-    const { blurRadius, blurAmount } = this.props;
+    const {blurRadius, blurAmount} = this.props;
 
     if (blurRadius != null) {
       if (blurRadius > 25) {
         throw new Error(
-          `[ReactNativeBlur]: blurRadius cannot be greater than 25! (was: ${blurRadius})`
+          `[ReactNativeBlur]: blurRadius cannot be greater than 25! (was: ${blurRadius})`,
         );
       }
       return blurRadius;
@@ -55,7 +55,7 @@ class BlurView extends Component {
   }
 
   downsampleFactor() {
-    const { downsampleFactor, blurRadius } = this.props;
+    const {downsampleFactor, blurRadius} = this.props;
     if (downsampleFactor != null) {
       return downsampleFactor;
     }
@@ -63,7 +63,7 @@ class BlurView extends Component {
   }
 
   render() {
-    const { style } = this.props;
+    const {style} = this.props;
 
     return (
       <NativeBlurView
@@ -71,8 +71,7 @@ class BlurView extends Component {
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
         pointerEvents="none"
-        style={StyleSheet.compose(styles.transparent, style)}
-      >
+        style={StyleSheet.compose(styles.transparent, style)}>
         {this.props.children}
       </NativeBlurView>
     );
@@ -80,7 +79,7 @@ class BlurView extends Component {
 }
 
 const styles = StyleSheet.create({
-  transparent: { backgroundColor: 'transparent' },
+  transparent: {backgroundColor: 'transparent'},
 });
 
 BlurView.propTypes = {
