@@ -37,8 +37,7 @@ react-native link @react-native-community/blur
 3. (iOS only) Install to Xcode:
 
 ```
-cd ios
-pod install
+npx pod-install
 ```
 
 4. (Android only, optional)
