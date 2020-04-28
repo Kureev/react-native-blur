@@ -1,6 +1,10 @@
+require "json"
+
+package = JSON.parse(File.read(File.join(__dir__, "package.json")))
+
 Pod::Spec.new do |s|
   s.name          = "react-native-blur"
-  s.version       = "0.8.0"
+  s.version       = package["version"]
   s.source_files  = "ios/*.{h,m}"
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
