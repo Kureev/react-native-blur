@@ -120,7 +120,6 @@ export default class Menu extends Component {
 {/* in terms of positioning and zIndex-ing everything before the BlurView will be blurred */}
         <BlurView
           style={styles.absolute}
-          viewRef={this.state.viewRef}
           blurType="light"
           blurAmount={10}
           reducedTransparencyFallbackColor="white"
