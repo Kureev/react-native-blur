@@ -28,7 +28,7 @@ or npm:
 npm install --save @react-native-community/blur
 ```
 
-2. Link your native dependencies:
+2. **React-Native 0.59 and below only**: Link your native dependencies:
 
 ```
 react-native link @react-native-community/blur
@@ -38,6 +38,10 @@ react-native link @react-native-community/blur
 
 ```
 npx pod-install
+```
+Or, if you already have installed [Cocoapods](https://cocoapods.org/) on your system:
+```
+cd ios && pod install
 ```
 
 4. (Android only, optional)
@@ -120,7 +124,6 @@ export default class Menu extends Component {
 {/* in terms of positioning and zIndex-ing everything before the BlurView will be blurred */}
         <BlurView
           style={styles.absolute}
-          viewRef={this.state.viewRef}
           blurType="light"
           blurAmount={10}
           reducedTransparencyFallbackColor="white"
