@@ -64,12 +64,15 @@ class BlurView extends Component {
 
   setNativeProps = nativeProps => {
     if (this._root) {
-      console.log(nativeProps)
+      const props = {
+        ...this.props,
+        ...nativeProps
+      }
       this._root.setNativeProps({
         ...nativeProps,
-        blurRadius:this.blurRadius(nativeProps),
-        downsampleFactor:this.downsampleFactor(nativeProps),
-        overlayColor:this.overlayColor(nativeProps)
+        blurRadius:this.blurRadius(props),
+        downsampleFactor:this.downsampleFactor(props),
+        overlayColor:this.overlayColor(props)
       });
     }
   };
