@@ -5,11 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.facebook.react.uimanager.ViewGroupManager;
-import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
-
-import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
@@ -32,14 +29,17 @@ class BlurViewManager extends ViewGroupManager<BlurView> {
     @Override
     public @Nonnull BlurView createViewInstance(@Nonnull ThemedReactContext ctx) {
         BlurView blurView = new BlurView(ctx);
-        View decorView = Objects.requireNonNull(ctx.getCurrentActivity()).getWindow().getDecorView();
-        ViewGroup rootView = decorView.findViewById(android.R.id.content);
-        Drawable windowBackground = decorView.getBackground();
-        blurView.setupWith(rootView)
-            .setFrameClearDrawable(windowBackground)
-            .setBlurAlgorithm(new RenderScriptBlur(ctx))
-            .setBlurRadius(defaultRadius)
-            .setHasFixedTransformationMatrix(false);
+        Activity currentActivity = ctx.getCurrentActivity();
+        if (currentActivity != null) {
+            View decorView = currentActivity.getWindow().getDecorView();
+            ViewGroup rootView = decorView.findViewById(android.R.id.content);
+            Drawable windowBackground = decorView.getBackground();
+            blurView.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(ctx))
+                .setBlurRadius(defaultRadius)
+                .setHasFixedTransformationMatrix(false);
+        }
         return blurView;
     }
 
