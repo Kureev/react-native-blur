@@ -8,6 +8,7 @@ buildscript {
     // module dependency in an application project.
     if (project == rootProject) {
         repositories {
+            mavenCentral()
             google()
             jcenter()
         }
@@ -36,6 +37,7 @@ android {
 }
 
 repositories {
+    mavenCentral()
     google()
     jcenter()
 }
