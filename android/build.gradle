@@ -43,5 +43,5 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.eightbitlab:blurview:1.6.3'
+    implementation 'com.eightbitlab:blurview:1.6.6'
 }
