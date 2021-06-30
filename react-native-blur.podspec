@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.homepage      = "https://github.com/react-native-community/react-native-blur"
   s.source        = { :git => "https://github.com/react-native-community/react-native-blur.git" }
 
-  s.dependency 'React'
+  s.dependency 'React-Core'
 end
