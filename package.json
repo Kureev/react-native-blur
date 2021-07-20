@@ -33,7 +33,7 @@
     "lint-staged": "^10.1.2",
     "prettier": "2.0.4",
     "react": "16.13.1",
-    "react-native": "0.62.1"
+    "react-native": "0.62.3"
   },
   "husky": {
     "hooks": {
