@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.59.2",
+    "react-native": "0.62.3",
     "react-native-segmented-control-tab": "^3.4.1"
   },
   "devDependencies": {
