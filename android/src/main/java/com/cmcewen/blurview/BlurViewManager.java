@@ -15,6 +15,7 @@ import javax.annotation.Nonnull;
 
 import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderScriptBlur;
+import eightbitlab.com.blurview.BlurViewFacade;
 
 
 @SuppressWarnings("unused")
@@ -23,6 +24,9 @@ class BlurViewManager extends ViewGroupManager<BlurView> {
 
     private static final int defaultRadius = 10;
     private static final int defaultSampling = 10;
+    private static final boolean defaultIsStatic = false;
+
+    private BlurViewFacade blurViewFacade;
 
     @Override
     public @Nonnull String getName() {
@@ -35,11 +39,12 @@ class BlurViewManager extends ViewGroupManager<BlurView> {
         View decorView = Objects.requireNonNull(ctx.getCurrentActivity()).getWindow().getDecorView();
         ViewGroup rootView = decorView.findViewById(android.R.id.content);
         Drawable windowBackground = decorView.getBackground();
-        blurView.setupWith(rootView)
+        blurViewFacade = blurView.setupWith(rootView)
             .setFrameClearDrawable(windowBackground)
             .setBlurAlgorithm(new RenderScriptBlur(ctx))
             .setBlurRadius(defaultRadius)
-            .setHasFixedTransformationMatrix(false);
+            .setHasFixedTransformationMatrix(defaultIsStatic);
+
         return blurView;
     }
 
@@ -58,5 +63,21 @@ class BlurViewManager extends ViewGroupManager<BlurView> {
     @ReactProp(name = "downsampleFactor", defaultInt = defaultSampling)
     public void setDownsampleFactor(BlurView view, int factor) {
 
+    }
+
+    @ReactProp(name = "static", defaultBoolean = defaultIsStatic)
+    public void setStatic(BlurView view, boolean isStatic) {
+        blurViewFacade.setHasFixedTransformationMatrix(isStatic);
+    }
+
+    @ReactProp(name = "autoUpdate", defaultBoolean = true)
+    public void setAutoUpdate(BlurView view, boolean autoUpdate) {
+        view.setBlurAutoUpdate(autoUpdate);
+        view.invalidate();
+    }
+
+    @ReactProp(name = "enabled", defaultBoolean = true)
+    public void setBlurEnabled(BlurView view, boolean enabled) {
+        view.setBlurEnabled(enabled);
     }
 }

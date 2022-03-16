@@ -71,6 +71,9 @@ class BlurView extends Component {
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
         pointerEvents="none"
+        static={this.props.static}
+        enabled={this.props.enabled}
+        autoUpdate={this.props.autoUpdate}
         style={StyleSheet.compose(styles.transparent, style)}>
         {this.props.children}
       </NativeBlurView>
