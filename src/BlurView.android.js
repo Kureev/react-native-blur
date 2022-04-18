@@ -67,6 +67,7 @@ class BlurView extends Component {
 
     return (
       <NativeBlurView
+        {...this.props}
         blurRadius={this.blurRadius()}
         downsampleFactor={this.downsampleFactor()}
         overlayColor={this.overlayColor()}
