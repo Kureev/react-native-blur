@@ -6,6 +6,9 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [BlurV
 
 <img src='https://cloud.githubusercontent.com/assets/139536/25066337/3c9d44c0-224d-11e7-8ca6-028478bf4a7d.gif' />
 
+### Current Maintainers:
+- [Thibault Malbranche](https://github.com/Titozzz) ([Twitter @titozzz](https://twitter.com/titozzz)) from [Brigad](https://www.brigad.co/en-gb/about-us)
+
 ### Content
 
 - [Installation](#installation)
