@@ -186,16 +186,10 @@ yarn
 
 3. Run the apps:
 
-#### Run the iOS app
+#### Run the app
 
 ```
 yarn example android/ios
-```
-
-#### Run the Android app
-
-```
-react-native run-android
 ```
 
 ### Questions?
