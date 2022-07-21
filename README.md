@@ -28,13 +28,7 @@ or npm:
 npm install --save @react-native-community/blur
 ```
 
-2. **React-Native 0.59 and below only**: Link your native dependencies:
-
-```
-react-native link @react-native-community/blur
-```
-
-3. (iOS only) Install to Xcode:
+2. (iOS only) Install native dependencies:
 
 ```
 npx pod-install
@@ -44,30 +38,13 @@ Or, if you already have installed [Cocoapods](https://cocoapods.org/) on your sy
 cd ios && pod install
 ```
 
-4. (Android only, optional)
-If you've defined _[project-wide properties](https://developer.android.com/studio/build/gradle-tips.html)_ (**recommended**) in your root `build.gradle`, this library will detect the presence of the following properties:
-
-```groovy
-buildscript {...}
-allprojects {...}
-
-/**
-  + Project-wide Gradle configuration properties
-  */
-ext {
-    compileSdkVersion   = 27
-    targetSdkVersion    = 27
-    buildToolsVersion   = "27.0.3"
-}
-```
-
-5. Include the library in your code:
+3. Include the library in your code:
 
 ```javascript
 import { BlurView, VibrancyView } from "@react-native-community/blur";
 ```
 
-6. Compile and have fun!
+4. Build and have fun!
 
 ### BlurView
 
@@ -201,82 +178,18 @@ cd ~
 git clone https://github.com/react-native-community/react-native-blur.git
 ```
 
-2. cd to `example`
+2. Install dependencies
 
 ```
-cd react-native-blur/example
+yarn
 ```
 
-3. Install dependencies
+3. Run the apps:
+
+#### Run the app
 
 ```
-npm install
-```
-
-4. Run the apps:
-
-#### Run the iOS app
-
-```
-react-native run-ios
-```
-
-#### Run the tvOS app
-
-type:
-
-```
-react-native run-ios
-```
-
-`react-native link` don’t works properly with the tvOS target so we need to add the library manually.
-
-First select your project in Xcode.
-
-<img src="./docs/tvOS-step-1.jpg" width="40%">
-
-After that, select the tvOS target of your application and select « General » tab
-
-<img src="./docs/tvOS-step-2.jpg" width="40%">
-
-Scroll to « Linked Frameworks and Libraries » and tap on the + button
-
-<img src="./docs/tvOS-step-3.jpg" width="40%">
-
-Select RNBlur-tvOS
-
-<img src="./docs/tvOS-step-4.jpg" width="40%">
-
-That’s all, you can use react-native-blur for your tvOS application
-
-#### Run the Android app
-
-```
-react-native run-android
-```
-
-### Troubleshooting
-
-On older instances of react-native, BlurView package does not get added into the MainActivity/MainApplication classes where you would see `Warning: Native component for 'BlurView' does not exist` in RN YellowBox or console.
-
-To rectify this, you can add the BlurViewPackage manually in MainActivity/MainApplication classes
-
-```java
-...
-import com.cmcewen.blurview.BlurViewPackage;
-...
-
-public class MainApplication extends Application implements ReactApplication {
-...
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-          new BlurViewPackage()
-      );
-    }
-...
-}
+yarn example android/ios
 ```
 
 ### Questions?
