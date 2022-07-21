@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-community-blur.podspec",
+    "react-native-blur.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
