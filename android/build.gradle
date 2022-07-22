@@ -127,8 +127,8 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   // From node_modules
-  
-  implementation 'com.github.Dimezis:BlurView:version-1.6.6'
+
+  implementation 'com.github.Dimezis:BlurView:version-2.0.2'
 }
 
 if (isNewArchitectureEnabled()) {
