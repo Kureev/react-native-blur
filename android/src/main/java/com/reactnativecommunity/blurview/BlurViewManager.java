@@ -65,4 +65,15 @@ class BlurViewManager extends ViewGroupManager<BlurView> {
 
   @ReactProp(name = "downsampleFactor", defaultInt = defaultSampling)
   public void setDownsampleFactor(BlurView view, int factor) {}
+
+  @ReactProp(name = "autoUpdate", defaultBoolean = true)
+  public void setAutoUpdate(BlurView view, boolean autoUpdate) {
+    view.setBlurAutoUpdate(autoUpdate);
+    view.invalidate();
+  }
+
+  @ReactProp(name = "enabled", defaultBoolean = true)
+  public void setBlurEnabled(BlurView view, boolean enabled) {
+    view.setBlurEnabled(enabled);
+  }
 }
