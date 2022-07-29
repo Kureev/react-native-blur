@@ -48,7 +48,7 @@ const Blurs = () => {
           <Text style={[styles.text, { color: tintColor }]}>
             Blur component ({platform})
           </Text>
-          {Platform.OS === 'ios' && (
+          {Platform.OS === 'ios' ? (
             <SegmentedControlIOS
               values={['xlight', 'light', 'dark', 'regular', 'prominent']}
               selectedIndex={blurActiveSegment}
@@ -60,7 +60,7 @@ const Blurs = () => {
               }}
               tintColor={tintColor}
             />
-          )}
+          ) : null}
         </BlurView>
       </View>
 
@@ -69,7 +69,7 @@ const Blurs = () => {
           VibrancyView is only supported on iOS, and must contain child views,
           otherwise the vibrancy effect doesn't work.
         */
-        Platform.OS === 'ios' && (
+        Platform.OS === 'ios' ? (
           <VibrancyView
             blurType={vibrancyBlurType}
             blurAmount={10}
@@ -89,7 +89,7 @@ const Blurs = () => {
               tintColor="white"
             />
           </VibrancyView>
-        )
+        ) : null
       }
     </SafeAreaView>
   );

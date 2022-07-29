@@ -1,25 +1,35 @@
 {
-  "name": "@react-native-community/blur-example",
-  "description": "Example app for @react-native-community/blur",
+  "name": "BlurExample",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "build:android": "mkdirp dist/res && react-native bundle --entry-file index.tsx --platform android --dev true --bundle-output dist/main.android.jsbundle --assets-dest dist/res",
+    "build:ios": "mkdirp dist && react-native bundle --entry-file index.tsx --platform ios --dev true --bundle-output dist/main.ios.jsbundle --assets-dest dist",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "lint": "eslint .",
     "pods": "pod-install --quiet",
-    "postinstall": "patch-package"
+    "start": "react-native start",
+    "test": "jest"
   },
   "dependencies": {
     "react": "17.0.2",
     "react-native": "0.68.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
+    "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
-    "babel-plugin-module-resolver": "^4.1.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@react-native-community/blur": "../",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.32.0",
+    "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.67.0",
-    "patch-package": "^6.4.7",
-    "postinstall-postinstall": "^2.1.0"
+    "mkdirp": "^1.0.0",
+    "react-native-test-app": "^1.6.0",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }
