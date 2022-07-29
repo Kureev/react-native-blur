@@ -20,19 +20,26 @@ export type BlurViewProps = ViewProps & {
   blurRadius?: number;
   downsampleFactor?: number;
   overlayColor?: string;
+  enabled?: boolean;
+  autoUpdate?: boolean;
 };
 
 const BlurView = forwardRef<View, BlurViewProps>(
-  ({
-    downsampleFactor,
-    blurRadius,
-    blurAmount = 10,
-    blurType = 'dark',
-    overlayColor,
-    children,
-    style,
-    ...rest
-  }, ref) => {
+  (
+    {
+      downsampleFactor,
+      blurRadius,
+      blurAmount = 10,
+      blurType = 'dark',
+      overlayColor,
+      enabled,
+      autoUpdate,
+      children,
+      style,
+      ...rest
+    },
+    ref
+  ) => {
     useEffect(() => {
       DeviceEventEmitter.addListener('ReactNativeBlurError', (message) => {
         throw new Error(`[ReactNativeBlur]: ${message}`);
@@ -88,6 +95,8 @@ const BlurView = forwardRef<View, BlurViewProps>(
         overlayColor={getOverlayColor()}
         blurAmount={blurAmount}
         blurType={blurType}
+        enabled={enabled}
+        autoUpdate={autoUpdate}
         pointerEvents="none"
         style={StyleSheet.compose(styles.transparent, style)}
       >
