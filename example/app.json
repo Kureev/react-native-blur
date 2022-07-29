@@ -1,0 +1,16 @@
+{
+  "name": "BlurExample",
+  "displayName": "BlurExample",
+  "components": [
+    {
+      "appKey": "main",
+      "displayName": "BlurExample"
+    }
+  ],
+  "resources": {
+    "android": ["dist/res", "dist/main.android.jsbundle"],
+    "ios": ["dist/assets", "dist/main.ios.jsbundle"],
+    "macos": ["dist/assets", "dist/main.macos.jsbundle"],
+    "windows": ["dist/assets", "dist/main.windows.bundle"]
+  }
+}
