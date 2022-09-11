@@ -148,5 +148,14 @@
         }
       ]
     ]
+  },
+  "codegenConfig": {
+    "libraries": [
+      {
+        "name": "rnblurview",
+        "type": "components",
+        "jsSrcsDir": "./src/fabric"
+      }
+    ]
   }
 }
