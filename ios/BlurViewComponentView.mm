@@ -41,7 +41,24 @@ using namespace facebook::react;
 
 - (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
 {
-  // TODO
+  const auto &oldViewProps = *std::static_pointer_cast<const BlurViewProps>(_props);
+  const auto &newViewProps = *std::static_pointer_cast<const BlurViewProps>(props);
+  
+  if (oldViewProps.blurAmount != newViewProps.blurAmount) {
+    NSNumber *blurAmount = [NSNumber numberWithInt:newViewProps.blurAmount];
+    [_blurView setBlurAmount:blurAmount];
+  }
+
+  if (oldViewProps.blurType != newViewProps.blurType) {
+    NSString *blurType = [NSString stringWithUTF8String:toString(newViewProps.blurType).c_str()];
+    [_blurView setBlurType:blurType];
+  }
+  
+  if (oldViewProps.reducedTransparencyFallbackColor != newViewProps.reducedTransparencyFallbackColor) {
+    UIColor *color = RCTUIColorFromSharedColor(newViewProps.reducedTransparencyFallbackColor);
+    [_blurView setReducedTransparencyFallbackColor:color];
+  }
+  
   [super updateProps:props oldProps:oldProps];
 }
 

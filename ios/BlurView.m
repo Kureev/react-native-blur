@@ -127,6 +127,9 @@
 
 - (void)updateBlurEffect
 {
+  // Without resetting the effect, changing blurAmount doesn't seem to work in Fabric...
+  // Setting it to nil should also enable blur animations (see PR #392)
+  self.blurEffectView.effect = nil;
   UIBlurEffectStyle style = [self blurEffectStyle];
   self.blurEffect = [BlurEffectWithAmount effectWithStyle:style andBlurAmount:self.blurAmount];
   self.blurEffectView.effect = self.blurEffect;

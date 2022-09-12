@@ -1,6 +1,11 @@
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 import type { ViewProps, HostComponent } from 'react-native';
-import type { WithDefault, Int32 } from 'react-native/Libraries/Types/CodegenTypes';
+import type {
+  WithDefault,
+  Int32,
+} from 'react-native/Libraries/Types/CodegenTypes';
+// @ts-ignore
+import type { ColorValue } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
 export interface NativeProps extends ViewProps {
   blurType?: WithDefault<
@@ -25,9 +30,10 @@ export interface NativeProps extends ViewProps {
     | 'thickMaterialLight'
     | 'thinMaterialLight'
     | 'ultraThinMaterialLight',
-    'dark'>;
+    'dark'
+  >;
   blurAmount?: WithDefault<Int32, 10>;
-  reducedTransparencyFallbackColor?: string;
+  reducedTransparencyFallbackColor?: ColorValue;
 }
 
 export default codegenNativeComponent<NativeProps>(
