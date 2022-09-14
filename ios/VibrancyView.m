@@ -29,7 +29,13 @@
     self.vibrancyEffectView.frame = self.bounds;
 }
 
-- (void)insertReactSubview:(id<RCTComponent>)subview atIndex:(NSInteger)atIndex {
+- (void)insertReactSubview:(id<RCTComponent>)subview atIndex:(NSInteger)atIndex
+{
+  [self attachToVisualEffectView:(UIView *)subview];
+}
+
+- (void)attachToVisualEffectView:(UIView *)subview
+{
   if ([self useReduceTransparencyFallback]) {
     [self addSubview:(UIView*)subview];
   } else {
