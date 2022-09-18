@@ -6,7 +6,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VibrancyViewComponentView : BlurViewComponentView
+@interface VibrancyViewComponentView : RCTViewComponentView
 
 @end
 
