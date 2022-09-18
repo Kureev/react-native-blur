@@ -4,4 +4,4 @@ use_flipper!
 
 workspace 'BlurExample.xcworkspace'
 
-use_test_app!
+use_test_app! :hermes_enabled => true

@@ -13,21 +13,22 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "17.0.2",
-    "react-native": "0.68.2"
+    "@react-native-community/segmented-control": "^2.2.2",
+    "react": "18.1.0",
+    "react-native": "0.70.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
-    "@react-native-community/eslint-config": "^2.0.0",
     "@react-native-community/blur": "../",
+    "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.6.3",
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
-    "metro-react-native-babel-preset": "^0.67.0",
+    "metro-react-native-babel-preset": "^0.72.1",
     "mkdirp": "^1.0.0",
-    "react-native-test-app": "^1.6.0",
-    "react-test-renderer": "17.0.2"
+    "react-native-test-app": "^1.6.16",
+    "react-test-renderer": "18.1.0"
   },
   "jest": {
     "preset": "react-native"
