@@ -1,11 +1,6 @@
 import React, { forwardRef } from 'react';
-import {
-  StyleSheet,
-  ViewProps,
-  ViewStyle,
-  View,
-  HostComponent,
-} from 'react-native';
+import { StyleSheet, ViewProps, ViewStyle, View } from 'react-native';
+import NativeBlurView from '../fabric/BlurViewNativeComponent';
 
 type BlurType =
   | 'dark'
@@ -51,8 +46,5 @@ const BlurView = forwardRef<View, BlurViewProps>(
 const styles = StyleSheet.create<{ transparent: ViewStyle }>({
   transparent: { backgroundColor: 'transparent' },
 });
-
-// TODO: fallback to requireNativeComponent for older RN versions?
-const NativeBlurView = require('../fabric/BlurViewNativeComponent').default as HostComponent<BlurViewProps>;
 
 export default BlurView;

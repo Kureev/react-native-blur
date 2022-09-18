@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
-import { HostComponent, StyleSheet, ViewProps, ViewStyle } from 'react-native';
+import { StyleSheet, ViewProps, ViewStyle } from 'react-native';
+import NativeVibrancyView from '../fabric/VibrancyViewNativeComponent';
 import type { BlurViewProps } from './BlurView.ios';
 
 export type VibrancyViewProps = ViewProps & {
@@ -21,8 +22,5 @@ const VibrancyView = forwardRef<any, VibrancyViewProps>(
 const styles = StyleSheet.create<{ transparent: ViewStyle }>({
   transparent: { backgroundColor: 'transparent' },
 });
-
-const NativeVibrancyView = require('../fabric/VibrancyViewNativeComponent')
-  .default as HostComponent<VibrancyViewProps>;
 
 export default VibrancyView;

@@ -9,19 +9,19 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.ViewManagerDelegate;
 import com.facebook.react.uimanager.annotations.ReactProp;
-import com.facebook.react.viewmanagers.BlurViewManagerDelegate;
-import com.facebook.react.viewmanagers.BlurViewManagerInterface;
+import com.facebook.react.viewmanagers.AndroidBlurViewManagerDelegate;
+import com.facebook.react.viewmanagers.AndroidBlurViewManagerInterface;
 
 import eightbitlab.com.blurview.BlurView;
 
 @ReactModule(name = BlurViewManagerImpl.REACT_CLASS)
 class BlurViewManager extends ViewGroupManager<BlurView>
-    implements BlurViewManagerInterface<BlurView> {
+    implements AndroidBlurViewManagerInterface<BlurView> {
 
   private final ViewManagerDelegate<BlurView> mDelegate;
 
   public BlurViewManager(ReactApplicationContext context) {
-    mDelegate = new BlurViewManagerDelegate<>(this);
+    mDelegate = new AndroidBlurViewManagerDelegate<>(this);
   }
 
   @Nullable

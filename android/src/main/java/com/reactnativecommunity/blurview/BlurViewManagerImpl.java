@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
 @SuppressWarnings("unused")
 class BlurViewManagerImpl {
 
-  public static final String REACT_CLASS = "BlurView";
+  public static final String REACT_CLASS = "AndroidBlurView";
 
   public static final int defaultRadius = 10;
   public static final int defaultSampling = 10;

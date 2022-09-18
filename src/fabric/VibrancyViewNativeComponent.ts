@@ -1,13 +1,11 @@
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
-import type { ViewProps, HostComponent } from 'react-native';
+import type { ViewProps, HostComponent, ColorValue } from 'react-native';
 import type {
   WithDefault,
   Int32,
 } from 'react-native/Libraries/Types/CodegenTypes';
-// @ts-ignore
-import type { ColorValue } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
-export interface NativeProps extends ViewProps {
+interface NativeProps extends ViewProps {
   blurType?: WithDefault<
     | 'dark'
     | 'light'
@@ -36,6 +34,6 @@ export interface NativeProps extends ViewProps {
   reducedTransparencyFallbackColor?: ColorValue;
 }
 
-export default codegenNativeComponent<NativeProps>(
-  'BlurView'
-) as HostComponent<NativeProps>;
+export default codegenNativeComponent<NativeProps>('VibrancyView', {
+  excludedPlatforms: ['android'],
+}) as HostComponent<NativeProps>;

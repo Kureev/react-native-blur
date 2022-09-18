@@ -1,13 +1,10 @@
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
-import type { ViewProps, HostComponent } from 'react-native';
+import type { ViewProps, HostComponent, ColorValue } from 'react-native';
 import type {
   WithDefault,
   Int32,
 } from 'react-native/Libraries/Types/CodegenTypes';
-// @ts-ignore
-import type { ColorValue } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 
-// RN Codegen 0.70 breaks when using an imported union type
 interface NativeProps extends ViewProps {
   blurType?: WithDefault<
     | 'dark'
@@ -37,6 +34,6 @@ interface NativeProps extends ViewProps {
   reducedTransparencyFallbackColor?: ColorValue;
 }
 
-export default codegenNativeComponent<NativeProps>(
-  'VibrancyView'
-) as HostComponent<NativeProps>;
+export default codegenNativeComponent<NativeProps>('BlurView', {
+  excludedPlatforms: ['android'],
+}) as HostComponent<NativeProps>;
