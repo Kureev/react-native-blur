@@ -6,7 +6,7 @@ import {
   ViewProps,
   ViewStyle,
 } from 'react-native';
-import NativeBlurView from '../fabric/AndroidBlurViewNativeComponent';
+import NativeBlurView from '../fabric/BlurViewNativeComponentAndroid';
 
 const OVERLAY_COLORS = {
   light: 'rgba(255, 255, 255, 0.2)',
