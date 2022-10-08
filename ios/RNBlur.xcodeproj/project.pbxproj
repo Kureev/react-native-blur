@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		215426C328894FC500DF69C3 /* VibrancyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 215426BB28894FC400DF69C3 /* VibrancyView.m */; };
-		215426C428894FC500DF69C3 /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 215426BC28894FC400DF69C3 /* BlurView.m */; };
+		215426C328894FC500DF69C3 /* VibrancyView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 215426BB28894FC400DF69C3 /* VibrancyView.mm */; };
+		215426C428894FC500DF69C3 /* BlurView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 215426BC28894FC400DF69C3 /* BlurView.mm */; };
 		215426C528894FC500DF69C3 /* BlurEffectWithAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = 215426BF28894FC400DF69C3 /* BlurEffectWithAmount.m */; };
-		215426C628894FC500DF69C3 /* BlurViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 215426C028894FC400DF69C3 /* BlurViewManager.m */; };
-		215426C728894FC500DF69C3 /* VibrancyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 215426C228894FC500DF69C3 /* VibrancyViewManager.m */; };
+		215426C628894FC500DF69C3 /* BlurViewManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 215426C028894FC400DF69C3 /* BlurViewManager.mm */; };
+		215426C728894FC500DF69C3 /* VibrancyViewManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 215426C228894FC500DF69C3 /* VibrancyViewManager.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,14 +30,14 @@
 		134814201AA4EA6300B7C361 /* libRNBlur.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNBlur.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		215426B928894FC400DF69C3 /* VibrancyViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibrancyViewManager.h; sourceTree = "<group>"; };
 		215426BA28894FC400DF69C3 /* VibrancyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibrancyView.h; sourceTree = "<group>"; };
-		215426BB28894FC400DF69C3 /* VibrancyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyView.m; sourceTree = "<group>"; };
-		215426BC28894FC400DF69C3 /* BlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurView.m; sourceTree = "<group>"; };
+		215426BB28894FC400DF69C3 /* VibrancyView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyView.mm; sourceTree = "<group>"; };
+		215426BC28894FC400DF69C3 /* BlurView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurView.mm; sourceTree = "<group>"; };
 		215426BD28894FC400DF69C3 /* BlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurView.h; sourceTree = "<group>"; };
 		215426BE28894FC400DF69C3 /* BlurEffectWithAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurEffectWithAmount.h; sourceTree = "<group>"; };
 		215426BF28894FC400DF69C3 /* BlurEffectWithAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurEffectWithAmount.m; sourceTree = "<group>"; };
-		215426C028894FC400DF69C3 /* BlurViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurViewManager.m; sourceTree = "<group>"; };
+		215426C028894FC400DF69C3 /* BlurViewManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurViewManager.mm; sourceTree = "<group>"; };
 		215426C128894FC400DF69C3 /* BlurViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurViewManager.h; sourceTree = "<group>"; };
-		215426C228894FC500DF69C3 /* VibrancyViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyViewManager.m; sourceTree = "<group>"; };
+		215426C228894FC500DF69C3 /* VibrancyViewManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyViewManager.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,13 +65,13 @@
 				215426BE28894FC400DF69C3 /* BlurEffectWithAmount.h */,
 				215426BF28894FC400DF69C3 /* BlurEffectWithAmount.m */,
 				215426BD28894FC400DF69C3 /* BlurView.h */,
-				215426BC28894FC400DF69C3 /* BlurView.m */,
+				215426BC28894FC400DF69C3 /* BlurView.mm */,
 				215426C128894FC400DF69C3 /* BlurViewManager.h */,
-				215426C028894FC400DF69C3 /* BlurViewManager.m */,
+				215426C028894FC400DF69C3 /* BlurViewManager.mm */,
 				215426BA28894FC400DF69C3 /* VibrancyView.h */,
-				215426BB28894FC400DF69C3 /* VibrancyView.m */,
+				215426BB28894FC400DF69C3 /* VibrancyView.mm */,
 				215426B928894FC400DF69C3 /* VibrancyViewManager.h */,
-				215426C228894FC500DF69C3 /* VibrancyViewManager.m */,
+				215426C228894FC500DF69C3 /* VibrancyViewManager.mm */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,11 +133,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				215426C728894FC500DF69C3 /* VibrancyViewManager.m in Sources */,
-				215426C328894FC500DF69C3 /* VibrancyView.m in Sources */,
+				215426C728894FC500DF69C3 /* VibrancyViewManager.mm in Sources */,
+				215426C328894FC500DF69C3 /* VibrancyView.mm in Sources */,
 				215426C528894FC500DF69C3 /* BlurEffectWithAmount.m in Sources */,
-				215426C428894FC500DF69C3 /* BlurView.m in Sources */,
-				215426C628894FC500DF69C3 /* BlurViewManager.m in Sources */,
+				215426C428894FC500DF69C3 /* BlurView.mm in Sources */,
+				215426C628894FC500DF69C3 /* BlurViewManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
