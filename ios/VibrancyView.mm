@@ -2,7 +2,21 @@
 #import "BlurView.h"
 #import "VibrancyView.h"
 
+#ifdef RCT_NEW_ARCH_ENABLED
+#import <React/RCTConversions.h>
+#import <React/RCTFabricComponentsPlugins.h>
+#import <react/renderer/components/rnblurview/ComponentDescriptors.h>
+#import <react/renderer/components/rnblurview/Props.h>
+#import <react/renderer/components/rnblurview/RCTComponentViewHelpers.h>
+#endif // RCT_NEW_ARCH_ENABLED
+
+#ifdef RCT_NEW_ARCH_ENABLED
+using namespace facebook::react;
+
+@interface VibrancyView () <RCTVibrancyViewViewProtocol>
+#else
 @interface VibrancyView ()
+#endif // RCT_NEW_ARCH_ENABLED
 
 @property (nonatomic, strong) UIVibrancyEffect *vibrancyEffect;
 @property (nonatomic, strong) UIVisualEffectView *vibrancyEffectView;
@@ -23,6 +37,27 @@
     return self;
 }
 
+#ifdef RCT_NEW_ARCH_ENABLED
+#pragma mark - RCTComponentViewProtocol
+
++ (ComponentDescriptorProvider)componentDescriptorProvider
+{
+  return concreteComponentDescriptorProvider<VibrancyViewComponentDescriptor>();
+}
+
+- (void)mountChildComponentView:(UIView<RCTComponentViewProtocol> *)childComponentView index:(NSInteger)index
+{
+  [self attachToVisualEffectView:childComponentView];
+}
+
+- (void)unmountChildComponentView:(UIView<RCTComponentViewProtocol> *)childComponentView index:(NSInteger)index
+{
+  // Override unmountChildComponentView to avoid an assertion on childComponentView.superview == self
+  // childComponentView is not a direct subview of self, as it's inserted deeper in a UIVisualEffectView
+  [childComponentView removeFromSuperview];
+}
+#endif // RCT_NEW_ARCH_ENABLED
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -37,9 +72,9 @@
 - (void)attachToVisualEffectView:(UIView *)subview
 {
   if ([self useReduceTransparencyFallback]) {
-    [self addSubview:(UIView*)subview];
+    [self addSubview:subview];
   } else {
-    [self.vibrancyEffectView.contentView addSubview:(UIView*)subview];
+    [self.vibrancyEffectView.contentView addSubview:subview];
   }
 }
 
@@ -76,3 +111,10 @@
 }
 
 @end
+
+#ifdef RCT_NEW_ARCH_ENABLED
+Class<RCTComponentViewProtocol> VibrancyViewCls(void)
+{
+  return VibrancyView.class;
+}
+#endif // RCT_NEW_ARCH_ENABLED
