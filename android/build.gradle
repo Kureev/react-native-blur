@@ -140,11 +140,3 @@ dependencies {
 
   implementation 'com.github.Dimezis:BlurView:version-2.0.2'
 }
-
-if (isNewArchitectureEnabled()) {
-  react {
-    jsRootDir = file("../src/fabric/")
-    libraryName = "rnblurview"
-    codegenJavaPackageName = "com.reactnativecommunityblur"
-  }
-}

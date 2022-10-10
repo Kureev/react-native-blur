@@ -149,6 +149,9 @@
   "codegenConfig": {
     "name": "rnblurview",
     "type": "components",
-    "jsSrcsDir": "./src/fabric"
+    "jsSrcsDir": "./src/fabric",
+    "android": {
+      "javaPackageName": "com.reactnativecommunityblur"
+    }
   }
 }
