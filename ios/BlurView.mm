@@ -1,8 +1,21 @@
 #import "BlurView.h"
 #import "BlurEffectWithAmount.h"
 
-@interface BlurView ()
+#ifdef RCT_NEW_ARCH_ENABLED
+#import <React/RCTConversions.h>
+#import <React/RCTFabricComponentsPlugins.h>
+#import <react/renderer/components/rnblurview/ComponentDescriptors.h>
+#import <react/renderer/components/rnblurview/Props.h>
+#import <react/renderer/components/rnblurview/RCTComponentViewHelpers.h>
+#endif // RCT_NEW_ARCH_ENABLED
 
+#ifdef RCT_NEW_ARCH_ENABLED
+using namespace facebook::react;
+
+@interface BlurView () <RCTBlurViewViewProtocol>
+#else
+@interface BlurView ()
+#endif // RCT_NEW_ARCH_ENABLED
 @end
 
 @implementation BlurView
@@ -22,6 +35,11 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
   if (self = [super initWithFrame:frame]) {
+#ifdef RCT_NEW_ARCH_ENABLED
+    static const auto defaultProps = std::make_shared<const BlurViewProps>();
+    _props = defaultProps;
+#endif // RCT_NEW_ARCH_ENABLED
+
     self.blurEffectView = [[UIVisualEffectView alloc] init];
     self.blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.blurEffectView.frame = frame;
@@ -42,6 +60,38 @@
 
   return self;
 }
+
+#ifdef RCT_NEW_ARCH_ENABLED
+#pragma mark - RCTComponentViewProtocol
+
++ (ComponentDescriptorProvider)componentDescriptorProvider
+{
+  return concreteComponentDescriptorProvider<BlurViewComponentDescriptor>();
+}
+
+- (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
+{
+  const auto &oldViewProps = *std::static_pointer_cast<const BlurViewProps>(_props);
+  const auto &newViewProps = *std::static_pointer_cast<const BlurViewProps>(props);
+  
+  if (oldViewProps.blurAmount != newViewProps.blurAmount) {
+    NSNumber *blurAmount = [NSNumber numberWithInt:newViewProps.blurAmount];
+    [self setBlurAmount:blurAmount];
+  }
+
+  if (oldViewProps.blurType != newViewProps.blurType) {
+    NSString *blurType = [NSString stringWithUTF8String:toString(newViewProps.blurType).c_str()];
+    [self setBlurType:blurType];
+  }
+  
+  if (oldViewProps.reducedTransparencyFallbackColor != newViewProps.reducedTransparencyFallbackColor) {
+    UIColor *color = RCTUIColorFromSharedColor(newViewProps.reducedTransparencyFallbackColor);
+    [self setReducedTransparencyFallbackColor:color];
+  }
+  
+  [super updateProps:props oldProps:oldProps];
+}
+#endif // RCT_NEW_ARCH_ENABLED
 
 - (void)dealloc
 {
@@ -127,6 +177,9 @@
 
 - (void)updateBlurEffect
 {
+  // Without resetting the effect, changing blurAmount doesn't seem to work in Fabric...
+  // Setting it to nil should also enable blur animations (see PR #392)
+  self.blurEffectView.effect = nil;
   UIBlurEffectStyle style = [self blurEffectStyle];
   self.blurEffect = [BlurEffectWithAmount effectWithStyle:style andBlurAmount:self.blurAmount];
   self.blurEffectView.effect = self.blurEffect;
@@ -161,3 +214,10 @@
 }
 
 @end
+
+#ifdef RCT_NEW_ARCH_ENABLED
+Class<RCTComponentViewProtocol> BlurViewCls(void)
+{
+  return BlurView.class;
+}
+#endif // RCT_NEW_ARCH_ENABLED

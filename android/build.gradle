@@ -49,6 +49,16 @@ android {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
+
+  sourceSets {
+    main {
+      if (isNewArchitectureEnabled()) {
+        java.srcDirs += ['src/newarch']
+      } else {
+        java.srcDirs += ['src/oldarch']
+      }
+    }
+  }
 }
 
 repositories {
@@ -129,12 +139,4 @@ dependencies {
   // From node_modules
 
   implementation 'com.github.Dimezis:BlurView:version-2.0.2'
-}
-
-if (isNewArchitectureEnabled()) {
-  react {
-    jsRootDir = file("../src/")
-    libraryName = "Blur"
-    codegenJavaPackageName = "com.reactnativecommunityblur"
-  }
 }

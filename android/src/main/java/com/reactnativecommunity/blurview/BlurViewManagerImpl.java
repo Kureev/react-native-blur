@@ -5,8 +5,6 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.facebook.react.uimanager.ViewGroupManager;
-import com.facebook.react.uimanager.annotations.ReactProp;
 
 import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderEffectBlur;
@@ -16,20 +14,14 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
-class BlurViewManager extends ViewGroupManager<BlurView> {
+class BlurViewManagerImpl {
 
-  private static final String REACT_CLASS = "BlurView";
+  public static final String REACT_CLASS = "AndroidBlurView";
 
-  private static final int defaultRadius = 10;
-  private static final int defaultSampling = 10;
+  public static final int defaultRadius = 10;
+  public static final int defaultSampling = 10;
 
-  @Override
-  public @Nonnull String getName() {
-    return REACT_CLASS;
-  }
-
-  @Override
-  public @Nonnull BlurView createViewInstance(@Nonnull ThemedReactContext ctx) {
+  public static @Nonnull BlurView createViewInstance(@Nonnull ThemedReactContext ctx) {
     BlurView blurView = new BlurView(ctx);
     View decorView = Objects
       .requireNonNull(ctx.getCurrentActivity())
@@ -51,29 +43,24 @@ class BlurViewManager extends ViewGroupManager<BlurView> {
     return blurView;
   }
 
-  @ReactProp(name = "blurRadius", defaultInt = defaultRadius)
-  public void setRadius(BlurView view, int radius) {
+  public static void setRadius(BlurView view, int radius) {
     view.setBlurRadius(radius);
     view.invalidate();
   }
 
-  @ReactProp(name = "overlayColor", customType = "Color")
-  public void setColor(BlurView view, int color) {
+  public static void setColor(BlurView view, int color) {
     view.setOverlayColor(color);
     view.invalidate();
   }
 
-  @ReactProp(name = "downsampleFactor", defaultInt = defaultSampling)
-  public void setDownsampleFactor(BlurView view, int factor) {}
+  public static void setDownsampleFactor(BlurView view, int factor) {}
 
-  @ReactProp(name = "autoUpdate", defaultBoolean = true)
-  public void setAutoUpdate(BlurView view, boolean autoUpdate) {
+  public static void setAutoUpdate(BlurView view, boolean autoUpdate) {
     view.setBlurAutoUpdate(autoUpdate);
     view.invalidate();
   }
 
-  @ReactProp(name = "enabled", defaultBoolean = true)
-  public void setBlurEnabled(BlurView view, boolean enabled) {
+  public static void setBlurEnabled(BlurView view, boolean enabled) {
     view.setBlurEnabled(enabled);
   }
 }

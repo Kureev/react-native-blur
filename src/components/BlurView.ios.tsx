@@ -1,11 +1,6 @@
 import React, { forwardRef } from 'react';
-import {
-  requireNativeComponent,
-  StyleSheet,
-  ViewProps,
-  ViewStyle,
-  View,
-} from 'react-native';
+import { StyleSheet, ViewProps, ViewStyle, View } from 'react-native';
+import NativeBlurView from '../fabric/BlurViewNativeComponent';
 
 type BlurType =
   | 'dark'
@@ -51,7 +46,5 @@ const BlurView = forwardRef<View, BlurViewProps>(
 const styles = StyleSheet.create<{ transparent: ViewStyle }>({
   transparent: { backgroundColor: 'transparent' },
 });
-
-const NativeBlurView = requireNativeComponent<BlurViewProps>('BlurView');
 
 export default BlurView;

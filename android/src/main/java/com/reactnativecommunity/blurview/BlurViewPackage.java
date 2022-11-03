@@ -30,6 +30,6 @@ public class BlurViewPackage implements ReactPackage {
   public List<ViewManager> createViewManagers(
     @Nonnull ReactApplicationContext reactContext
   ) {
-    return Collections.<ViewManager>singletonList(new BlurViewManager());
+    return Collections.<ViewManager>singletonList(new BlurViewManager(reactContext));
   }
 }

@@ -1,12 +1,12 @@
 import React, { forwardRef, useEffect } from 'react';
 import {
   View,
-  requireNativeComponent,
   DeviceEventEmitter,
   StyleSheet,
   ViewProps,
   ViewStyle,
 } from 'react-native';
+import NativeBlurView from '../fabric/BlurViewNativeComponentAndroid';
 
 const OVERLAY_COLORS = {
   light: 'rgba(255, 255, 255, 0.2)',
@@ -109,7 +109,5 @@ const BlurView = forwardRef<View, BlurViewProps>(
 const styles = StyleSheet.create<{ transparent: ViewStyle }>({
   transparent: { backgroundColor: 'transparent' },
 });
-
-const NativeBlurView = requireNativeComponent<BlurViewProps>('BlurView');
 
 export default BlurView;
