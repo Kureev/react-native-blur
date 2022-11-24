@@ -29,7 +29,7 @@ class BlurViewManagerImpl {
       .getDecorView();
     ViewGroup rootView = decorView.findViewById(android.R.id.content);
     Drawable windowBackground = decorView.getBackground();
-    if (Build.VERSION.SDK_INT >= 31) {
+    if (Build.VERSION.SDK_INT >= 31 && blurView.isHardwareAccelerated()) {
       blurView
         .setupWith(rootView, new RenderEffectBlur())
         .setFrameClearDrawable(windowBackground)
