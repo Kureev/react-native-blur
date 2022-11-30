@@ -10,6 +10,7 @@ interface NativeProps extends ViewProps {
     | 'dark'
     | 'light'
     | 'xlight'
+    | 'transparent'
     | 'prominent'
     | 'regular'
     | 'extraDark'
