@@ -131,6 +131,7 @@ using namespace facebook::react;
 
 - (UIBlurEffectStyle)blurEffectStyle
 {
+  if ([self.blurType isEqual: @"transparent"]) return UIBlurEffectStyleDark;
   if ([self.blurType isEqual: @"xlight"]) return UIBlurEffectStyleExtraLight;
   if ([self.blurType isEqual: @"light"]) return UIBlurEffectStyleLight;
   if ([self.blurType isEqual: @"dark"]) return UIBlurEffectStyleDark;
@@ -183,6 +184,12 @@ using namespace facebook::react;
   UIBlurEffectStyle style = [self blurEffectStyle];
   self.blurEffect = [BlurEffectWithAmount effectWithStyle:style andBlurAmount:self.blurAmount];
   self.blurEffectView.effect = self.blurEffect;
+
+  if ([self.blurType isEqual: @"transparent"]) {
+    for (UIView *subview in self.blurEffectView.subviews) {
+      subview.backgroundColor = [UIColor clearColor];
+    }
+  }
 }
 
 - (void)updateFallbackView
