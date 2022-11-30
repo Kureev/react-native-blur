@@ -23,7 +23,7 @@ import {
 
 const blurTypeValues =
   Platform.OS === 'ios'
-    ? ['xlight', 'light', 'dark', 'regular', 'prominent']
+    ? ['xlight', 'light', 'dark', 'regular', 'prominent', 'transparent']
     : ['xlight', 'light', 'dark'];
 
 const Blurs = () => {
