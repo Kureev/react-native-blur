@@ -2,9 +2,11 @@ package com.reactnativecommunity.blurview;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.util.ReactFindViewUtil;
 
 import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderEffectBlur;
@@ -22,24 +24,18 @@ class BlurViewManagerImpl {
   public static final int defaultSampling = 10;
 
   public static @Nonnull BlurView createViewInstance(@Nonnull ThemedReactContext ctx) {
-    BlurView blurView = new BlurView(ctx);
+    BlurView blurView = new CustomBlurView(ctx);
     View decorView = Objects
       .requireNonNull(ctx.getCurrentActivity())
       .getWindow()
       .getDecorView();
     ViewGroup rootView = decorView.findViewById(android.R.id.content);
-    Drawable windowBackground = decorView.getBackground();
-    if (Build.VERSION.SDK_INT >= 31) {
-      blurView
-        .setupWith(rootView, new RenderEffectBlur())
-        .setFrameClearDrawable(windowBackground)
-        .setBlurRadius(defaultRadius);
-    } else {
-      blurView
-        .setupWith(rootView, new RenderScriptBlur(ctx))
-        .setFrameClearDrawable(windowBackground)
-        .setBlurRadius(defaultRadius);
-    }
+    View bannerImageView = ReactFindViewUtil.findView(rootView, "banner-image");
+    View bannerImageView2 = ReactFindViewUtil.findView(decorView, "banner-image");
+    Log.d("BLUR", "BANNER VIEW: " + String.valueOf(bannerImageView));
+    Log.d("BLUR", "BANNER VIEW2: " + String.valueOf(bannerImageView2));
+    Log.d("BLUR", "ROOT VIEW: " + String.valueOf(rootView));
+    Log.d("BLUR", "DECOR VIEW: " + String.valueOf(decorView));
     return blurView;
   }
 
