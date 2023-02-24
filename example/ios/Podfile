@@ -1,0 +1,7 @@
+require_relative '../node_modules/react-native-test-app/test_app'
+
+use_flipper!
+
+workspace 'BlurExample.xcworkspace'
+
+use_test_app! :hermes_enabled => true
