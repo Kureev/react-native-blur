@@ -21,6 +21,8 @@ import {
   BlurViewProps,
 } from '@react-native-community/blur';
 
+import Animated, { useSharedValue } from 'react-native-reanimated';
+console.log(Animated)
 const blurTypeValues =
   Platform.OS === 'ios'
     ? ['xlight', 'light', 'dark', 'regular', 'prominent']
@@ -62,7 +64,7 @@ const Blurs = () => {
            */}
         <BlurView
           blurType={blurBlurType}
-          blurAmount={100}
+          blurAmount={10}
           reducedTransparencyFallbackColor={'pink'}
           style={[styles.blurView]}
         />
