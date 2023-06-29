@@ -8030,10 +8030,10 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native-builder-bob@^0.18.3:
-  version "0.18.3"
-  resolved "https://registry.yarnpkg.com/react-native-builder-bob/-/react-native-builder-bob-0.18.3.tgz#fb4d3e50a3b2290db3c88de6d40403ac7eb9f85f"
-  integrity sha512-togj+ClsPAsTK3ZFmFZVIftUIkxvN1YxJws0/6sQIlAr14U3rvtBseOQAQM0Pora1GD2aObdBVHDVhKBHWojLA==
+react-native-builder-bob@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/react-native-builder-bob/-/react-native-builder-bob-0.21.0.tgz#5978d1e4c7c37d0139c0e9ffefc76bd83d5083aa"
+  integrity sha512-NAzbqYay7VUeAQY/8tW7at/kNNsF3yXXUG+EsR+Xu9b4e5BvWajQvNK2yyhxCWl9yq6Wesjdppifgb2kQ/GVTw==
   dependencies:
     "@babel/core" "^7.18.5"
     "@babel/plugin-proposal-class-properties" "^7.17.12"
