@@ -15,6 +15,6 @@ interface NativeProps extends ViewProps {
   autoUpdate?: boolean;
 }
 
-export default codegenNativeComponent<NativeProps>('AndroidBlurView', {
+export default codegenNativeComponent<NativeProps>('BlurView', {
   excludedPlatforms: ['iOS'],
 }) as HostComponent<NativeProps>;
