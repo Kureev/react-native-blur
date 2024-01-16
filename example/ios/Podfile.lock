@@ -625,12 +625,11 @@ PODS:
   - React-jsinspector (0.70.1)
   - React-logger (0.70.1):
     - glog
-  - react-native-blur (4.2.0):
+  - react-native-blur (4.3.2):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
     - React-Codegen
-    - React-Core
     - React-RCTFabric
     - ReactCommon/turbomodule/core
   - react-native-segmented-control (2.2.2):
@@ -928,7 +927,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 47201924064085223b63ec7e3ee9fd40ad8508e8
   React-jsinspector: 1363be638eccfe1aea1b10dd42e632b0397e5ec8
   React-logger: 7bd569e3857d74ed412ce0a5c51f421ff7d4ca7f
-  react-native-blur: abcbd1bb3e8671856d55fe7a9c6368fd501b5dbd
+  react-native-blur: 0f3bad33d17deaee5c68b09a5c3d37abb737f926
   react-native-segmented-control: 65df6cd0619b780b3843d574a72d4c7cec396097
   React-perflogger: 48c6b363e867d64b682e84f80ca45636bd65e19c
   React-RCTActionSheet: 33c74fe5c754835e3715c300618da9aa2f7203fa
@@ -952,4 +951,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d8804e7b87afaf511197f6c873091d2bdfe790f5
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.2
