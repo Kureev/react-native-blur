@@ -52,6 +52,7 @@ cd ios && pod install
 | `extraDark` | extra dark blur type (tvOS only)
 | `regular` | regular blur type (iOS 10+ and tvOS only)
 | `prominent` |  prominent blur type (iOS 10+ and tvOS only)
+| `transparent` |  transparent blur type (iOS 10+ and tvOS only)
 
 #### blurType (iOS 13 only)
 
