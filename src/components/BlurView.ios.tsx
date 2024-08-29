@@ -6,6 +6,7 @@ type BlurType =
   | 'dark'
   | 'light'
   | 'xlight'
+  | 'transparent'
   | 'prominent'
   | 'regular'
   | 'extraDark'

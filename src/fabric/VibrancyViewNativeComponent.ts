@@ -11,6 +11,7 @@ interface NativeProps extends ViewProps {
     | 'light'
     | 'xlight'
     | 'prominent'
+    | 'transparent'
     | 'regular'
     | 'extraDark'
     | 'chromeMaterial'
