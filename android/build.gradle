@@ -28,6 +28,7 @@ def getExtOrIntegerDefault(name) {
 }
 
 android {
+  namespace 'com.reactnativecommunity.blurview'
   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
   namespace "com.reactnativecommunity.blurview"
 
