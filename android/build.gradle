@@ -29,6 +29,7 @@ def getExtOrIntegerDefault(name) {
 
 android {
   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
+  namespace "com.reactnativecommunity.blurview"
 
   defaultConfig {
     minSdkVersion getExtOrIntegerDefault('minSdkVersion')
@@ -138,5 +139,5 @@ dependencies {
   implementation "com.facebook.react:react-native:+"
   // From node_modules
 
-  implementation 'com.github.Dimezis:BlurView:version-2.0.3'
+  implementation 'com.github.Dimezis:BlurView:version-2.0.4'
 }
