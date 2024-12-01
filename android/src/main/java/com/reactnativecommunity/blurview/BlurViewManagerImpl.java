@@ -30,7 +30,7 @@ class BlurViewManagerImpl {
   }
 
   public static void setRadius(BlurView view, int radius) {
-    view.setBlurRadius(radius);
+    view.setBlurRadius(Math.min(Math.max(radius, 0), 25));
     view.invalidate();
   }
 
