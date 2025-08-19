@@ -75,4 +75,10 @@ class BlurViewManager extends ViewGroupManager<BlurView>
 
   @Override
   public void setBlurType(BlurView view, @Nullable String value) {}
+
+  @Override
+  public void onDropViewInstance(@NonNull BlurView view) {
+      super.onDropViewInstance(view);
+      BlurViewManagerImpl.setAutoUpdate(view, false);
+  }
 }
